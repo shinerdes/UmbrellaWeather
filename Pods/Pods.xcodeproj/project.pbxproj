@@ -1,0 +1,1780 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		0C1885900810601510E0C632060FAF26 /* GooglePlaces */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2FC2AC47FDB0310285CE777F18CD1532 /* Build configuration list for PBXAggregateTarget "GooglePlaces" */;
+			buildPhases = (
+			);
+			dependencies = (
+				D42315111F400C0605ACCD6B5CAF2178 /* PBXTargetDependency */,
+			);
+			name = GooglePlaces;
+		};
+		E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = GoogleMaps;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		0126B11AAF31F96644C6F82064721027 /* M13Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF17B78DCD0FC787E63EF82E53F2994 /* M13Checkbox.swift */; };
+		04DBFC7384A95DBD195D6ED3F848E3E1 /* UIBezierPath+SVG.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E72AEB9C41A641018E9301CD061BAF /* UIBezierPath+SVG.swift */; };
+		0579DB182A9DF9334D6F85BFFE5E2C7B /* SVGElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84AAC717BE7A4C4A600A684A13A6E67 /* SVGElement.swift */; };
+		06AF08EE94A52FBEC4B23FC8F7E46B50 /* SVGRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B6FA6FD90FC4371F9F794C90481B7C /* SVGRectangle.swift */; };
+		0829D39A7891D0CD419F5B0FA945D78B /* SVGRootElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E848E5D1B034F524B8A8B4AE122C2DC /* SVGRootElement.swift */; };
+		0C5E11DE24DAA737704B355F5F2F3426 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29437F9CAB111477D28F6F1C976E174 /* ParameterEncoding.swift */; };
+		118DC85E692378302AE6D16EE1A205D8 /* Pods-UmbrellaWeather-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2217DE541D98A0F1ABBF9FDC13F344D4 /* Pods-UmbrellaWeather-dummy.m */; };
+		128FA21D7EFAB80FC1F2B851D4D6450A /* M13CheckboxDotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A019520D3E70E3C4BFADDBFD92B52075 /* M13CheckboxDotController.swift */; };
+		12EDD45814D8150755D0B6B9024CEFCD /* M13CheckboxAnimationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462CD28A659E0A6D64ACE6938ED734C /* M13CheckboxAnimationGenerator.swift */; };
+		132E0F619E4338E5D1B27E4C72076B3F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD04A625EB83E6771D8669FCB76AC14F /* Notifications.swift */; };
+		137B0B5E63202FE2E9FAD9C3FAA2ADA6 /* Fillable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3313C8EF91C8741DA119D85B65B47D5 /* Fillable.swift */; };
+		16860195B5F7EA0E583C7B52FEE745FE /* M13CheckboxFillController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB5A478FB6626C5F055A98BA1DA6CB /* M13CheckboxFillController.swift */; };
+		1945CD5D63A1C164AEAAA9A33E85571E /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BC91475A53DE179190EEFF9ED4AA0E /* Alamofire-dummy.m */; };
+		1986B50C74F1697EA43F68335C93CEB3 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A543B417DF178DBAF85C0F364A47584 /* MultipartFormData.swift */; };
+		1AC00B5C1555BDC7A5B0690BBE29769E /* PathDLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D13B02BEAC5C0EDD1E31C3FDBA6D36 /* PathDLexer.swift */; };
+		1BA68E00C3BA704B0ED72BAF9CD1CFE1 /* FloatingPoint+DegreesRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18694287F3D7A957A87C5B9FDFB95FC3 /* FloatingPoint+DegreesRadians.swift */; };
+		1BB92ED1C2A38E73E82956BE00F0C4B7 /* M13CheckboxBounceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F244AF7A5C5DEA86FB633B3148968 /* M13CheckboxBounceController.swift */; };
+		1F5FAACE87B623C44153DD09A822E1B3 /* ParsesAsynchronously.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A44CF422B0668DD19A1BF3CB30B1D40 /* ParsesAsynchronously.swift */; };
+		2030DCBC8447E22A3EB4F310B2D8B078 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D217A6B28B6D16FEB343CBDDD93724 /* UIColor+Extensions.swift */; };
+		20E0BE472F06CDD82AA660C4C0B190E3 /* String+Trim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93334C2505787CFA55FC35678CDAF6DA /* String+Trim.swift */; };
+		224E7A8EC9F1222531E3A0C3977FCDAB /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBEBD770FA75D05725F093F8F153E75 /* ColorPickerView.swift */; };
+		2265A020B0727EB38FA75523D170B51A /* M13CheckboxExpandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1002CAFF0F76CDC2E8C69AFDFD1D72 /* M13CheckboxExpandController.swift */; };
+		23A263255B6EFDD46330E29E1F40B7E1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B15E16A0F33A0958F88DE922DCE5FD /* CoreGraphics.framework */; };
+		264D38C04FB2A8AAC6DD94AEEDE6D33E /* ColorPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96655E378D15A4784EFE9445529F8B9 /* ColorPickerCell.swift */; };
+		290FDD6000DBBC635016326F9711F111 /* PathCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE158C8A849E4CC685A1E715B91D2C8 /* PathCommand.swift */; };
+		2B3221296319AB33BFB4C756AE5F4D72 /* SVGParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E809F830493B6939540E83EC14E6A92A /* SVGParser.swift */; };
+		2B51BABACCA8BB003BF832C7199ACB3C /* SVGCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02592EDB92C8A8405FAE0594323A308 /* SVGCache.swift */; };
+		2C61B040BA6A9A7AE66C4D9BA26D5520 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF76C774CED7E22A85121FFF69A54EF /* SessionDelegate.swift */; };
+		34FB97622838BAF70DF4F754183CE03E /* CALayer+Sublayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F75C567CA5CAA9069C27787C5859487 /* CALayer+Sublayers.swift */; };
+		3571F958A3907B3A806E62D50C2550D4 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB966FB8AA48D33BD22F0E07A2238060 /* NetworkReachabilityManager.swift */; };
+		35DF6382CADD2A0BE2BA216DC3AC709C /* UIView+SVG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CFCE1776B51D5F8C058088C2C3D9DA /* UIView+SVG.swift */; };
+		3736DEB3E4538D9F8FA950AD17AA80A1 /* SVGPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A02A00323C396AA467D6196407039DE /* SVGPolyline.swift */; };
+		37C6321FB48624A55C2750261039A1E6 /* Unown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA04504932D66696FE12E523D9403D9F /* Unown.swift */; };
+		399FADF0A86557CDFB3B8CA527BCD0F0 /* SVGGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3983E3938F07DC838FC8CBA0A1DFE5AF /* SVGGroup.swift */; };
+		3DA07DFC44F8781C43CEF13FA981122F /* M13Checkbox-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F877B4A3D1787CEAF9F4841598891EE7 /* M13Checkbox-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DA15AAAD6381241F577F86F3E42F36C /* CAShapeLayer+SVG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49357765D27C9F15E0B8A05DCE23E007 /* CAShapeLayer+SVG.swift */; };
+		4147AAEFC99B3FF5EE4792FEC4A009F5 /* IGColorPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 88826D4ED69BE031E2EBF2B245CB6100 /* IGColorPicker-dummy.m */; };
+		4A107B86C255F6A49C6616D546B40585 /* M13Checkbox+IB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699547CD43DD42903F47CA74617DA88 /* M13Checkbox+IB.swift */; };
+		4C075371146A8E2EBBCD691A7B639B07 /* SVGPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD465ED5BD060B914009B5DCB2E6FA1 /* SVGPolygon.swift */; };
+		53791F5E5F07400F92CFDFC89A432305 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F426CE620E1076D820A3F565C5B5FC /* Validation.swift */; };
+		551ED8009D7A001E38FD3C99D25F5CBD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9111C406ECE9D3859B320E53BC2F091 /* UIColor+Extension.swift */; };
+		63DC9E0B2F3C2FA86FF7B77E51779A8C /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C2D1DD6FB188DCD3800CC91187F75B /* Identifiable.swift */; };
+		64744C911253C3E01461FAD7C935C8D7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153A7959E0B922208554639AF788A98 /* Result.swift */; };
+		668EAECD33445BDF94D40582FAC8310E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DBFAF4C313D8729E56CBDF62618A7CC /* UIKit.framework */; };
+		68A7B43659E26DD5163D0A456EC60160 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B556076667A848081B6C4191C7384F7C /* Foundation.framework */; };
+		6A7A384A3F24F41E61C5EC59DC89FB2B /* M13CheckboxPathGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE261DA7B92766A8BCD5EEF70A81555 /* M13CheckboxPathGenerator.swift */; };
+		6D23C152B6445C4508F6FF8FB352F4DC /* SVGLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F856205B2185362AE7E6FF14AE68A /* SVGLayer.swift */; };
+		6E3B6CDC0E81F85823E58AB72A58C6EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B556076667A848081B6C4191C7384F7C /* Foundation.framework */; };
+		6E636388E18A816493343C46C98E5057 /* SwiftSVG-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B64872FE6B1B2E59A1423EDED510851E /* SwiftSVG-dummy.m */; };
+		712DD65FE85BCC1B3485EE683FFB6C98 /* DelaysApplyingAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F844ACECC1CBDC3AF765742255562 /* DelaysApplyingAttributes.swift */; };
+		7664FD4F59A0C00866CBAE60B0A3AD64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B556076667A848081B6C4191C7384F7C /* Foundation.framework */; };
+		7743B437A7C29FE6821E3A4C9FA45577 /* CoordinateLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D8CA0F8200004E4C2A9B6BFBB11A9 /* CoordinateLexer.swift */; };
+		7D7320E54ED74F035C71178A4508FAA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B556076667A848081B6C4191C7384F7C /* Foundation.framework */; };
+		7F5190775C2ED8906A109184913D9066 /* M13Checkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05C6C07A481A55753BDE38203445188 /* M13Checkbox.framework */; };
+		7F5C1F4F2BE2212FCEE08299124361F4 /* M13Checkbox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BD176E9FF379D5AF0BCCC2DC17BFFD /* M13Checkbox-dummy.m */; };
+		83956E20859CDBBE7BC38ABADE0170FB /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B7B94BB75BF263FC1C1E98C6D9052 /* AFError.swift */; };
+		845FFB8F470D34D9D2B1EBF240E153A2 /* ColorPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B165453C638644F15DA02E0DC371D /* ColorPickerViewDelegate.swift */; };
+		88FA28B34E671180474152FCC00CDE3C /* M13CheckboxSpiralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39851ACA53058D25E887D9A5F079F1 /* M13CheckboxSpiralController.swift */; };
+		931BBB8230A25161D5C37528A8F9FECF /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32284DE04E0DF091DD734B4A2CB7E7 /* SessionManager.swift */; };
+		933FDA5970AA525D6CB92BFEBA2BAB4A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB61832CC641AE64795D3C13D005D8E /* Timeline.swift */; };
+		95FCA1C4E626F70924D111DA2609D2D1 /* NSBezierPath+CrossPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A104F5588FA0009E50EC33EF48A4CCA /* NSBezierPath+CrossPlatform.swift */; };
+		9707A3D6C72179DF7BE18A4EE3C88F4E /* SVGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92D60FD40E0B46CCD385028AC75508E /* SVGView.swift */; };
+		98A929C8E9012AB167672714FFD2113C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57E0B3E2A29F17F844590E97065781 /* Request.swift */; };
+		98B1981D77B2DC0B50356EAC116CFF94 /* SwiftSVG-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 11EFE59EB76EAC33D99F3DB487118210 /* SwiftSVG-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99EF0E3EC03BCFC297DF399105502FDB /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBB42A2A7155A91D2A0D5CE993EAF1C /* Stylable.swift */; };
+		9A0E47682B59A3B119C23F4EFA6E271F /* Scalar+FromByteArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472BAD4047C2A944D40D3032CABD2B7 /* Scalar+FromByteArray.swift */; };
+		9A9D956F06ED090E30A48ACF6A8E65C4 /* SVGCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDCD889F41A2498F77D7B6E1A2C3C99 /* SVGCircle.swift */; };
+		9D967308ACAC7A1083969A17DA370F66 /* SVGShapeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468AB8EF6DD82304AAE7D42C6D0BD3B0 /* SVGShapeElement.swift */; };
+		9EE1FDEFDD39B68FC45914834243E3F6 /* IGColorPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D122D6C26BB2903BF9247D5426A665E /* IGColorPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9F6A924646BC2E5C790B822DFA3D6DF3 /* M13CheckboxFlatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796112A4DBCFCDE59DE6DD56841DCE5 /* M13CheckboxFlatController.swift */; };
+		A0E5B3E0478186B780D7A76E7722D0CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B556076667A848081B6C4191C7384F7C /* Foundation.framework */; };
+		A2B9ED2191B47DE2B3D5F357B14D838F /* CALayer+SVG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F87860FB2C5B9A3676F48D19FDA78 /* CALayer+SVG.swift */; };
+		A2E15A3C59A1B26BC369820D7914C739 /* M13CheckboxAddRemovePathGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC26704155B88D52455C308DFE909B9E /* M13CheckboxAddRemovePathGenerator.swift */; };
+		A3FE64F1CDE83839169A8497E2BBA303 /* NSXMLSVGParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498DF6783141D81BDBDB7F860385C206 /* NSXMLSVGParser.swift */; };
+		A4E3AA395F2CC53A35AFC0FA78ABE33F /* M13CheckboxGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CB441E336A6D1A7C4940CE105F046 /* M13CheckboxGestureRecognizer.swift */; };
+		A6577E273761F4946B31D6FF92D78A40 /* SVGParserSupportedElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027789AB6AA6461EAD23903ADC5FC4A /* SVGParserSupportedElements.swift */; };
+		A7831F4AA426D4DDC90E16F47CF700DA /* Pods-UmbrellaWeather-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F936838862C536DD657CBF53CAA1F7E /* Pods-UmbrellaWeather-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7F238E4EA685E9A685F4A6AE1568549 /* DefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEDA8C0A5032ACC3BD603BBA73D49E /* DefaultValues.swift */; };
+		A9E8F15FD1CF5ED960B637D688A63DDA /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8C15EFAE7393F0672F1FED158010A /* Stack.swift */; };
+		AC07823B941A20C4922DE7C88F3570DE /* SVGContainerElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AC71ABD3BD420DA978481DC1705B1E /* SVGContainerElement.swift */; };
+		AFC64B1097F7355FF423D6A73E9C7210 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D1E6100485F818480642490F3EC49 /* TaskDelegate.swift */; };
+		B318B688B65B56BC840B03962D2DE393 /* ColorPickerViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FE756AD45FD063F886EF2AF1255A28 /* ColorPickerViewDelegateFlowLayout.swift */; };
+		B3A384A0CD6468AE2808DB582F3EAC2E /* CrossPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C249141C8E96D2818AA810B3098EA4 /* CrossPlatform.swift */; };
+		BB6CDBCD56FE7AD6B053C4A572B79F39 /* Dictionary+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE1D443A92F799A5444B66856BAF2E4 /* Dictionary+JSON.swift */; };
+		BC78D21F69A5B1670EA837C0A5F6390D /* BinaryFloatingPoint+ParseLengthString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAE54CC984A9F9F8C239F60AE33DA55 /* BinaryFloatingPoint+ParseLengthString.swift */; };
+		BC8F9F3A3C4B4E685AD494B3A3DC4BD7 /* M13CheckboxFadeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B893B80D64B3801F6834DB09B895896B /* M13CheckboxFadeController.swift */; };
+		BD5AEAE5C754E31177ACF6CE6BF56E96 /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7983FA08E7B24C235FFA62FBB0499F6 /* String+Subscript.swift */; };
+		BD61DD79F86B26BD7DCC9A19C151476F /* SVGEllipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC77017F78E464F6AB1E94C711E6B01 /* SVGEllipse.swift */; };
+		BEE6B677416CA71C981D1D3F60B18C96 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75889A1F7808FE9943D1AC2868AAAAF6 /* Alamofire.swift */; };
+		CA117284A892BF33550EC5C9563CB41B /* SVGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F82E3CF7742501149580E3993CB5031 /* SVGPath.swift */; };
+		CABAA0C201E696E00A454362AB27F4CD /* Transformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DAB01D331DAEA7E96C9CB272945343 /* Transformable.swift */; };
+		D3B55EC0016ABBC02EB9376CFAFC7B41 /* SVGLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A0F1D79EC2BE3932C3E2AC7EC7C9F3 /* SVGLine.swift */; };
+		D3D8C379C6E4FB487E5ABD6800AD7B7E /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84609EC6B50024D63CC69CA5A01E2C2 /* DispatchQueue+Alamofire.swift */; };
+		D65C254F5ABF2CB5ECEE50FE8F8E1A80 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E91711415560CA3A4D0F27F16650B7 /* Response.swift */; };
+		D7B3528A3103B65FA92AAA30AEF7B8D1 /* M13CheckboxRadioPathGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF6DC57504804B4FD748B2E532F450 /* M13CheckboxRadioPathGenerator.swift */; };
+		DFBADB5CC4932142422002F20F5A8AAA /* Data+CacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219BEBBC53A03ACA8905E841276051F7 /* Data+CacheKey.swift */; };
+		E3747EC31FCCA97D75A81FC700CF7E24 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9542EEC76F16D006DB2B0C5E00FE5 /* ResponseSerialization.swift */; };
+		E6FFE305826BE9881BB19196880D5A74 /* M13CheckboxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDB35F4C1FA332D19FDFDC1FEA3DCB5 /* M13CheckboxController.swift */; };
+		EAEC62731E421E8C8BE928032193B9EB /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65CF5A2A713CF586EE9339267ACD236 /* Print.swift */; };
+		EE5DDEFF888762F44404E30889EFCF70 /* M13CheckboxCheckPathGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F5219757F4D81E3A7657044E6AB77 /* M13CheckboxCheckPathGenerator.swift */; };
+		F00EA7040B010ACDE2EA7011D7529A11 /* M13CheckboxDisclosurePathGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB61652E23C4AC73366015B5604BCEC /* M13CheckboxDisclosurePathGenerator.swift */; };
+		F05946185B7A37653C0BA3149687EDB3 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75759E2FC4ABA88B55A64CDDA2F2681 /* DispatchQueue+Extensions.swift */; };
+		F0C0274D3FB9D20A4232B5BE8DAE532F /* Strokable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19AE5F73995060B9DA4CD9332B1CA9 /* Strokable.swift */; };
+		F13F2AA7F2E6D95A181CAB99B900D531 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F423BCDC76577588603633021B318A /* ServerTrustPolicy.swift */; };
+		F78870AB77C739F4971E831CD98D3696 /* M13CheckboxStrokeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD65242D61D6D57819A0DB4CF7CBF74 /* M13CheckboxStrokeController.swift */; };
+		F7B74645E07C39771156A1FA413B98D4 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E1A61FAB0859B896177E2612FAF7C6 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8B8496663DA7512C8DCDA1DCA05C60E /* DefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79230AF78CF2E531D18C07DFBB817703 /* DefaultValues.swift */; };
+		FF274B739B932D5475DCBE355567F21E /* Dictionary+Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274CB3256D80B18F7B330FFBEF2CB95F /* Dictionary+Add.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		11B3180EB379605D0DDCC01AE6CD264A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5B4BBC6DD552AC8943C7E22772FC1D3;
+			remoteInfo = GoogleMaps;
+		};
+		3E7FF97AD9C4DA2520D66253C71FD130 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7111E54EAE43E89F451A75076C3525ED;
+			remoteInfo = M13Checkbox;
+		};
+		5F3B58F9172D4E5B4CC293DBA9E1D3B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
+			remoteInfo = Alamofire;
+		};
+		6EB1C2DD30E6564FC3135C9E8002D8F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5B4BBC6DD552AC8943C7E22772FC1D3;
+			remoteInfo = GoogleMaps;
+		};
+		9AE02C0C56B9272D5062C41CD1F6C066 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2349E173F60A2065FC65E52DD215DFF0;
+			remoteInfo = SwiftSVG;
+		};
+		BCDD3632806A1DA33849383DF68E3EE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D8D2751C5F0C2E845398BA4D7969D44;
+			remoteInfo = IGColorPicker;
+		};
+		C4F391F7E3849080162AFC8C221B6AE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0C1885900810601510E0C632060FAF26;
+			remoteInfo = GooglePlaces;
+		};
+		DDB3003722DA5442EBEA6C3909A0449E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7111E54EAE43E89F451A75076C3525ED;
+			remoteInfo = M13Checkbox;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0153A7959E0B922208554639AF788A98 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
+		03E91711415560CA3A4D0F27F16650B7 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		0462CD28A659E0A6D64ACE6938ED734C /* M13CheckboxAnimationGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxAnimationGenerator.swift; path = Sources/M13CheckboxAnimationGenerator.swift; sourceTree = "<group>"; };
+		052481A3ED5781B73CED3FB52E4CDC24 /* Pods-UmbrellaWeather-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UmbrellaWeather-resources.sh"; sourceTree = "<group>"; };
+		08448743F59373CA7E3FE1BA8074E8C5 /* Pods-UmbrellaWeather.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-UmbrellaWeather.modulemap"; sourceTree = "<group>"; };
+		11D217A6B28B6D16FEB343CBDDD93724 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "SwiftSVG/SVG/Helpers/UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		11EFE59EB76EAC33D99F3DB487118210 /* SwiftSVG-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSVG-umbrella.h"; sourceTree = "<group>"; };
+		16EB150DAAE6DB0628C090DBBB252253 /* IGColorPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IGColorPicker.modulemap; sourceTree = "<group>"; };
+		18694287F3D7A957A87C5B9FDFB95FC3 /* FloatingPoint+DegreesRadians.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FloatingPoint+DegreesRadians.swift"; path = "SwiftSVG/SVG/Helpers/FloatingPoint+DegreesRadians.swift"; sourceTree = "<group>"; };
+		18EB5A478FB6626C5F055A98BA1DA6CB /* M13CheckboxFillController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxFillController.swift; path = Sources/Managers/M13CheckboxFillController.swift; sourceTree = "<group>"; };
+		19CFCE1776B51D5F8C058088C2C3D9DA /* UIView+SVG.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+SVG.swift"; path = "SwiftSVG/SVG Extensions/UIView+SVG.swift"; sourceTree = "<group>"; };
+		1AAE54CC984A9F9F8C239F60AE33DA55 /* BinaryFloatingPoint+ParseLengthString.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BinaryFloatingPoint+ParseLengthString.swift"; path = "SwiftSVG/SVG/Helpers/BinaryFloatingPoint+ParseLengthString.swift"; sourceTree = "<group>"; };
+		1FE261DA7B92766A8BCD5EEF70A81555 /* M13CheckboxPathGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxPathGenerator.swift; path = Sources/Paths/M13CheckboxPathGenerator.swift; sourceTree = "<group>"; };
+		20AEDA8C0A5032ACC3BD603BBA73D49E /* DefaultValues.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultValues.swift; path = IGColorPicker/Classes/DefaultValues.swift; sourceTree = "<group>"; };
+		219BEBBC53A03ACA8905E841276051F7 /* Data+CacheKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+CacheKey.swift"; path = "SwiftSVG/SVG/Helpers/Data+CacheKey.swift"; sourceTree = "<group>"; };
+		2217DE541D98A0F1ABBF9FDC13F344D4 /* Pods-UmbrellaWeather-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UmbrellaWeather-dummy.m"; sourceTree = "<group>"; };
+		25C249141C8E96D2818AA810B3098EA4 /* CrossPlatform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrossPlatform.swift; path = SwiftSVG/CrossPlatform.swift; sourceTree = "<group>"; };
+		262F856205B2185362AE7E6FF14AE68A /* SVGLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGLayer.swift; path = "SwiftSVG/SVG Extensions/SVGLayer.swift"; sourceTree = "<group>"; };
+		274CB3256D80B18F7B330FFBEF2CB95F /* Dictionary+Add.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Dictionary+Add.swift"; path = "SwiftSVG/SVG/Helpers/Dictionary+Add.swift"; sourceTree = "<group>"; };
+		2796112A4DBCFCDE59DE6DD56841DCE5 /* M13CheckboxFlatController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxFlatController.swift; path = Sources/Managers/M13CheckboxFlatController.swift; sourceTree = "<group>"; };
+		2CB61832CC641AE64795D3C13D005D8E /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
+		31DE8F4E732DBF21A42A063CB1C55E8D /* IGColorPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IGColorPicker.xcconfig; sourceTree = "<group>"; };
+		32BD176E9FF379D5AF0BCCC2DC17BFFD /* M13Checkbox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "M13Checkbox-dummy.m"; sourceTree = "<group>"; };
+		33D5166E9F95E0C9281B9BE429EF4F27 /* Pods-UmbrellaWeather-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UmbrellaWeather-Info.plist"; sourceTree = "<group>"; };
+		351F5219757F4D81E3A7657044E6AB77 /* M13CheckboxCheckPathGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxCheckPathGenerator.swift; path = Sources/Paths/M13CheckboxCheckPathGenerator.swift; sourceTree = "<group>"; };
+		369464E2D560E1D8403DC62F7F9F96F1 /* IGColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IGColorPicker.framework; path = IGColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3983E3938F07DC838FC8CBA0A1DFE5AF /* SVGGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGGroup.swift; path = SwiftSVG/SVG/Elements/SVGGroup.swift; sourceTree = "<group>"; };
+		3C8CB441E336A6D1A7C4940CE105F046 /* M13CheckboxGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxGestureRecognizer.swift; path = Sources/M13CheckboxGestureRecognizer.swift; sourceTree = "<group>"; };
+		3CDF6DC57504804B4FD748B2E532F450 /* M13CheckboxRadioPathGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxRadioPathGenerator.swift; path = Sources/Paths/M13CheckboxRadioPathGenerator.swift; sourceTree = "<group>"; };
+		40FE756AD45FD063F886EF2AF1255A28 /* ColorPickerViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorPickerViewDelegateFlowLayout.swift; path = IGColorPicker/Classes/Protocol/ColorPickerViewDelegateFlowLayout.swift; sourceTree = "<group>"; };
+		468AB8EF6DD82304AAE7D42C6D0BD3B0 /* SVGShapeElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGShapeElement.swift; path = SwiftSVG/SVG/Elements/SVGShapeElement.swift; sourceTree = "<group>"; };
+		46B6FA6FD90FC4371F9F794C90481B7C /* SVGRectangle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGRectangle.swift; path = SwiftSVG/SVG/Elements/SVGRectangle.swift; sourceTree = "<group>"; };
+		49357765D27C9F15E0B8A05DCE23E007 /* CAShapeLayer+SVG.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CAShapeLayer+SVG.swift"; path = "SwiftSVG/SVG Extensions/CAShapeLayer+SVG.swift"; sourceTree = "<group>"; };
+		498DF6783141D81BDBDB7F860385C206 /* NSXMLSVGParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSXMLSVGParser.swift; path = SwiftSVG/SVG/Parser/NSXMLSVGParser.swift; sourceTree = "<group>"; };
+		4A44CF422B0668DD19A1BF3CB30B1D40 /* ParsesAsynchronously.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsesAsynchronously.swift; path = SwiftSVG/SVG/Elements/ParsesAsynchronously.swift; sourceTree = "<group>"; };
+		4A543B417DF178DBAF85C0F364A47584 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
+		4BD65242D61D6D57819A0DB4CF7CBF74 /* M13CheckboxStrokeController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxStrokeController.swift; path = Sources/Managers/M13CheckboxStrokeController.swift; sourceTree = "<group>"; };
+		4DF76C774CED7E22A85121FFF69A54EF /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
+		4E848E5D1B034F524B8A8B4AE122C2DC /* SVGRootElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGRootElement.swift; path = SwiftSVG/SVG/Elements/SVGRootElement.swift; sourceTree = "<group>"; };
+		4F5382FD8F026C26BCFA16136E953495 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		4F75C567CA5CAA9069C27787C5859487 /* CALayer+Sublayers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CALayer+Sublayers.swift"; path = "SwiftSVG/SVG/Helpers/CALayer+Sublayers.swift"; sourceTree = "<group>"; };
+		4F936838862C536DD657CBF53CAA1F7E /* Pods-UmbrellaWeather-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UmbrellaWeather-umbrella.h"; sourceTree = "<group>"; };
+		51BC91475A53DE179190EEFF9ED4AA0E /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		5655213C886331A5DFFB1815C26F255F /* IGColorPicker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "IGColorPicker-Info.plist"; sourceTree = "<group>"; };
+		59450595F84D2CC160BF11E2936F667B /* M13Checkbox.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = M13Checkbox.xcconfig; sourceTree = "<group>"; };
+		5A02A00323C396AA467D6196407039DE /* SVGPolyline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGPolyline.swift; path = SwiftSVG/SVG/Elements/SVGPolyline.swift; sourceTree = "<group>"; };
+		5CE79C5BF20743404E59BEFD080A364D /* M13Checkbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = M13Checkbox.framework; path = M13Checkbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D5F844ACECC1CBDC3AF765742255562 /* DelaysApplyingAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DelaysApplyingAttributes.swift; path = SwiftSVG/SVG/Attributes/DelaysApplyingAttributes.swift; sourceTree = "<group>"; };
+		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E57E0B3E2A29F17F844590E97065781 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
+		5F82E3CF7742501149580E3993CB5031 /* SVGPath.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGPath.swift; path = SwiftSVG/SVG/Elements/SVGPath.swift; sourceTree = "<group>"; };
+		62DF1BDA41B723D7B0440FD765F1C141 /* SwiftSVG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftSVG.framework; path = SwiftSVG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67D13B02BEAC5C0EDD1E31C3FDBA6D36 /* PathDLexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PathDLexer.swift; path = SwiftSVG/SVG/Iterators/PathDLexer.swift; sourceTree = "<group>"; };
+		685B14F8A8DF97CDF0DF3BA5A12E576D /* Pods-UmbrellaWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UmbrellaWeather.release.xcconfig"; sourceTree = "<group>"; };
+		6A29743DC015B67994103E9300D27302 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		6D122D6C26BB2903BF9247D5426A665E /* IGColorPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IGColorPicker-umbrella.h"; sourceTree = "<group>"; };
+		6EBEBD770FA75D05725F093F8F153E75 /* ColorPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorPickerView.swift; path = IGColorPicker/Classes/View/ColorPickerView.swift; sourceTree = "<group>"; };
+		734B7B94BB75BF263FC1C1E98C6D9052 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
+		75889A1F7808FE9943D1AC2868AAAAF6 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		79230AF78CF2E531D18C07DFBB817703 /* DefaultValues.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultValues.swift; path = Sources/DefaultValues.swift; sourceTree = "<group>"; };
+		7AD8C15EFAE7393F0672F1FED158010A /* Stack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stack.swift; path = SwiftSVG/SVG/Helpers/Stack.swift; sourceTree = "<group>"; };
+		7B5F87860FB2C5B9A3676F48D19FDA78 /* CALayer+SVG.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CALayer+SVG.swift"; path = "SwiftSVG/SVG Extensions/CALayer+SVG.swift"; sourceTree = "<group>"; };
+		7BB8FA2BAC8804022DD7D8143E619D1E /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
+		7C0DE90B9E5A3165E91A6A1967F69B7D /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		7DBFAF4C313D8729E56CBDF62618A7CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		7EE158C8A849E4CC685A1E715B91D2C8 /* PathCommand.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PathCommand.swift; path = SwiftSVG/SVG/Iterators/PathCommand.swift; sourceTree = "<group>"; };
+		8027789AB6AA6461EAD23903ADC5FC4A /* SVGParserSupportedElements.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGParserSupportedElements.swift; path = SwiftSVG/SVG/Parser/SVGParserSupportedElements.swift; sourceTree = "<group>"; };
+		81C2D1DD6FB188DCD3800CC91187F75B /* Identifiable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Identifiable.swift; path = SwiftSVG/SVG/Attributes/Identifiable.swift; sourceTree = "<group>"; };
+		84DAB01D331DAEA7E96C9CB272945343 /* Transformable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transformable.swift; path = SwiftSVG/SVG/Attributes/Transformable.swift; sourceTree = "<group>"; };
+		85CF72DC982FBD68163172141E5B1572 /* M13Checkbox-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "M13Checkbox-prefix.pch"; sourceTree = "<group>"; };
+		866F244AF7A5C5DEA86FB633B3148968 /* M13CheckboxBounceController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxBounceController.swift; path = Sources/Managers/M13CheckboxBounceController.swift; sourceTree = "<group>"; };
+		8699547CD43DD42903F47CA74617DA88 /* M13Checkbox+IB.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "M13Checkbox+IB.swift"; path = "Sources/M13Checkbox+IB.swift"; sourceTree = "<group>"; };
+		8859E2049DB488A82B59E54B905981AF /* M13Checkbox-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "M13Checkbox-Info.plist"; sourceTree = "<group>"; };
+		88826D4ED69BE031E2EBF2B245CB6100 /* IGColorPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IGColorPicker-dummy.m"; sourceTree = "<group>"; };
+		8A0D65B8D9F61AC9EA27B103D8C7D186 /* GooglePlaces.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GooglePlaces.xcconfig; sourceTree = "<group>"; };
+		8B6D12E88AFDF5C617F98BF7D89D199B /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		8BC77017F78E464F6AB1E94C711E6B01 /* SVGEllipse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGEllipse.swift; path = SwiftSVG/SVG/Elements/SVGEllipse.swift; sourceTree = "<group>"; };
+		8BF17B78DCD0FC787E63EF82E53F2994 /* M13Checkbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13Checkbox.swift; path = Sources/M13Checkbox.swift; sourceTree = "<group>"; };
+		8C1002CAFF0F76CDC2E8C69AFDFD1D72 /* M13CheckboxExpandController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxExpandController.swift; path = Sources/Managers/M13CheckboxExpandController.swift; sourceTree = "<group>"; };
+		93334C2505787CFA55FC35678CDAF6DA /* String+Trim.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Trim.swift"; path = "SwiftSVG/SVG/Helpers/String+Trim.swift"; sourceTree = "<group>"; };
+		95CF631A323AF300544ECB7D3B4AB603 /* Pods-UmbrellaWeather-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UmbrellaWeather-acknowledgements.plist"; sourceTree = "<group>"; };
+		9A104F5588FA0009E50EC33EF48A4CCA /* NSBezierPath+CrossPlatform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBezierPath+CrossPlatform.swift"; path = "SwiftSVG/NSBezierPath+CrossPlatform.swift"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A019520D3E70E3C4BFADDBFD92B52075 /* M13CheckboxDotController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxDotController.swift; path = Sources/Managers/M13CheckboxDotController.swift; sourceTree = "<group>"; };
+		A1AC44F16875B53D3C307E9B17BF8651 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		A472BAD4047C2A944D40D3032CABD2B7 /* Scalar+FromByteArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Scalar+FromByteArray.swift"; path = "SwiftSVG/SVG/Helpers/Scalar+FromByteArray.swift"; sourceTree = "<group>"; };
+		A7983FA08E7B24C235FFA62FBB0499F6 /* String+Subscript.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Subscript.swift"; path = "SwiftSVG/SVG/Helpers/String+Subscript.swift"; sourceTree = "<group>"; };
+		A84AAC717BE7A4C4A600A684A13A6E67 /* SVGElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGElement.swift; path = SwiftSVG/SVG/Elements/SVGElement.swift; sourceTree = "<group>"; };
+		AA04504932D66696FE12E523D9403D9F /* Unown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Unown.swift; path = SwiftSVG/SVG/Helpers/Unown.swift; sourceTree = "<group>"; };
+		AA7B165453C638644F15DA02E0DC371D /* ColorPickerViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorPickerViewDelegate.swift; path = IGColorPicker/Classes/Protocol/ColorPickerViewDelegate.swift; sourceTree = "<group>"; };
+		AB8D17753AC4923751D3D51C3FCE417B /* SwiftSVG-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSVG-prefix.pch"; sourceTree = "<group>"; };
+		AB966FB8AA48D33BD22F0E07A2238060 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		ACD465ED5BD060B914009B5DCB2E6FA1 /* SVGPolygon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGPolygon.swift; path = SwiftSVG/SVG/Elements/SVGPolygon.swift; sourceTree = "<group>"; };
+		ADA0CEAB8DB09F56E17148316A24A9AF /* Pods-UmbrellaWeather-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UmbrellaWeather-frameworks.sh"; sourceTree = "<group>"; };
+		AE4D8CA0F8200004E4C2A9B6BFBB11A9 /* CoordinateLexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoordinateLexer.swift; path = SwiftSVG/SVG/Iterators/CoordinateLexer.swift; sourceTree = "<group>"; };
+		B05C6C07A481A55753BDE38203445188 /* M13Checkbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = M13Checkbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1A0F1D79EC2BE3932C3E2AC7EC7C9F3 /* SVGLine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGLine.swift; path = SwiftSVG/SVG/Elements/SVGLine.swift; sourceTree = "<group>"; };
+		B1B15E16A0F33A0958F88DE922DCE5FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		B29437F9CAB111477D28F6F1C976E174 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
+		B3AC71ABD3BD420DA978481DC1705B1E /* SVGContainerElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGContainerElement.swift; path = SwiftSVG/SVG/Elements/SVGContainerElement.swift; sourceTree = "<group>"; };
+		B556076667A848081B6C4191C7384F7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		B64872FE6B1B2E59A1423EDED510851E /* SwiftSVG-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftSVG-dummy.m"; sourceTree = "<group>"; };
+		B653EDE721FD123CB653A6FDCE8B13B9 /* SwiftSVG-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftSVG-Info.plist"; sourceTree = "<group>"; };
+		B65CF5A2A713CF586EE9339267ACD236 /* Print.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Print.swift; path = SwiftSVG/SVG/Helpers/Print.swift; sourceTree = "<group>"; };
+		B6899713300839C8E8F5992944B3812B /* Pods-UmbrellaWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UmbrellaWeather.debug.xcconfig"; sourceTree = "<group>"; };
+		B893B80D64B3801F6834DB09B895896B /* M13CheckboxFadeController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxFadeController.swift; path = Sources/Managers/M13CheckboxFadeController.swift; sourceTree = "<group>"; };
+		B92D60FD40E0B46CCD385028AC75508E /* SVGView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGView.swift; path = "SwiftSVG/SVG Extensions/SVGView.swift"; sourceTree = "<group>"; };
+		BCB61652E23C4AC73366015B5604BCEC /* M13CheckboxDisclosurePathGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxDisclosurePathGenerator.swift; path = Sources/Paths/M13CheckboxDisclosurePathGenerator.swift; sourceTree = "<group>"; };
+		C1B997D8D378FBF4A4BA6584DE653DB8 /* GoogleMaps.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleMaps.xcconfig; sourceTree = "<group>"; };
+		C27D155306EA7C94B95CFBFAA447489B /* Pods_UmbrellaWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_UmbrellaWeather.framework; path = "Pods-UmbrellaWeather.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3F423BCDC76577588603633021B318A /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		C84609EC6B50024D63CC69CA5A01E2C2 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
+		C86174C0D734B0BD88D660AC3A8DD4D2 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
+		C9111C406ECE9D3859B320E53BC2F091 /* UIColor+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "IGColorPicker/Classes/Extension/UIColor+Extension.swift"; sourceTree = "<group>"; };
+		CE712E8EF23DAD32E94665835F369CA4 /* Pods-UmbrellaWeather-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UmbrellaWeather-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D9596F8ED45C4D247FA159937F66F85D /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		D9E1A61FAB0859B896177E2612FAF7C6 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		DB36FA63DF104CE17036A63A5F96F634 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		DC26704155B88D52455C308DFE909B9E /* M13CheckboxAddRemovePathGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxAddRemovePathGenerator.swift; path = Sources/Paths/M13CheckboxAddRemovePathGenerator.swift; sourceTree = "<group>"; };
+		DD0F296C6C2104DED8ADAEA44559CE3B /* IGColorPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IGColorPicker-prefix.pch"; sourceTree = "<group>"; };
+		E02592EDB92C8A8405FAE0594323A308 /* SVGCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGCache.swift; path = SwiftSVG/SVG/Cache/SVGCache.swift; sourceTree = "<group>"; };
+		E6E1C9BE46F4916860F360054B009355 /* SwiftSVG.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftSVG.modulemap; sourceTree = "<group>"; };
+		E75759E2FC4ABA88B55A64CDDA2F2681 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Extensions.swift"; path = "SwiftSVG/SVG/Helpers/DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
+		E809F830493B6939540E83EC14E6A92A /* SVGParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGParser.swift; path = SwiftSVG/SVG/Parser/SVGParser.swift; sourceTree = "<group>"; };
+		E96655E378D15A4784EFE9445529F8B9 /* ColorPickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorPickerCell.swift; path = IGColorPicker/Classes/View/ColorPickerCell.swift; sourceTree = "<group>"; };
+		EC4436FA977E9B014F0192E23579BCA0 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		EDDCD889F41A2498F77D7B6E1A2C3C99 /* SVGCircle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVGCircle.swift; path = SwiftSVG/SVG/Elements/SVGCircle.swift; sourceTree = "<group>"; };
+		EE19AE5F73995060B9DA4CD9332B1CA9 /* Strokable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Strokable.swift; path = SwiftSVG/SVG/Attributes/Strokable.swift; sourceTree = "<group>"; };
+		EEBB42A2A7155A91D2A0D5CE993EAF1C /* Stylable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stylable.swift; path = SwiftSVG/SVG/Attributes/Stylable.swift; sourceTree = "<group>"; };
+		F185489E0FB942AAA14BD51368764079 /* SwiftSVG.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftSVG.xcconfig; sourceTree = "<group>"; };
+		F3313C8EF91C8741DA119D85B65B47D5 /* Fillable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fillable.swift; path = SwiftSVG/SVG/Attributes/Fillable.swift; sourceTree = "<group>"; };
+		F51D1E6100485F818480642490F3EC49 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
+		F5E72AEB9C41A641018E9301CD061BAF /* UIBezierPath+SVG.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIBezierPath+SVG.swift"; path = "SwiftSVG/SVG Extensions/UIBezierPath+SVG.swift"; sourceTree = "<group>"; };
+		F6C9542EEC76F16D006DB2B0C5E00FE5 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		F6F426CE620E1076D820A3F565C5B5FC /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		F877B4A3D1787CEAF9F4841598891EE7 /* M13Checkbox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "M13Checkbox-umbrella.h"; sourceTree = "<group>"; };
+		F9791370057938D9A1A732A8BF8D4A1E /* M13Checkbox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = M13Checkbox.modulemap; sourceTree = "<group>"; };
+		FA39851ACA53058D25E887D9A5F079F1 /* M13CheckboxSpiralController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxSpiralController.swift; path = Sources/Managers/M13CheckboxSpiralController.swift; sourceTree = "<group>"; };
+		FBDB35F4C1FA332D19FDFDC1FEA3DCB5 /* M13CheckboxController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxController.swift; path = Sources/M13CheckboxController.swift; sourceTree = "<group>"; };
+		FC32284DE04E0DF091DD734B4A2CB7E7 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
+		FCE1D443A92F799A5444B66856BAF2E4 /* Dictionary+JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Dictionary+JSON.swift"; path = "SwiftSVG/SVG/Helpers/Dictionary+JSON.swift"; sourceTree = "<group>"; };
+		FD04A625EB83E6771D8669FCB76AC14F /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		090C1D63463ACF622287EFF9D5C9392D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7664FD4F59A0C00866CBAE60B0A3AD64 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D1D49812C2F7D8070972FE1826530FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23A263255B6EFDD46330E29E1F40B7E1 /* CoreGraphics.framework in Frameworks */,
+				6E3B6CDC0E81F85823E58AB72A58C6EC /* Foundation.framework in Frameworks */,
+				668EAECD33445BDF94D40582FAC8310E /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA9220488FA851E994F20F17F99DB4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D7320E54ED74F035C71178A4508FAA5 /* Foundation.framework in Frameworks */,
+				7F5190775C2ED8906A109184913D9066 /* M13Checkbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCC95CF555D919E7927C0676C16D6EC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68A7B43659E26DD5163D0A456EC60160 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF512764B5A8BD3C8484825FD7410ABD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0E5B3E0478186B780D7A76E7722D0CF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0317A4C9DC3C3AC34BC8E41A8245CF49 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				19D65499558A674AC6BE01215A8FE80C /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		0BB682A9E3AEC53A1F57317EAE3D32E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B05C6C07A481A55753BDE38203445188 /* M13Checkbox.framework */,
+				204EEF6440DAA5E8D4CE9B1EE88765FD /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0F7F090C00C83944E25CE8FADE59F4B4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7C0DE90B9E5A3165E91A6A1967F69B7D /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		19D65499558A674AC6BE01215A8FE80C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F5382FD8F026C26BCFA16136E953495 /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1B77C38AF6A65178A5177235A629C01A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B6D12E88AFDF5C617F98BF7D89D199B /* Alamofire.modulemap */,
+				DB36FA63DF104CE17036A63A5F96F634 /* Alamofire.xcconfig */,
+				51BC91475A53DE179190EEFF9ED4AA0E /* Alamofire-dummy.m */,
+				7BB8FA2BAC8804022DD7D8143E619D1E /* Alamofire-Info.plist */,
+				6A29743DC015B67994103E9300D27302 /* Alamofire-prefix.pch */,
+				D9E1A61FAB0859B896177E2612FAF7C6 /* Alamofire-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Alamofire";
+			sourceTree = "<group>";
+		};
+		1CD087B4DD94930A02146BEDF706ED5A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C1B997D8D378FBF4A4BA6584DE653DB8 /* GoogleMaps.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GoogleMaps";
+			sourceTree = "<group>";
+		};
+		204EEF6440DAA5E8D4CE9B1EE88765FD /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B1B15E16A0F33A0958F88DE922DCE5FD /* CoreGraphics.framework */,
+				B556076667A848081B6C4191C7384F7C /* Foundation.framework */,
+				7DBFAF4C313D8729E56CBDF62618A7CC /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		22FA3E87010BDA3DAEC44A992606092C /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				0317A4C9DC3C3AC34BC8E41A8245CF49 /* Base */,
+				B8845B4F26D34D1C6F6997503DCA24F7 /* Maps */,
+				1CD087B4DD94930A02146BEDF706ED5A /* Support Files */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		45F8193EFC797890A22513B9BACE59B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
+				369464E2D560E1D8403DC62F7F9F96F1 /* IGColorPicker.framework */,
+				5CE79C5BF20743404E59BEFD080A364D /* M13Checkbox.framework */,
+				C27D155306EA7C94B95CFBFAA447489B /* Pods_UmbrellaWeather.framework */,
+				62DF1BDA41B723D7B0440FD765F1C141 /* SwiftSVG.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4964CF334AFC7682264868E30670C845 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA07AB6110F2480319D45F553D7498EA /* Pods-UmbrellaWeather */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		57BF4564D936A669D9E356D560547100 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C86174C0D734B0BD88D660AC3A8DD4D2 /* GooglePlaces.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A2A5CA53217340B1115CB322B02D5CF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				16EB150DAAE6DB0628C090DBBB252253 /* IGColorPicker.modulemap */,
+				31DE8F4E732DBF21A42A063CB1C55E8D /* IGColorPicker.xcconfig */,
+				88826D4ED69BE031E2EBF2B245CB6100 /* IGColorPicker-dummy.m */,
+				5655213C886331A5DFFB1815C26F255F /* IGColorPicker-Info.plist */,
+				DD0F296C6C2104DED8ADAEA44559CE3B /* IGColorPicker-prefix.pch */,
+				6D122D6C26BB2903BF9247D5426A665E /* IGColorPicker-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IGColorPicker";
+			sourceTree = "<group>";
+		};
+		5C35F96742B7C9EE08040B10FCBEC897 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A0D65B8D9F61AC9EA27B103D8C7D186 /* GooglePlaces.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GooglePlaces";
+			sourceTree = "<group>";
+		};
+		66F027521EEF95E39C552D17E3BF404F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC4436FA977E9B014F0192E23579BCA0 /* GoogleMaps.framework */,
+				A1AC44F16875B53D3C307E9B17BF8651 /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71536CD90F5281A599EF83766C827EE4 /* M13Checkbox */ = {
+			isa = PBXGroup;
+			children = (
+				79230AF78CF2E531D18C07DFBB817703 /* DefaultValues.swift */,
+				8BF17B78DCD0FC787E63EF82E53F2994 /* M13Checkbox.swift */,
+				8699547CD43DD42903F47CA74617DA88 /* M13Checkbox+IB.swift */,
+				DC26704155B88D52455C308DFE909B9E /* M13CheckboxAddRemovePathGenerator.swift */,
+				0462CD28A659E0A6D64ACE6938ED734C /* M13CheckboxAnimationGenerator.swift */,
+				866F244AF7A5C5DEA86FB633B3148968 /* M13CheckboxBounceController.swift */,
+				351F5219757F4D81E3A7657044E6AB77 /* M13CheckboxCheckPathGenerator.swift */,
+				FBDB35F4C1FA332D19FDFDC1FEA3DCB5 /* M13CheckboxController.swift */,
+				BCB61652E23C4AC73366015B5604BCEC /* M13CheckboxDisclosurePathGenerator.swift */,
+				A019520D3E70E3C4BFADDBFD92B52075 /* M13CheckboxDotController.swift */,
+				8C1002CAFF0F76CDC2E8C69AFDFD1D72 /* M13CheckboxExpandController.swift */,
+				B893B80D64B3801F6834DB09B895896B /* M13CheckboxFadeController.swift */,
+				18EB5A478FB6626C5F055A98BA1DA6CB /* M13CheckboxFillController.swift */,
+				2796112A4DBCFCDE59DE6DD56841DCE5 /* M13CheckboxFlatController.swift */,
+				3C8CB441E336A6D1A7C4940CE105F046 /* M13CheckboxGestureRecognizer.swift */,
+				1FE261DA7B92766A8BCD5EEF70A81555 /* M13CheckboxPathGenerator.swift */,
+				3CDF6DC57504804B4FD748B2E532F450 /* M13CheckboxRadioPathGenerator.swift */,
+				FA39851ACA53058D25E887D9A5F079F1 /* M13CheckboxSpiralController.swift */,
+				4BD65242D61D6D57819A0DB4CF7CBF74 /* M13CheckboxStrokeController.swift */,
+				829FDD8B4416AAE09D071BC0B69E8819 /* Support Files */,
+			);
+			name = M13Checkbox;
+			path = M13Checkbox;
+			sourceTree = "<group>";
+		};
+		829FDD8B4416AAE09D071BC0B69E8819 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F9791370057938D9A1A732A8BF8D4A1E /* M13Checkbox.modulemap */,
+				59450595F84D2CC160BF11E2936F667B /* M13Checkbox.xcconfig */,
+				32BD176E9FF379D5AF0BCCC2DC17BFFD /* M13Checkbox-dummy.m */,
+				8859E2049DB488A82B59E54B905981AF /* M13Checkbox-Info.plist */,
+				85CF72DC982FBD68163172141E5B1572 /* M13Checkbox-prefix.pch */,
+				F877B4A3D1787CEAF9F4841598891EE7 /* M13Checkbox-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/M13Checkbox";
+			sourceTree = "<group>";
+		};
+		853E571683FDEBA2EE35DE94735CBBF8 /* GooglePlaces */ = {
+			isa = PBXGroup;
+			children = (
+				57BF4564D936A669D9E356D560547100 /* Frameworks */,
+				C8010832E3AD592C4953EC9AA50F259B /* Resources */,
+				5C35F96742B7C9EE08040B10FCBEC897 /* Support Files */,
+			);
+			name = GooglePlaces;
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		91FB07BDC98A7DA3BC57909965CFED68 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				734B7B94BB75BF263FC1C1E98C6D9052 /* AFError.swift */,
+				75889A1F7808FE9943D1AC2868AAAAF6 /* Alamofire.swift */,
+				C84609EC6B50024D63CC69CA5A01E2C2 /* DispatchQueue+Alamofire.swift */,
+				4A543B417DF178DBAF85C0F364A47584 /* MultipartFormData.swift */,
+				AB966FB8AA48D33BD22F0E07A2238060 /* NetworkReachabilityManager.swift */,
+				FD04A625EB83E6771D8669FCB76AC14F /* Notifications.swift */,
+				B29437F9CAB111477D28F6F1C976E174 /* ParameterEncoding.swift */,
+				5E57E0B3E2A29F17F844590E97065781 /* Request.swift */,
+				03E91711415560CA3A4D0F27F16650B7 /* Response.swift */,
+				F6C9542EEC76F16D006DB2B0C5E00FE5 /* ResponseSerialization.swift */,
+				0153A7959E0B922208554639AF788A98 /* Result.swift */,
+				C3F423BCDC76577588603633021B318A /* ServerTrustPolicy.swift */,
+				4DF76C774CED7E22A85121FFF69A54EF /* SessionDelegate.swift */,
+				FC32284DE04E0DF091DD734B4A2CB7E7 /* SessionManager.swift */,
+				F51D1E6100485F818480642490F3EC49 /* TaskDelegate.swift */,
+				2CB61832CC641AE64795D3C13D005D8E /* Timeline.swift */,
+				F6F426CE620E1076D820A3F565C5B5FC /* Validation.swift */,
+				1B77C38AF6A65178A5177235A629C01A /* Support Files */,
+			);
+			name = Alamofire;
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		94BACDE3939179C281DB04B6A926EBAA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91FB07BDC98A7DA3BC57909965CFED68 /* Alamofire */,
+				22FA3E87010BDA3DAEC44A992606092C /* GoogleMaps */,
+				853E571683FDEBA2EE35DE94735CBBF8 /* GooglePlaces */,
+				C976194BC8C7B70229857C055F76EABD /* IGColorPicker */,
+				71536CD90F5281A599EF83766C827EE4 /* M13Checkbox */,
+				977FCF94FD9E65CA08146BBB147DE539 /* SwiftSVG */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		977FCF94FD9E65CA08146BBB147DE539 /* SwiftSVG */ = {
+			isa = PBXGroup;
+			children = (
+				1AAE54CC984A9F9F8C239F60AE33DA55 /* BinaryFloatingPoint+ParseLengthString.swift */,
+				4F75C567CA5CAA9069C27787C5859487 /* CALayer+Sublayers.swift */,
+				7B5F87860FB2C5B9A3676F48D19FDA78 /* CALayer+SVG.swift */,
+				49357765D27C9F15E0B8A05DCE23E007 /* CAShapeLayer+SVG.swift */,
+				AE4D8CA0F8200004E4C2A9B6BFBB11A9 /* CoordinateLexer.swift */,
+				25C249141C8E96D2818AA810B3098EA4 /* CrossPlatform.swift */,
+				219BEBBC53A03ACA8905E841276051F7 /* Data+CacheKey.swift */,
+				5D5F844ACECC1CBDC3AF765742255562 /* DelaysApplyingAttributes.swift */,
+				274CB3256D80B18F7B330FFBEF2CB95F /* Dictionary+Add.swift */,
+				FCE1D443A92F799A5444B66856BAF2E4 /* Dictionary+JSON.swift */,
+				E75759E2FC4ABA88B55A64CDDA2F2681 /* DispatchQueue+Extensions.swift */,
+				F3313C8EF91C8741DA119D85B65B47D5 /* Fillable.swift */,
+				18694287F3D7A957A87C5B9FDFB95FC3 /* FloatingPoint+DegreesRadians.swift */,
+				81C2D1DD6FB188DCD3800CC91187F75B /* Identifiable.swift */,
+				9A104F5588FA0009E50EC33EF48A4CCA /* NSBezierPath+CrossPlatform.swift */,
+				498DF6783141D81BDBDB7F860385C206 /* NSXMLSVGParser.swift */,
+				4A44CF422B0668DD19A1BF3CB30B1D40 /* ParsesAsynchronously.swift */,
+				7EE158C8A849E4CC685A1E715B91D2C8 /* PathCommand.swift */,
+				67D13B02BEAC5C0EDD1E31C3FDBA6D36 /* PathDLexer.swift */,
+				B65CF5A2A713CF586EE9339267ACD236 /* Print.swift */,
+				A472BAD4047C2A944D40D3032CABD2B7 /* Scalar+FromByteArray.swift */,
+				7AD8C15EFAE7393F0672F1FED158010A /* Stack.swift */,
+				A7983FA08E7B24C235FFA62FBB0499F6 /* String+Subscript.swift */,
+				93334C2505787CFA55FC35678CDAF6DA /* String+Trim.swift */,
+				EE19AE5F73995060B9DA4CD9332B1CA9 /* Strokable.swift */,
+				EEBB42A2A7155A91D2A0D5CE993EAF1C /* Stylable.swift */,
+				E02592EDB92C8A8405FAE0594323A308 /* SVGCache.swift */,
+				EDDCD889F41A2498F77D7B6E1A2C3C99 /* SVGCircle.swift */,
+				B3AC71ABD3BD420DA978481DC1705B1E /* SVGContainerElement.swift */,
+				A84AAC717BE7A4C4A600A684A13A6E67 /* SVGElement.swift */,
+				8BC77017F78E464F6AB1E94C711E6B01 /* SVGEllipse.swift */,
+				3983E3938F07DC838FC8CBA0A1DFE5AF /* SVGGroup.swift */,
+				262F856205B2185362AE7E6FF14AE68A /* SVGLayer.swift */,
+				B1A0F1D79EC2BE3932C3E2AC7EC7C9F3 /* SVGLine.swift */,
+				E809F830493B6939540E83EC14E6A92A /* SVGParser.swift */,
+				8027789AB6AA6461EAD23903ADC5FC4A /* SVGParserSupportedElements.swift */,
+				5F82E3CF7742501149580E3993CB5031 /* SVGPath.swift */,
+				ACD465ED5BD060B914009B5DCB2E6FA1 /* SVGPolygon.swift */,
+				5A02A00323C396AA467D6196407039DE /* SVGPolyline.swift */,
+				46B6FA6FD90FC4371F9F794C90481B7C /* SVGRectangle.swift */,
+				4E848E5D1B034F524B8A8B4AE122C2DC /* SVGRootElement.swift */,
+				468AB8EF6DD82304AAE7D42C6D0BD3B0 /* SVGShapeElement.swift */,
+				B92D60FD40E0B46CCD385028AC75508E /* SVGView.swift */,
+				84DAB01D331DAEA7E96C9CB272945343 /* Transformable.swift */,
+				F5E72AEB9C41A641018E9301CD061BAF /* UIBezierPath+SVG.swift */,
+				11D217A6B28B6D16FEB343CBDDD93724 /* UIColor+Extensions.swift */,
+				19CFCE1776B51D5F8C058088C2C3D9DA /* UIView+SVG.swift */,
+				AA04504932D66696FE12E523D9403D9F /* Unown.swift */,
+				A5C77C99058D31958E7901D4CA4D0C60 /* Support Files */,
+			);
+			name = SwiftSVG;
+			path = SwiftSVG;
+			sourceTree = "<group>";
+		};
+		A5C77C99058D31958E7901D4CA4D0C60 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E6E1C9BE46F4916860F360054B009355 /* SwiftSVG.modulemap */,
+				F185489E0FB942AAA14BD51368764079 /* SwiftSVG.xcconfig */,
+				B64872FE6B1B2E59A1423EDED510851E /* SwiftSVG-dummy.m */,
+				B653EDE721FD123CB653A6FDCE8B13B9 /* SwiftSVG-Info.plist */,
+				AB8D17753AC4923751D3D51C3FCE417B /* SwiftSVG-prefix.pch */,
+				11EFE59EB76EAC33D99F3DB487118210 /* SwiftSVG-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftSVG";
+			sourceTree = "<group>";
+		};
+		B8845B4F26D34D1C6F6997503DCA24F7 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				66F027521EEF95E39C552D17E3BF404F /* Frameworks */,
+				0F7F090C00C83944E25CE8FADE59F4B4 /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		C8010832E3AD592C4953EC9AA50F259B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D9596F8ED45C4D247FA159937F66F85D /* GooglePlaces.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C976194BC8C7B70229857C055F76EABD /* IGColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				E96655E378D15A4784EFE9445529F8B9 /* ColorPickerCell.swift */,
+				6EBEBD770FA75D05725F093F8F153E75 /* ColorPickerView.swift */,
+				AA7B165453C638644F15DA02E0DC371D /* ColorPickerViewDelegate.swift */,
+				40FE756AD45FD063F886EF2AF1255A28 /* ColorPickerViewDelegateFlowLayout.swift */,
+				20AEDA8C0A5032ACC3BD603BBA73D49E /* DefaultValues.swift */,
+				C9111C406ECE9D3859B320E53BC2F091 /* UIColor+Extension.swift */,
+				5A2A5CA53217340B1115CB322B02D5CF /* Support Files */,
+			);
+			name = IGColorPicker;
+			path = IGColorPicker;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				0BB682A9E3AEC53A1F57317EAE3D32E9 /* Frameworks */,
+				94BACDE3939179C281DB04B6A926EBAA /* Pods */,
+				45F8193EFC797890A22513B9BACE59B0 /* Products */,
+				4964CF334AFC7682264868E30670C845 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		FA07AB6110F2480319D45F553D7498EA /* Pods-UmbrellaWeather */ = {
+			isa = PBXGroup;
+			children = (
+				08448743F59373CA7E3FE1BA8074E8C5 /* Pods-UmbrellaWeather.modulemap */,
+				CE712E8EF23DAD32E94665835F369CA4 /* Pods-UmbrellaWeather-acknowledgements.markdown */,
+				95CF631A323AF300544ECB7D3B4AB603 /* Pods-UmbrellaWeather-acknowledgements.plist */,
+				2217DE541D98A0F1ABBF9FDC13F344D4 /* Pods-UmbrellaWeather-dummy.m */,
+				ADA0CEAB8DB09F56E17148316A24A9AF /* Pods-UmbrellaWeather-frameworks.sh */,
+				33D5166E9F95E0C9281B9BE429EF4F27 /* Pods-UmbrellaWeather-Info.plist */,
+				052481A3ED5781B73CED3FB52E4CDC24 /* Pods-UmbrellaWeather-resources.sh */,
+				4F936838862C536DD657CBF53CAA1F7E /* Pods-UmbrellaWeather-umbrella.h */,
+				B6899713300839C8E8F5992944B3812B /* Pods-UmbrellaWeather.debug.xcconfig */,
+				685B14F8A8DF97CDF0DF3BA5A12E576D /* Pods-UmbrellaWeather.release.xcconfig */,
+			);
+			name = "Pods-UmbrellaWeather";
+			path = "Target Support Files/Pods-UmbrellaWeather";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2582784E4FA6A1AC5D23FC53AC3F6EE2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7B74645E07C39771156A1FA413B98D4 /* Alamofire-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D3B9520A2C5A40DD46D0E25C003B41 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7831F4AA426D4DDC90E16F47CF700DA /* Pods-UmbrellaWeather-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC4DD1EEF30B91880ED9B2FA2627F65B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98B1981D77B2DC0B50356EAC116CFF94 /* SwiftSVG-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBAF7871CC983ACBA0F9AD83C2D4BB9C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DA07DFC44F8781C43CEF13FA981122F /* M13Checkbox-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF8A654131EACBFE8E6275E3029105E9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EE1FDEFDD39B68FC45914834243E3F6 /* IGColorPicker-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2349E173F60A2065FC65E52DD215DFF0 /* SwiftSVG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33B1BB43380EE85CDACA2C43CA9E42C9 /* Build configuration list for PBXNativeTarget "SwiftSVG" */;
+			buildPhases = (
+				EC4DD1EEF30B91880ED9B2FA2627F65B /* Headers */,
+				0DE7B9B14506D5B06290138DAF8B271C /* Sources */,
+				CCC95CF555D919E7927C0676C16D6EC6 /* Frameworks */,
+				FA53A2D6D78D40639E11B98C9ED8BD10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftSVG;
+			productName = SwiftSVG;
+			productReference = 62DF1BDA41B723D7B0440FD765F1C141 /* SwiftSVG.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		359241B555905277F85998E80D45EDC2 /* Pods-UmbrellaWeather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AB354A65E06884AC8ED17C8DFD4CC7A /* Build configuration list for PBXNativeTarget "Pods-UmbrellaWeather" */;
+			buildPhases = (
+				D6D3B9520A2C5A40DD46D0E25C003B41 /* Headers */,
+				83CEA236E9D39174B4395D7D87C56D5A /* Sources */,
+				EF512764B5A8BD3C8484825FD7410ABD /* Frameworks */,
+				44491C9AC7154BBD64F0CA3323548265 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDEA436013F536368C41C85381887486 /* PBXTargetDependency */,
+				1ECCF4EEA56A8D9707454424318A90DA /* PBXTargetDependency */,
+				FABA0C1A81CAAD03A9ED393296CA1971 /* PBXTargetDependency */,
+				1A00F4D97499D052CB12018B56BEB02C /* PBXTargetDependency */,
+				B8AF88804169659BB1CA8FE4A75E5777 /* PBXTargetDependency */,
+				404BA5961B0A7F5860C6E6D9732EE085 /* PBXTargetDependency */,
+			);
+			name = "Pods-UmbrellaWeather";
+			productName = "Pods-UmbrellaWeather";
+			productReference = C27D155306EA7C94B95CFBFAA447489B /* Pods_UmbrellaWeather.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6D8D2751C5F0C2E845398BA4D7969D44 /* IGColorPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EAB6CC25C4F26A3ABA2420835CF9EE3 /* Build configuration list for PBXNativeTarget "IGColorPicker" */;
+			buildPhases = (
+				FF8A654131EACBFE8E6275E3029105E9 /* Headers */,
+				7E94F0595D49B7150582F097A14B9B30 /* Sources */,
+				BAA9220488FA851E994F20F17F99DB4A /* Frameworks */,
+				5FC6DCB16CF696F3BBFF8903C94621D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E94C04CB22A33CE8A31134E748FA81ED /* PBXTargetDependency */,
+			);
+			name = IGColorPicker;
+			productName = IGColorPicker;
+			productReference = 369464E2D560E1D8403DC62F7F9F96F1 /* IGColorPicker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7111E54EAE43E89F451A75076C3525ED /* M13Checkbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED7DD20DD3621EE7C03FA69A9B257875 /* Build configuration list for PBXNativeTarget "M13Checkbox" */;
+			buildPhases = (
+				FBAF7871CC983ACBA0F9AD83C2D4BB9C /* Headers */,
+				A18D6945EF01597B20E75B01F302FAFC /* Sources */,
+				5D1D49812C2F7D8070972FE1826530FB /* Frameworks */,
+				87350EB5055F90CB5A756D6A63FB551A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = M13Checkbox;
+			productName = M13Checkbox;
+			productReference = 5CE79C5BF20743404E59BEFD080A364D /* M13Checkbox.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4A5194ABAF7A4780609E0E581DA6B54 /* Build configuration list for PBXNativeTarget "Alamofire" */;
+			buildPhases = (
+				2582784E4FA6A1AC5D23FC53AC3F6EE2 /* Headers */,
+				2DDFD9AC10F181CD7130BDF5F9E0502B /* Sources */,
+				090C1D63463ACF622287EFF9D5C9392D /* Frameworks */,
+				473D3E892ABB6C798CFF290644259B34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Alamofire;
+			productName = Alamofire;
+			productReference = 5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 45F8193EFC797890A22513B9BACE59B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */,
+				E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */,
+				0C1885900810601510E0C632060FAF26 /* GooglePlaces */,
+				6D8D2751C5F0C2E845398BA4D7969D44 /* IGColorPicker */,
+				7111E54EAE43E89F451A75076C3525ED /* M13Checkbox */,
+				359241B555905277F85998E80D45EDC2 /* Pods-UmbrellaWeather */,
+				2349E173F60A2065FC65E52DD215DFF0 /* SwiftSVG */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		44491C9AC7154BBD64F0CA3323548265 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		473D3E892ABB6C798CFF290644259B34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FC6DCB16CF696F3BBFF8903C94621D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87350EB5055F90CB5A756D6A63FB551A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA53A2D6D78D40639E11B98C9ED8BD10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0DE7B9B14506D5B06290138DAF8B271C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC78D21F69A5B1670EA837C0A5F6390D /* BinaryFloatingPoint+ParseLengthString.swift in Sources */,
+				34FB97622838BAF70DF4F754183CE03E /* CALayer+Sublayers.swift in Sources */,
+				A2B9ED2191B47DE2B3D5F357B14D838F /* CALayer+SVG.swift in Sources */,
+				3DA15AAAD6381241F577F86F3E42F36C /* CAShapeLayer+SVG.swift in Sources */,
+				7743B437A7C29FE6821E3A4C9FA45577 /* CoordinateLexer.swift in Sources */,
+				B3A384A0CD6468AE2808DB582F3EAC2E /* CrossPlatform.swift in Sources */,
+				DFBADB5CC4932142422002F20F5A8AAA /* Data+CacheKey.swift in Sources */,
+				712DD65FE85BCC1B3485EE683FFB6C98 /* DelaysApplyingAttributes.swift in Sources */,
+				FF274B739B932D5475DCBE355567F21E /* Dictionary+Add.swift in Sources */,
+				BB6CDBCD56FE7AD6B053C4A572B79F39 /* Dictionary+JSON.swift in Sources */,
+				F05946185B7A37653C0BA3149687EDB3 /* DispatchQueue+Extensions.swift in Sources */,
+				137B0B5E63202FE2E9FAD9C3FAA2ADA6 /* Fillable.swift in Sources */,
+				1BA68E00C3BA704B0ED72BAF9CD1CFE1 /* FloatingPoint+DegreesRadians.swift in Sources */,
+				63DC9E0B2F3C2FA86FF7B77E51779A8C /* Identifiable.swift in Sources */,
+				95FCA1C4E626F70924D111DA2609D2D1 /* NSBezierPath+CrossPlatform.swift in Sources */,
+				A3FE64F1CDE83839169A8497E2BBA303 /* NSXMLSVGParser.swift in Sources */,
+				1F5FAACE87B623C44153DD09A822E1B3 /* ParsesAsynchronously.swift in Sources */,
+				290FDD6000DBBC635016326F9711F111 /* PathCommand.swift in Sources */,
+				1AC00B5C1555BDC7A5B0690BBE29769E /* PathDLexer.swift in Sources */,
+				EAEC62731E421E8C8BE928032193B9EB /* Print.swift in Sources */,
+				9A0E47682B59A3B119C23F4EFA6E271F /* Scalar+FromByteArray.swift in Sources */,
+				A9E8F15FD1CF5ED960B637D688A63DDA /* Stack.swift in Sources */,
+				BD5AEAE5C754E31177ACF6CE6BF56E96 /* String+Subscript.swift in Sources */,
+				20E0BE472F06CDD82AA660C4C0B190E3 /* String+Trim.swift in Sources */,
+				F0C0274D3FB9D20A4232B5BE8DAE532F /* Strokable.swift in Sources */,
+				99EF0E3EC03BCFC297DF399105502FDB /* Stylable.swift in Sources */,
+				2B51BABACCA8BB003BF832C7199ACB3C /* SVGCache.swift in Sources */,
+				9A9D956F06ED090E30A48ACF6A8E65C4 /* SVGCircle.swift in Sources */,
+				AC07823B941A20C4922DE7C88F3570DE /* SVGContainerElement.swift in Sources */,
+				0579DB182A9DF9334D6F85BFFE5E2C7B /* SVGElement.swift in Sources */,
+				BD61DD79F86B26BD7DCC9A19C151476F /* SVGEllipse.swift in Sources */,
+				399FADF0A86557CDFB3B8CA527BCD0F0 /* SVGGroup.swift in Sources */,
+				6D23C152B6445C4508F6FF8FB352F4DC /* SVGLayer.swift in Sources */,
+				D3B55EC0016ABBC02EB9376CFAFC7B41 /* SVGLine.swift in Sources */,
+				2B3221296319AB33BFB4C756AE5F4D72 /* SVGParser.swift in Sources */,
+				A6577E273761F4946B31D6FF92D78A40 /* SVGParserSupportedElements.swift in Sources */,
+				CA117284A892BF33550EC5C9563CB41B /* SVGPath.swift in Sources */,
+				4C075371146A8E2EBBCD691A7B639B07 /* SVGPolygon.swift in Sources */,
+				3736DEB3E4538D9F8FA950AD17AA80A1 /* SVGPolyline.swift in Sources */,
+				06AF08EE94A52FBEC4B23FC8F7E46B50 /* SVGRectangle.swift in Sources */,
+				0829D39A7891D0CD419F5B0FA945D78B /* SVGRootElement.swift in Sources */,
+				9D967308ACAC7A1083969A17DA370F66 /* SVGShapeElement.swift in Sources */,
+				9707A3D6C72179DF7BE18A4EE3C88F4E /* SVGView.swift in Sources */,
+				6E636388E18A816493343C46C98E5057 /* SwiftSVG-dummy.m in Sources */,
+				CABAA0C201E696E00A454362AB27F4CD /* Transformable.swift in Sources */,
+				04DBFC7384A95DBD195D6ED3F848E3E1 /* UIBezierPath+SVG.swift in Sources */,
+				2030DCBC8447E22A3EB4F310B2D8B078 /* UIColor+Extensions.swift in Sources */,
+				35DF6382CADD2A0BE2BA216DC3AC709C /* UIView+SVG.swift in Sources */,
+				37C6321FB48624A55C2750261039A1E6 /* Unown.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DDFD9AC10F181CD7130BDF5F9E0502B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83956E20859CDBBE7BC38ABADE0170FB /* AFError.swift in Sources */,
+				1945CD5D63A1C164AEAAA9A33E85571E /* Alamofire-dummy.m in Sources */,
+				BEE6B677416CA71C981D1D3F60B18C96 /* Alamofire.swift in Sources */,
+				D3D8C379C6E4FB487E5ABD6800AD7B7E /* DispatchQueue+Alamofire.swift in Sources */,
+				1986B50C74F1697EA43F68335C93CEB3 /* MultipartFormData.swift in Sources */,
+				3571F958A3907B3A806E62D50C2550D4 /* NetworkReachabilityManager.swift in Sources */,
+				132E0F619E4338E5D1B27E4C72076B3F /* Notifications.swift in Sources */,
+				0C5E11DE24DAA737704B355F5F2F3426 /* ParameterEncoding.swift in Sources */,
+				98A929C8E9012AB167672714FFD2113C /* Request.swift in Sources */,
+				D65C254F5ABF2CB5ECEE50FE8F8E1A80 /* Response.swift in Sources */,
+				E3747EC31FCCA97D75A81FC700CF7E24 /* ResponseSerialization.swift in Sources */,
+				64744C911253C3E01461FAD7C935C8D7 /* Result.swift in Sources */,
+				F13F2AA7F2E6D95A181CAB99B900D531 /* ServerTrustPolicy.swift in Sources */,
+				2C61B040BA6A9A7AE66C4D9BA26D5520 /* SessionDelegate.swift in Sources */,
+				931BBB8230A25161D5C37528A8F9FECF /* SessionManager.swift in Sources */,
+				AFC64B1097F7355FF423D6A73E9C7210 /* TaskDelegate.swift in Sources */,
+				933FDA5970AA525D6CB92BFEBA2BAB4A /* Timeline.swift in Sources */,
+				53791F5E5F07400F92CFDFC89A432305 /* Validation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E94F0595D49B7150582F097A14B9B30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				264D38C04FB2A8AAC6DD94AEEDE6D33E /* ColorPickerCell.swift in Sources */,
+				224E7A8EC9F1222531E3A0C3977FCDAB /* ColorPickerView.swift in Sources */,
+				845FFB8F470D34D9D2B1EBF240E153A2 /* ColorPickerViewDelegate.swift in Sources */,
+				B318B688B65B56BC840B03962D2DE393 /* ColorPickerViewDelegateFlowLayout.swift in Sources */,
+				A7F238E4EA685E9A685F4A6AE1568549 /* DefaultValues.swift in Sources */,
+				4147AAEFC99B3FF5EE4792FEC4A009F5 /* IGColorPicker-dummy.m in Sources */,
+				551ED8009D7A001E38FD3C99D25F5CBD /* UIColor+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83CEA236E9D39174B4395D7D87C56D5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				118DC85E692378302AE6D16EE1A205D8 /* Pods-UmbrellaWeather-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A18D6945EF01597B20E75B01F302FAFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8B8496663DA7512C8DCDA1DCA05C60E /* DefaultValues.swift in Sources */,
+				4A107B86C255F6A49C6616D546B40585 /* M13Checkbox+IB.swift in Sources */,
+				7F5C1F4F2BE2212FCEE08299124361F4 /* M13Checkbox-dummy.m in Sources */,
+				0126B11AAF31F96644C6F82064721027 /* M13Checkbox.swift in Sources */,
+				A2E15A3C59A1B26BC369820D7914C739 /* M13CheckboxAddRemovePathGenerator.swift in Sources */,
+				12EDD45814D8150755D0B6B9024CEFCD /* M13CheckboxAnimationGenerator.swift in Sources */,
+				1BB92ED1C2A38E73E82956BE00F0C4B7 /* M13CheckboxBounceController.swift in Sources */,
+				EE5DDEFF888762F44404E30889EFCF70 /* M13CheckboxCheckPathGenerator.swift in Sources */,
+				E6FFE305826BE9881BB19196880D5A74 /* M13CheckboxController.swift in Sources */,
+				F00EA7040B010ACDE2EA7011D7529A11 /* M13CheckboxDisclosurePathGenerator.swift in Sources */,
+				128FA21D7EFAB80FC1F2B851D4D6450A /* M13CheckboxDotController.swift in Sources */,
+				2265A020B0727EB38FA75523D170B51A /* M13CheckboxExpandController.swift in Sources */,
+				BC8F9F3A3C4B4E685AD494B3A3DC4BD7 /* M13CheckboxFadeController.swift in Sources */,
+				16860195B5F7EA0E583C7B52FEE745FE /* M13CheckboxFillController.swift in Sources */,
+				9F6A924646BC2E5C790B822DFA3D6DF3 /* M13CheckboxFlatController.swift in Sources */,
+				A4E3AA395F2CC53A35AFC0FA78ABE33F /* M13CheckboxGestureRecognizer.swift in Sources */,
+				6A7A384A3F24F41E61C5EC59DC89FB2B /* M13CheckboxPathGenerator.swift in Sources */,
+				D7B3528A3103B65FA92AAA30AEF7B8D1 /* M13CheckboxRadioPathGenerator.swift in Sources */,
+				88FA28B34E671180474152FCC00CDE3C /* M13CheckboxSpiralController.swift in Sources */,
+				F78870AB77C739F4971E831CD98D3696 /* M13CheckboxStrokeController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A00F4D97499D052CB12018B56BEB02C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IGColorPicker;
+			target = 6D8D2751C5F0C2E845398BA4D7969D44 /* IGColorPicker */;
+			targetProxy = BCDD3632806A1DA33849383DF68E3EE4 /* PBXContainerItemProxy */;
+		};
+		1ECCF4EEA56A8D9707454424318A90DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleMaps;
+			target = E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */;
+			targetProxy = 11B3180EB379605D0DDCC01AE6CD264A /* PBXContainerItemProxy */;
+		};
+		404BA5961B0A7F5860C6E6D9732EE085 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftSVG;
+			target = 2349E173F60A2065FC65E52DD215DFF0 /* SwiftSVG */;
+			targetProxy = 9AE02C0C56B9272D5062C41CD1F6C066 /* PBXContainerItemProxy */;
+		};
+		B8AF88804169659BB1CA8FE4A75E5777 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = M13Checkbox;
+			target = 7111E54EAE43E89F451A75076C3525ED /* M13Checkbox */;
+			targetProxy = 3E7FF97AD9C4DA2520D66253C71FD130 /* PBXContainerItemProxy */;
+		};
+		BDEA436013F536368C41C85381887486 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
+			targetProxy = 5F3B58F9172D4E5B4CC293DBA9E1D3B4 /* PBXContainerItemProxy */;
+		};
+		D42315111F400C0605ACCD6B5CAF2178 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleMaps;
+			target = E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */;
+			targetProxy = 6EB1C2DD30E6564FC3135C9E8002D8F7 /* PBXContainerItemProxy */;
+		};
+		E94C04CB22A33CE8A31134E748FA81ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = M13Checkbox;
+			target = 7111E54EAE43E89F451A75076C3525ED /* M13Checkbox */;
+			targetProxy = DDB3003722DA5442EBEA6C3909A0449E /* PBXContainerItemProxy */;
+		};
+		FABA0C1A81CAAD03A9ED393296CA1971 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GooglePlaces;
+			target = 0C1885900810601510E0C632060FAF26 /* GooglePlaces */;
+			targetProxy = C4F391F7E3849080162AFC8C221B6AE8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		367E9E7235C399147F2D7A24E85E4823 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6899713300839C8E8F5992944B3812B /* Pods-UmbrellaWeather.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-UmbrellaWeather/Pods-UmbrellaWeather-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-UmbrellaWeather/Pods-UmbrellaWeather.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		43E8195770D6F689E67E9E6469CBA89B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59450595F84D2CC160BF11E2936F667B /* M13Checkbox.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/M13Checkbox/M13Checkbox-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/M13Checkbox/M13Checkbox-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/M13Checkbox/M13Checkbox.modulemap";
+				PRODUCT_MODULE_NAME = M13Checkbox;
+				PRODUCT_NAME = M13Checkbox;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4AA46832D8A16AA4E4811383B204D2A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1B997D8D378FBF4A4BA6584DE653DB8 /* GoogleMaps.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5F60FFC0F0009032A80F251D6AE9F147 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 685B14F8A8DF97CDF0DF3BA5A12E576D /* Pods-UmbrellaWeather.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-UmbrellaWeather/Pods-UmbrellaWeather-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-UmbrellaWeather/Pods-UmbrellaWeather.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6C45B1006817A15455775A7DA55845C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F185489E0FB942AAA14BD51368764079 /* SwiftSVG.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftSVG/SwiftSVG-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftSVG/SwiftSVG-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftSVG/SwiftSVG.modulemap";
+				PRODUCT_MODULE_NAME = SwiftSVG;
+				PRODUCT_NAME = SwiftSVG;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6EF66DDEB276699986280E4ABC3D69F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F185489E0FB942AAA14BD51368764079 /* SwiftSVG.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftSVG/SwiftSVG-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftSVG/SwiftSVG-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftSVG/SwiftSVG.modulemap";
+				PRODUCT_MODULE_NAME = SwiftSVG;
+				PRODUCT_NAME = SwiftSVG;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		75BBB760DFD877E344322B54D29DFE64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB36FA63DF104CE17036A63A5F96F634 /* Alamofire.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		907050E8ED96EF2CF04EC3D293E73BD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A0D65B8D9F61AC9EA27B103D8C7D186 /* GooglePlaces.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		C7565AEA7FCD8F66CAF546DC5AF1404F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1B997D8D378FBF4A4BA6584DE653DB8 /* GoogleMaps.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D7BE0C9D7F64DDE14F0F04B9D553A72A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59450595F84D2CC160BF11E2936F667B /* M13Checkbox.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/M13Checkbox/M13Checkbox-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/M13Checkbox/M13Checkbox-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/M13Checkbox/M13Checkbox.modulemap";
+				PRODUCT_MODULE_NAME = M13Checkbox;
+				PRODUCT_NAME = M13Checkbox;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DAE6A93FDEEC425AC7DDFAF6088C9C81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31DE8F4E732DBF21A42A063CB1C55E8D /* IGColorPicker.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IGColorPicker/IGColorPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IGColorPicker/IGColorPicker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/IGColorPicker/IGColorPicker.modulemap";
+				PRODUCT_MODULE_NAME = IGColorPicker;
+				PRODUCT_NAME = IGColorPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DC85D7712D8EE6E340F053BC38E1FB63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A0D65B8D9F61AC9EA27B103D8C7D186 /* GooglePlaces.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E53385A6E71EEE85CBB0684C39D2EE0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31DE8F4E732DBF21A42A063CB1C55E8D /* IGColorPicker.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IGColorPicker/IGColorPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IGColorPicker/IGColorPicker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/IGColorPicker/IGColorPicker.modulemap";
+				PRODUCT_MODULE_NAME = IGColorPicker;
+				PRODUCT_NAME = IGColorPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ECB437504DF805BD96CAABF97400B526 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		F94FD07C591B17B7E61A1528AB9BCB3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB36FA63DF104CE17036A63A5F96F634 /* Alamofire.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FC2AC47FDB0310285CE777F18CD1532 /* Build configuration list for PBXAggregateTarget "GooglePlaces" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				907050E8ED96EF2CF04EC3D293E73BD9 /* Debug */,
+				DC85D7712D8EE6E340F053BC38E1FB63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33B1BB43380EE85CDACA2C43CA9E42C9 /* Build configuration list for PBXNativeTarget "SwiftSVG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EF66DDEB276699986280E4ABC3D69F1 /* Debug */,
+				6C45B1006817A15455775A7DA55845C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AA46832D8A16AA4E4811383B204D2A4 /* Debug */,
+				C7565AEA7FCD8F66CAF546DC5AF1404F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */,
+				ECB437504DF805BD96CAABF97400B526 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EAB6CC25C4F26A3ABA2420835CF9EE3 /* Build configuration list for PBXNativeTarget "IGColorPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E53385A6E71EEE85CBB0684C39D2EE0F /* Debug */,
+				DAE6A93FDEEC425AC7DDFAF6088C9C81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AB354A65E06884AC8ED17C8DFD4CC7A /* Build configuration list for PBXNativeTarget "Pods-UmbrellaWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				367E9E7235C399147F2D7A24E85E4823 /* Debug */,
+				5F60FFC0F0009032A80F251D6AE9F147 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4A5194ABAF7A4780609E0E581DA6B54 /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75BBB760DFD877E344322B54D29DFE64 /* Debug */,
+				F94FD07C591B17B7E61A1528AB9BCB3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED7DD20DD3621EE7C03FA69A9B257875 /* Build configuration list for PBXNativeTarget "M13Checkbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7BE0C9D7F64DDE14F0F04B9D553A72A /* Debug */,
+				43E8195770D6F689E67E9E6469CBA89B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
