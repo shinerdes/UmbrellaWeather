@@ -36,6 +36,7 @@
 		19A9A82723C89E840072D622 /* ColorSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSettingVC.swift; sourceTree = "<group>"; };
 		19A9A82923CEFBA80072D622 /* TimeRangeControlVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRangeControlVC.swift; sourceTree = "<group>"; };
 		19A9A84B23E6C04F0072D622 /* AlertSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSettingVC.swift; sourceTree = "<group>"; };
+		19DFDCDC246EE23000152D83 /* privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = privacy.md; sourceTree = "<group>"; };
 		19FDDB0D2445BD3E002458BD /* OpenSourceExplainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceExplainVC.swift; sourceTree = "<group>"; };
 		19FDDB0F24483EBF002458BD /* OpenSourceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceVC.swift; sourceTree = "<group>"; };
 		8FC298C911E1931153136B7E /* Pods_UmbrellaWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmbrellaWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				1910D04A239E5D230047FB6F /* README.md */,
+				19DFDCDC246EE23000152D83 /* privacy.md */,
 				1910D033239E5B910047FB6F /* UmbrellaWeather */,
 				1910D032239E5B910047FB6F /* Products */,
 				2D1C64EBDC05C3638282E7FF /* Pods */,
