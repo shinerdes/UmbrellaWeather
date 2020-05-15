@@ -33,8 +33,6 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var hourLbl: UILabel!
     @IBOutlet weak var minuteLbl: UILabel!
     
-    
-    
   
     @IBOutlet weak var colorView1: UIView!
     @IBOutlet weak var colorView4: UIView!
@@ -54,8 +52,23 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+     
+        saveSwitch.isOn = worldAlertSwitch
+        amPmLbl.text = worldTwelveHour
+        hourLbl.text = ("\(worldHour)")
+        minuteLbl.text = ("\(worldMinute)")
+        colorView1.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
+        colorView4.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
+        
+        //setState()
+        UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
+        UserDefaults.standard.set(worldRange, forKey: Setting.TIME.range.rawValue)
         
         setState()
+        
+        
+       
+        
         
         datePickerView.setValue(UIColor.white, forKeyPath: "textColor")
         resetBtn.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
@@ -69,10 +82,11 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         saveBtn.layer.masksToBounds = true
         titleLbl.layer.masksToBounds = true
         
-        colorView1.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
-        colorView4.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
-               
+        print("\(worldRed)")
+        print("\(worldGreen)")
+        print("\(worldBlue)")
         
+    
         
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (didAllow, error) in
@@ -103,9 +117,26 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
+        UserDefaults.standard.set(worldRange, forKey: Setting.TIME.range.rawValue)
+        saveSwitch.isOn = worldAlertSwitch
+        amPmLbl.text = worldTwelveHour
+        hourLbl.text = ("\(worldHour)")
+        minuteLbl.text = ("\(worldMinute)")
         
+        colorView1.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
+        colorView4.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
         
+        //setState()
         setState()
+        
+        
+        print("\(worldRed)")
+        print("\(worldGreen)")
+        print("\(worldBlue)")
+        
+        
+      
         
         datePickerView.setValue(UIColor.white, forKeyPath: "textColor")
         resetBtn.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
@@ -120,9 +151,7 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         saveBtn.layer.masksToBounds = true
         titleLbl.layer.masksToBounds = true
         
-        
-        colorView1.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
-        colorView4.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
+    
         
         
         if saveSwitch.isOn == false {
@@ -173,32 +202,50 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func resetBtnWasPressed(_ sender: Any) {
         
         
-        UserDefaults.standard.set("AM", forKey: Setting.Alert.twelvehour.rawValue)
-        UserDefaults.standard.set(0, forKey: Setting.Alert.hour.rawValue)
-        UserDefaults.standard.set(0, forKey: Setting.Alert.minute.rawValue)
+        
+        if worldTwelveHour == "AM" {
+            datePickerView.selectRow(0, inComponent: 0, animated: true) //
+        } else {
+            datePickerView.selectRow(1, inComponent: 0, animated: true)
+        }
+        
+        if worldHour == 12 {
+            datePickerView.selectRow(0, inComponent: 1, animated: true)
+        } else {
+            datePickerView.selectRow(worldHour, inComponent: 1, animated: true)
+        }
+        
+        datePickerView.selectRow(worldMinute, inComponent: 2, animated: true)
+        
+        selectAmPm = "AM"
+        selectHour = "0"
+        selectMinute = "0"
+        
+        UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
+        UserDefaults.standard.set(worldRange, forKey: Setting.TIME.range.rawValue)
+        UserDefaults.standard.set(selectAmPm, forKey: Setting.Alert.twelvehour.rawValue)
+        UserDefaults.standard.set(Int(selectHour), forKey: Setting.Alert.hour.rawValue)
+        UserDefaults.standard.set(Int(selectMinute), forKey: Setting.Alert.minute.rawValue)
+        
+        
+        UserDefaults.standard.synchronize()
+        
+        UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
+        UserDefaults.standard.set(worldRange, forKey: Setting.TIME.range.rawValue)
+        UserDefaults.standard.set(selectAmPm, forKey: Setting.Alert.twelvehour.rawValue)
+        UserDefaults.standard.set(Int(selectHour), forKey: Setting.Alert.hour.rawValue)
+        UserDefaults.standard.set(Int(selectMinute), forKey: Setting.Alert.minute.rawValue)
         
         
         setState()
+        
         
         // 다 설정 해줘야함
         amPmLbl.text = "\(worldTwelveHour)"
         hourLbl.text = "\(worldHour)"
         minuteLbl.text = "\(worldMinute)"
-             
         
-        if worldTwelveHour == "AM" {
-                  datePickerView.selectRow(0, inComponent: 0, animated: true) //
-              } else {
-                  datePickerView.selectRow(1, inComponent: 0, animated: true)
-              }
-              
-              if worldHour == 12 {
-                  datePickerView.selectRow(0, inComponent: 1, animated: true)
-              } else {
-                  datePickerView.selectRow(worldHour, inComponent: 1, animated: true)
-              }
-              
-        datePickerView.selectRow(worldMinute, inComponent: 2, animated: true)
+        
         
     }
     
@@ -261,14 +308,26 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         // 5. 일단 한번 저장을 했으면 world로 해당하는 시간대를 저장을 한번 해놓고
               // 다시 view가 떴을떄 picker에서 바로 보여지게 해야할듯?
-        
-        
+        UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
+        UserDefaults.standard.set(worldRange, forKey: Setting.TIME.range.rawValue)
         UserDefaults.standard.set(selectAmPm, forKey: Setting.Alert.twelvehour.rawValue)
         UserDefaults.standard.set(Int(selectHour), forKey: Setting.Alert.hour.rawValue)
         UserDefaults.standard.set(Int(selectMinute), forKey: Setting.Alert.minute.rawValue)
+        UserDefaults.standard.synchronize()
         
+        UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
+        UserDefaults.standard.set(worldRange, forKey: Setting.TIME.range.rawValue)
+        UserDefaults.standard.set(selectAmPm, forKey: Setting.Alert.twelvehour.rawValue)
+        UserDefaults.standard.set(Int(selectHour), forKey: Setting.Alert.hour.rawValue)
+        UserDefaults.standard.set(Int(selectMinute), forKey: Setting.Alert.minute.rawValue)
         setState()
 
+        print("save 눌렀을떄 setstats하고 ")
+        print(worldTwelveHour)
+         print(worldHour)
+         print(worldMinute)
+        print(worldAlertSwitch)
+        
         amPmLbl.text = "\(worldTwelveHour)"
         hourLbl.text = "\(worldHour)"
         minuteLbl.text = "\(worldMinute)"
@@ -290,7 +349,6 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     // 백그라운드에서 잘 굴러감. 우산 소지에 대한 정보도 그냥 끌어올리면 가능할듯 ?
                     
                     nContent.sound = UNNotificationSound.default
-                    
                     
                     
                     let calendar = Calendar.current
@@ -353,8 +411,9 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         if saveSwitch.isOn == false { // switch off
             UserDefaults.standard.set(false, forKey: Setting.Alert.reservation.rawValue)
+            setState()
             print("스위치 끔")
-            
+            print(worldAlertSwitch)
             // 스위치를 끄면 일단 알람은 stop으로 가게
             
             //UIApplication.shared.unregisterForRemoteNotifications()
@@ -368,6 +427,8 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
             UserDefaults.standard.set(true, forKey: Setting.Alert.reservation.rawValue)
             print("스위치 켬")
+            setState()
+             print(worldAlertSwitch)
             
             alertSaveBtn.isEnabled = true
             
@@ -416,11 +477,14 @@ extension AlertSettingVC {
             let red = userDefaults.value(forKey: Setting.RGB.red.rawValue),
             let green = userDefaults.value(forKey: Setting.RGB.green.rawValue),
             let blue = userDefaults.value(forKey: Setting.RGB.blue.rawValue),
-            let range = userDefaults.value(forKey: Setting.TIME.range.rawValue){
+            let range = userDefaults.value(forKey: Setting.TIME.range.rawValue),
+            let test = userDefaults.value(forKey: Setting.RGB.colorCheck.rawValue)
+       
+        {
             
             
             worldAlertSwitch = reservation as! Bool
-            saveSwitch.isOn = worldAlertSwitch
+            //saveSwitch.isOn = worldAlertSwitch
             
             worldTwelveHour = twelveHour as! String
             worldHour = hour as! Int
@@ -430,6 +494,8 @@ extension AlertSettingVC {
             worldGreen = green as! Int
             worldBlue = blue as! Int
             worldRange = range as! Int
+            
+            worldColorCheck = test as! Int
             
         } else {
             worldAlertSwitch = false
@@ -441,6 +507,8 @@ extension AlertSettingVC {
             worldGreen = 0
             worldBlue = 0
             worldRange = 6
+            
+            worldColorCheck = 0
             // 아니 근데 없을 수가 없는데?
             // false <-> true
         }

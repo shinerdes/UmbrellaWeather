@@ -11,7 +11,7 @@ import Alamofire
 import CoreLocation
 import GooglePlaces
 import GoogleMaps
-
+import UserNotifications
 
 //지역, 날씨, 온도, 비, 눈, 우산판정 등 데이터 뽑아내기
 
@@ -31,6 +31,7 @@ struct Setting{
         case red
         case green
         case blue
+        case colorCheck
     }
     
     enum TIME:String {
@@ -50,10 +51,14 @@ struct Setting{
 var worldRed: Int = 0 // 빨강
 var worldGreen: Int = 0 // 초록
 var worldBlue: Int = 0 // 파랑
-var worldRange: Int = 6 // 시간범위
-var worldAlertSwitch: Bool = false // 알람 스위치
 
-var worldTwelveHour = "" // 알람용 AM/PM
+var worldColorCheck: Int = 0
+
+var worldRange: Int = 6 // 시간범위
+var worldAlertSwitch: Bool = true // 알람 스위치
+
+
+var worldTwelveHour = "AM" // 알람용 AM/PM
 var worldHour = 0 // 알람용 시
 var worldMinute = 0 // 알람용 분
 
@@ -111,12 +116,63 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("이게 다시 나오나")
+        
+        /*
+         
+         let userDefaults = UserDefaults.standard // 이게 값을 불러오는건데 애매하다. // default가 없으니깐 문제
+         if let red = userDefaults.value(forKey: Setting.RGB.red.rawValue),
+             let green = userDefaults.value(forKey: Setting.RGB.green.rawValue),
+             let blue = userDefaults.value(forKey: Setting.RGB.blue.rawValue),
+             let range = userDefaults.value(forKey: Setting.TIME.range.rawValue)
+         {
+         */
+        print("테스트 해봄")
+        
+        print(UserDefaults.standard.value(forKey: Setting.RGB.blue.rawValue))
+        
+        if UserDefaults.standard.value(forKey: Setting.RGB.red.rawValue) == nil &&
+            UserDefaults.standard.value(forKey: Setting.RGB.green.rawValue) == nil &&
+            UserDefaults.standard.value(forKey: Setting.RGB.blue.rawValue) == nil
+
+            {
+
+                print("이거 최초로 하긴 하나?")
+
+                UserDefaults.standard.set(0, forKey: Setting.RGB.red.rawValue)
+                UserDefaults.standard.set(0, forKey: Setting.RGB.green.rawValue)
+                UserDefaults.standard.set(0, forKey: Setting.RGB.blue.rawValue)
+                UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
+                UserDefaults.standard.set(6, forKey: Setting.TIME.range.rawValue)
+
+                UserDefaults.standard.set("AM", forKey: Setting.Alert.twelvehour.rawValue)
+                UserDefaults.standard.set(0, forKey: Setting.Alert.hour.rawValue)
+                UserDefaults.standard.set(0, forKey: Setting.Alert.minute.rawValue)
+                UserDefaults.standard.set(false, forKey: Setting.Alert.reservation.rawValue)
+                
+                
+                UserDefaults.standard.synchronize()
+                
+                setState()
+
+            }
+        
+        print(UserDefaults.standard.value(forKey: Setting.RGB.blue.rawValue))
+        
+     
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (didAllow, error) in
+        })
+        UNUserNotificationCenter.current().delegate = self
+        
+        
         requestLocationPermision()
         
         // Do any additional setup after loading the view.
         setState()
         color = UIColor(red: worldRed, green: worldGreen, blue: worldBlue)
-    
+        
         setState()
         
         colorView1.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
@@ -1057,17 +1113,22 @@ extension Date {
         //dateFormatter.locale = Locale.current
         return dateFormatter.string(from: self)
     }
+
+}
+
+
+extension MainVC : UNUserNotificationCenterDelegate {
+      func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+         completionHandler([.alert, .sound, .badge])
+     }
     
-//    func toStringKST( dateFormat format: String ) -> String {
-//        return self.toString(dateFormat: format, timezone: Int)
-//    }
-//
-//    func toStringUTC( dateFormat format: String) -> String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = format
-//        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-//        return dateFormatter.string(from: self)
-//    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+        let settingsViewController = UIViewController()
+        settingsViewController.view.backgroundColor = .gray
+        self.present(settingsViewController, animated: true, completion: nil)
+        
+        
+    }
 }
 
 // part1

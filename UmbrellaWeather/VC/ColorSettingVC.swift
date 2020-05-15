@@ -22,7 +22,6 @@ class ColorSettingVC: UIViewController, ColorPickerViewDelegate, ColorPickerView
     
  
     @IBOutlet weak var colorView1: UIView!
-    
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var backBtn: UIButton!
     
@@ -84,8 +83,19 @@ class ColorSettingVC: UIViewController, ColorPickerViewDelegate, ColorPickerView
         pickerGreen = Int(colorPickerView.colors[indexPath.item].cgColor.components![1]*255)
         pickerBlue = Int(colorPickerView.colors[indexPath.item].cgColor.components![2]*255)
         // 단지 print일뿐 저장은 다른 문제긴 함
+        
+        
+
+        
+   
+        
         saveBtn.isEnabled = true
-    
+        
+        colorView1.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
+        
+        // 그냥 SAVE 안하고 다이렉트?
+        
+        
         
         // 이걸 GLOBAL로 깔고 가면 된다.
         
@@ -120,9 +130,13 @@ class ColorSettingVC: UIViewController, ColorPickerViewDelegate, ColorPickerView
         UserDefaults.standard.set(pickerRed, forKey: Setting.RGB.red.rawValue)
         UserDefaults.standard.set(pickerGreen, forKey: Setting.RGB.green.rawValue)
         UserDefaults.standard.set(pickerBlue, forKey: Setting.RGB.blue.rawValue)
-        
-        
+  
+   
         setState()
+        
+        print(worldRed)
+        print(worldGreen)
+        print(worldBlue)
         
         colorView1.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
    
@@ -157,13 +171,16 @@ extension ColorSettingVC {
         if let red = userDefaults.value(forKey: Setting.RGB.red.rawValue),
             let green = userDefaults.value(forKey: Setting.RGB.green.rawValue),
             let blue = userDefaults.value(forKey: Setting.RGB.blue.rawValue),
-            let range = userDefaults.value(forKey: Setting.TIME.range.rawValue)
+            let range = userDefaults.value(forKey: Setting.TIME.range.rawValue),
+            let test = userDefaults.value(forKey: Setting.RGB.colorCheck.rawValue)
+        
         {
             
             worldRed = red as! Int
             worldGreen = green as! Int
             worldBlue = blue as! Int
             worldRange = range as! Int
+            worldColorCheck = test as! Int
           
             
         } else {
@@ -172,7 +189,7 @@ extension ColorSettingVC {
             worldGreen = 0
             worldBlue = 0
             worldRange = 6
-          
+            worldColorCheck = 0
             // default setting
             
             

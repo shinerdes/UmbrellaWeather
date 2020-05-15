@@ -29,7 +29,7 @@ class SettingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setState()
-        
+
         
         print("빨강 \(worldRed)")
         print("초록 \(worldGreen)")
@@ -60,6 +60,7 @@ class SettingVC: UIViewController {
         
         
         setState()
+        
         backBtn.layer.masksToBounds = true
         titleLbl.layer.masksToBounds = true
         

@@ -1439,8 +1439,8 @@
                         <outlet property="alertSaveBtn" destination="4zg-mm-V3q" id="OcR-iv-K8h"/>
                         <outlet property="amPmLbl" destination="qYR-kQ-zcO" id="iBP-He-Dvw"/>
                         <outlet property="backBtn" destination="qKS-8S-qda" id="bGm-Gb-NDN"/>
-                        <outlet property="colorView1" destination="cbE-qh-oI7" id="GlD-YP-kRS"/>
-                        <outlet property="colorView4" destination="gUF-RK-fnj" id="gy7-qK-Zqm"/>
+                        <outlet property="colorView1" destination="cbE-qh-oI7" id="TnR-UW-2as"/>
+                        <outlet property="colorView4" destination="gUF-RK-fnj" id="YIw-Jy-Z9I"/>
                         <outlet property="datePickerView" destination="44T-xv-3Sq" id="2Kj-Cw-TVz"/>
                         <outlet property="hourLbl" destination="ib6-VU-PZh" id="WgC-fA-VPQ"/>
                         <outlet property="minuteLbl" destination="kN1-NA-iz9" id="4f1-Xi-Fec"/>
