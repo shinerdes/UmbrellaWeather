@@ -29,7 +29,9 @@ class SettingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setState()
-
+        
+        backBtn.titleLabel!.adjustsFontSizeToFitWidth = true
+        backBtn.titleLabel!.numberOfLines = 1
         
         print("빨강 \(worldRed)")
         print("초록 \(worldGreen)")
@@ -57,7 +59,8 @@ class SettingVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        backBtn.titleLabel!.adjustsFontSizeToFitWidth = true
+        backBtn.titleLabel!.numberOfLines = 1
         
         setState()
         

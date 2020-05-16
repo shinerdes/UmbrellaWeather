@@ -407,7 +407,9 @@
 			baseConfigurationReference = D11733B7C9102B7533D99B62 /* Pods-UmbrellaWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = Y4NG3TTR62;
 				INFOPLIST_FILE = UmbrellaWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -416,6 +418,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shinerdes.UmbrellaWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -426,7 +429,9 @@
 			baseConfigurationReference = 9A488ECCF93D552D860DF996 /* Pods-UmbrellaWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = Y4NG3TTR62;
 				INFOPLIST_FILE = UmbrellaWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -435,6 +440,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shinerdes.UmbrellaWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

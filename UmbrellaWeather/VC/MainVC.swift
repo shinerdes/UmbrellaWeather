@@ -117,6 +117,33 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        cityLbl.adjustsFontSizeToFitWidth = true
+        cityLbl.numberOfLines = 1
+        
+        tempLbl.adjustsFontSizeToFitWidth = true
+        tempLbl.numberOfLines = 1
+        
+        weatherLbl.adjustsFontSizeToFitWidth = true
+        weatherLbl.numberOfLines = 1
+        
+        nowRainLbl.adjustsFontSizeToFitWidth = true
+        nowRainLbl.numberOfLines = 1
+        
+        snowLbl.adjustsFontSizeToFitWidth = true
+        snowLbl.numberOfLines = 1
+        
+        
+        
+        umbrellaLbl.adjustsFontSizeToFitWidth = true
+        umbrellaLbl.numberOfLines = 1
+        
+        
+        
+        timeLbl.adjustsFontSizeToFitWidth = true
+        timeLbl.numberOfLines = 1
+        
+        
+        
         print("이게 다시 나오나")
         
         /*
@@ -206,13 +233,37 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        cityLbl.adjustsFontSizeToFitWidth = true
+        cityLbl.numberOfLines = 1
+        
+        tempLbl.adjustsFontSizeToFitWidth = true
+        tempLbl.numberOfLines = 1
+        
+        weatherLbl.adjustsFontSizeToFitWidth = true
+        weatherLbl.numberOfLines = 1
+        
+        nowRainLbl.adjustsFontSizeToFitWidth = true
+        nowRainLbl.numberOfLines = 1
+        
+        snowLbl.adjustsFontSizeToFitWidth = true
+        snowLbl.numberOfLines = 1
+        
+        umbrellaLbl.adjustsFontSizeToFitWidth = true
+        umbrellaLbl.numberOfLines = 1
+        
+        
+        timeLbl.adjustsFontSizeToFitWidth = true
+        timeLbl.numberOfLines = 1
+        
+        
         requestLocationPermision()
         // Do any additional setup after loading the view.
         setState()
         color = UIColor(red: worldRed, green: worldGreen, blue: worldBlue)
         
         
-       
+        
         print("빨강 \(worldRed)")
         print("초록 \(worldGreen)")
         print("파랑 \(worldBlue)")

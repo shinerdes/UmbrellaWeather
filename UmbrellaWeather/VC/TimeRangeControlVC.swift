@@ -19,6 +19,8 @@ class TimeRangeControlVC: UIViewController {
     @IBOutlet weak var backBtn: UIButton!
     
     override func viewDidLoad() {
+        backBtn.titleLabel!.adjustsFontSizeToFitWidth = true
+        backBtn.titleLabel!.numberOfLines = 1
         super.viewDidLoad()
         rangeLbl.text = "\(worldRange*3) Hour"
         

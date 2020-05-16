@@ -29,6 +29,10 @@ class ColorSettingVC: UIViewController, ColorPickerViewDelegate, ColorPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backBtn.titleLabel!.adjustsFontSizeToFitWidth = true
+        backBtn.titleLabel!.numberOfLines = 1
+        
+        
         
         setState()
         
@@ -50,6 +54,8 @@ class ColorSettingVC: UIViewController, ColorPickerViewDelegate, ColorPickerView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        backBtn.titleLabel!.adjustsFontSizeToFitWidth = true
+        backBtn.titleLabel!.numberOfLines = 1
         
         setState()
         

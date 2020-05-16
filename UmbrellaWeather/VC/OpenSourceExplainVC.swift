@@ -32,7 +32,8 @@ class OpenSourceExplainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        backBtn.titleLabel!.adjustsFontSizeToFitWidth = true
+        backBtn.titleLabel!.numberOfLines = 1
         setState()
         
         sourceLbl.layer.masksToBounds = true

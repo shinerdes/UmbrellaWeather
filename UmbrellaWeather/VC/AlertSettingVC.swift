@@ -52,6 +52,12 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        alertSaveBtn.titleLabel!.adjustsFontSizeToFitWidth = true
+        alertSaveBtn.titleLabel!.numberOfLines = 1
+        
+        backBtn.titleLabel!.adjustsFontSizeToFitWidth = true
+        backBtn.titleLabel!.numberOfLines = 1
      
         saveSwitch.isOn = worldAlertSwitch
         amPmLbl.text = worldTwelveHour
@@ -117,6 +123,15 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        
+        alertSaveBtn.titleLabel!.adjustsFontSizeToFitWidth = true
+        alertSaveBtn.titleLabel!.numberOfLines = 1
+        
+        backBtn.titleLabel!.adjustsFontSizeToFitWidth = true
+        backBtn.titleLabel!.numberOfLines = 1
+        
+        
         UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
         UserDefaults.standard.set(worldRange, forKey: Setting.TIME.range.rawValue)
         saveSwitch.isOn = worldAlertSwitch
