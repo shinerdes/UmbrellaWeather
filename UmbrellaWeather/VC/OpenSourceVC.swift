@@ -18,7 +18,7 @@ class OpenSourceVC: UIViewController {
     @IBOutlet weak var colorView3: UIView!
     @IBOutlet weak var colorView4: UIView!
     @IBOutlet weak var colorView5: UIView!
-    
+    @IBOutlet weak var colorView6: UIView!
     
     
     @IBOutlet weak var explainBtn1: UIButton!
@@ -26,8 +26,7 @@ class OpenSourceVC: UIViewController {
     @IBOutlet weak var explainBtn3: UIButton!
     @IBOutlet weak var explainBtn4: UIButton!
     @IBOutlet weak var explainBtn5: UIButton!
-    
-    
+    @IBOutlet weak var explainBtn6: UIButton!
     
    
     
@@ -50,6 +49,7 @@ class OpenSourceVC: UIViewController {
         explainBtn3.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         explainBtn4.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         explainBtn5.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
+        explainBtn6.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         
         
         colorView1.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
@@ -57,7 +57,8 @@ class OpenSourceVC: UIViewController {
         colorView3.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
         colorView4.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
         colorView5.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
-     
+        colorView6.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -113,6 +114,14 @@ class OpenSourceVC: UIViewController {
                      self.present(OpenSourceExplainVC, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func goExplainBtnWasPressed6(_ sender: Any) {
+        openSourceType = "AAInfographics"
+              if let OpenSourceExplainVC = self.storyboard?.instantiateViewController(withIdentifier: "openSourceExplainVC"){
+                     self.present(OpenSourceExplainVC, animated: true, completion: nil)
+        }
+    }
+    
     //openSourceExplainVC
     /*
     // MARK: - Navigation

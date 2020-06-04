@@ -11,6 +11,8 @@ target 'UmbrellaWeather' do
    pod 'GooglePlaces'
    pod 'IGColorPicker'
    pod 'SwiftSVG', '~> 2.0'
-
+   pod "GWInfinitePickerView"
+   pod 'AAInfographics', :git => 'https://github.com/AAChartModel/AAChartKit-Swift.git'
+	
 
 end

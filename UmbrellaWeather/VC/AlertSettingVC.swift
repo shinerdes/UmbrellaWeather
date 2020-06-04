@@ -349,6 +349,7 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         
         
+        
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             if settings.authorizationStatus == UNAuthorizationStatus.authorized {
                 DispatchQueue.main.async {
@@ -360,7 +361,7 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     
                     // 이 데이터를 바로 불러오게 해야한다.
                     //nContent.title = "\(self.selectAmPm) \(self.selectHour) \(self.selectMinute)"
-                   
+                    
                     // 백그라운드에서 잘 굴러감. 우산 소지에 대한 정보도 그냥 끌어올리면 가능할듯 ?
                     
                     nContent.sound = UNNotificationSound.default
@@ -518,9 +519,9 @@ extension AlertSettingVC {
             worldHour = 0
             worldMinute = 0
             
-            worldRed = 0
-            worldGreen = 0
-            worldBlue = 0
+            worldRed = 255
+            worldGreen = 255
+            worldBlue = 255
             worldRange = 6
             
             worldColorCheck = 0

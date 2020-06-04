@@ -134,9 +134,9 @@ extension SettingVC {
             
         } else {
             
-            worldRed = 0
-            worldGreen = 0
-            worldBlue = 0
+            worldRed = 255
+            worldGreen = 255
+            worldBlue = 255
             worldRange = 6
           
             // default setting

@@ -22,6 +22,8 @@ class OpenSourceExplainVC: UIViewController {
     
     let OpenWeatherAPI = "Licenses \n\n Free weather API is provided under the terms of the Creative Commons Attribution-ShareAlike 4.0 Generic License. \n\n Any use of the work other than as authorized under this license or copyright law is prohibited. \n\n You are free to: \n\n Share — copy and redistribute the material in any medium or format \n\n Adapt — remix, transform, and build upon the material \n\n for any purpose, even commercially. \n\n The licensor cannot revoke these freedoms as long as you follow the license terms. \n\n Under the following terms: \n\n Attribution — You must give appropriate credit, provide a link to the OpenWeatherMap.org, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. \n\n ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original. \n\n No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits. \n\n You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation. \n\n No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material. \n\n Other licenses different from Creative Commons can be used in Elite accounts under conditions set out in the price-list."
     
+    let AAInfographics = "The MIT License (MIT) \n\n Copyright (c) 2015 An An<https://github.com/AAChartModel/AAChartKit-Swift> /n/n Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: \n\n The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. \n\n THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+    
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sourceLbl: UILabel!
    
@@ -67,6 +69,11 @@ class OpenSourceExplainVC: UIViewController {
         if openSourceType == "OpenWeatherAPI" {
             textView.text = OpenWeatherAPI
             sourceLbl.text = "OpenWeatherAPI"
+        }
+        
+        if openSourceType == "AAInfographics" {
+            textView.text = AAInfographics
+            sourceLbl.text = "AAInfographics"
         }
         
         

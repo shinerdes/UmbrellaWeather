@@ -12,6 +12,15 @@ import CoreLocation
 import GooglePlaces
 import GoogleMaps
 import UserNotifications
+import AAInfographics
+
+
+// API 불러오는거 통합 작업
+
+// 한번 불러오면 API의 모든 정보를 다 끌어온다음에 거기서 골라내는 형시긍로 간다
+
+
+
 
 //지역, 날씨, 온도, 비, 눈, 우산판정 등 데이터 뽑아내기
 
@@ -80,17 +89,39 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     
     
     
-    @IBOutlet weak var beforeBtn: UIButton!
-    @IBOutlet weak var afterBtn: UIButton!
-    
-    
     @IBOutlet weak var colorView1: UIView!
     @IBOutlet weak var colorView2: UIView!
     
-   
+    
     @IBOutlet weak var iconImageView: UIImageView!
     
-  
+    
+    @IBOutlet weak var sliderBar: UISlider!
+    
+    
+    
+    // ** LOAD API **
+    var tempArray = Array<String>() // 온도
+    // 최대값 최소값은 검토해보고
+    var idArray =  Array<Int>() // 날씨 ID
+    var mainArray = Array<String>() // 날씨 상황
+    var iconArray = Array<String>() // icon
+    var dayOrNightArray = Array<String>()
+    
+    var rainArray = Array<String>()  // nil이라면 0을 삽입 해줘야 함
+    var snowArray = Array<String>() // nil이라면 0을 삽입 해줘야 함
+    var timeArray = Array<String>() // 시간 GMT 기준
+    
+    var oneCity = ""
+    var oneTimezone = 0
+    
+    // ** LOAD API **
+    
+    // LOAD API -> COUNT Array[0 ~ 39] 조절 가능 -> Array에 있는 걸 걍 땡기면 끝
+    //          -> 초기값은 [0]으로 뿌려준다.
+    //          -> output함수는 int를 받는데 globalCount를 기준으로 간다.
+    
+    
     
     
     let APIKEY = "5eef6dde7344d983f06aaa5752d0a1ed"
@@ -109,13 +140,60 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     
     
     @IBOutlet weak var worldRangeLbl: UILabel!
+    @IBOutlet weak var chartView: UIView!
     
-    
+    var chartViewWidth: CGFloat = 0.0
+    var chartViewHeight: CGFloat = 0.0
     
     var color = UIColor(red: worldRed, green: worldGreen, blue: worldBlue) // rbg값
     
+    // chart에 넣어야 할 것 들
+    
+    // 온도, 시간,
+    // count는 40
+    //
+    
+    // 2가지 방법
+    // range count 만큼 show 해줄 것 인가
+    // 40개의 전체 array count 만큼 show 해줄 것 인가
+    
+    private var aaChartView: AAChartView!
+    private var aaChartModel: AAChartModel!
+    //public var aaChartView: AAChartView!
+    //public var aaChartModel: AAChartModel!
+    public var chartType: AAChartType! = UmbrellaWeather.AAChartType.area
+    public var step: Bool?
+    
+    
+    
     override func viewDidLoad() {
+        
+        print("제대로 돌아가긴 하남?")
+        
+        
+        
+        chartView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            //            self.chartView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,constant: 16),
+            //            self.chartView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            //            self.chartView.topAnchor.constraint(equalTo: self.umbrellaLbl.topAnchor, constant: 32),
+            //            self.chartView.bottomAnchor.constraint(equalTo: self.colorView2.bottomAnchor, constant: -16)
+            
+        ])
+        chartView.setNeedsUpdateConstraints()
+        chartView.updateConstraintsIfNeeded()
+        chartView.updateConstraints()
         super.viewDidLoad()
+        
+        
+        
+        print("chartView.frame.size.width \(chartView.frame.size.width)")
+        print("chartView.frame.size.height \(chartView.frame.size.height)")
+        
+        
+        
+        
+        
         
         cityLbl.adjustsFontSizeToFitWidth = true
         cityLbl.numberOfLines = 1
@@ -148,11 +226,11 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         
         /*
          
-         let userDefaults = UserDefaults.standard // 이게 값을 불러오는건데 애매하다. // default가 없으니깐 문제
+         let userDefaults = UserDefaults.standard  이게 값을 불러오는건데 애매하다. // default가 없으니깐 문제
          if let red = userDefaults.value(forKey: Setting.RGB.red.rawValue),
-             let green = userDefaults.value(forKey: Setting.RGB.green.rawValue),
-             let blue = userDefaults.value(forKey: Setting.RGB.blue.rawValue),
-             let range = userDefaults.value(forKey: Setting.TIME.range.rawValue)
+         let green = userDefaults.value(forKey: Setting.RGB.green.rawValue),
+         let blue = userDefaults.value(forKey: Setting.RGB.blue.rawValue),
+         let range = userDefaults.value(forKey: Setting.TIME.range.rawValue)
          {
          */
         print("테스트 해봄")
@@ -162,38 +240,38 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         if UserDefaults.standard.value(forKey: Setting.RGB.red.rawValue) == nil &&
             UserDefaults.standard.value(forKey: Setting.RGB.green.rawValue) == nil &&
             UserDefaults.standard.value(forKey: Setting.RGB.blue.rawValue) == nil
-
-            {
-
-                print("이거 최초로 하긴 하나?")
-
-                UserDefaults.standard.set(0, forKey: Setting.RGB.red.rawValue)
-                UserDefaults.standard.set(0, forKey: Setting.RGB.green.rawValue)
-                UserDefaults.standard.set(0, forKey: Setting.RGB.blue.rawValue)
-                UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
-                UserDefaults.standard.set(6, forKey: Setting.TIME.range.rawValue)
-
-                UserDefaults.standard.set("AM", forKey: Setting.Alert.twelvehour.rawValue)
-                UserDefaults.standard.set(0, forKey: Setting.Alert.hour.rawValue)
-                UserDefaults.standard.set(0, forKey: Setting.Alert.minute.rawValue)
-                UserDefaults.standard.set(false, forKey: Setting.Alert.reservation.rawValue)
-                
-                
-                UserDefaults.standard.synchronize()
-                
-                setState()
-
-            }
+            
+        {
+            
+            print("이거 최초로 하긴 하나?")
+            
+            UserDefaults.standard.set(255, forKey: Setting.RGB.red.rawValue)
+            UserDefaults.standard.set(255, forKey: Setting.RGB.green.rawValue)
+            UserDefaults.standard.set(255, forKey: Setting.RGB.blue.rawValue)
+            UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
+            UserDefaults.standard.set(6, forKey: Setting.TIME.range.rawValue)
+            
+            UserDefaults.standard.set("AM", forKey: Setting.Alert.twelvehour.rawValue)
+            UserDefaults.standard.set(0, forKey: Setting.Alert.hour.rawValue)
+            UserDefaults.standard.set(0, forKey: Setting.Alert.minute.rawValue)
+            UserDefaults.standard.set(false, forKey: Setting.Alert.reservation.rawValue)
+            
+            
+            UserDefaults.standard.synchronize()
+            
+            setState()
+            
+        }
         
         print(UserDefaults.standard.value(forKey: Setting.RGB.blue.rawValue))
         
-     
+        
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (didAllow, error) in
         })
         UNUserNotificationCenter.current().delegate = self
         
-        
+        removeAll()
         requestLocationPermision()
         
         // Do any additional setup after loading the view.
@@ -204,35 +282,86 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         
         colorView1.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
         colorView2.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
-               
+        
         worldRangeLbl.text = "\(worldRange*3) Hour"
-    
-        /* ************* Swipe Area ************* */
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-        
-        
-        
-        leftSwipe.direction = .left
-        rightSwipe.direction = .right
-        upSwipe.direction = .up
-        downSwipe.direction = .down
-        
-        
-        
-        view.addGestureRecognizer(leftSwipe)
-        view.addGestureRecognizer(rightSwipe)
-        view.addGestureRecognizer(upSwipe)
-        view.addGestureRecognizer(downSwipe)
         
         /* ************* Swipe Area ************* */
+        //        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        //        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        //        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        //        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        //
+        //
+        //
+        //        leftSwipe.direction = .left
+        //        rightSwipe.direction = .right
+        //        upSwipe.direction = .up
+        //        downSwipe.direction = .down
+        //
+        //
+        //
+        //        view.addGestureRecognizer(leftSwipe)
+        //        view.addGestureRecognizer(rightSwipe)
+        //        view.addGestureRecognizer(upSwipe)
+        //        view.addGestureRecognizer(downSwipe)
+        
+        
+        
+        /* ************* Swipe Area ************* */
+        
+        // slider area
+        
+        
+        
+        
+        
+        // uislider
+        
+        //
+        //        sliderBar.layer.cornerRadius = 20.0
+        //        //sliderBar.layer.shadowOpacity = 0.9
+        //        sliderBar.layer.masksToBounds = false
+        //
+        
+        sliderBar.thumbTintColor = .white
+        sliderBar.maximumTrackTintColor = .gray
+        sliderBar.minimumTrackTintColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
+        
+        sliderBar.setMinimumTrackImage(getImageWithColor(color: UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1), size: sliderBar.frame.size), for: .normal)
+        sliderBar.setMaximumTrackImage(getImageWithColor(color: .gray, size: sliderBar.frame.size), for: .normal)
+        //sliderBar.setMaximumTrackImage(getImageWithColor(color: .gray, size: sliderBar.frame.size), for: .normal)
+        
+        
+        
+        
+        
+        sliderBar.value = 0.0
+        sliderBar.minimumValue = 0.0
+        sliderBar.maximumValue = Float(40 - worldRange)
+        
+        
+        chartView.backgroundColor = kRGBColorFromHex(rgbValue: 0x000000)
+        title = chartType.map { $0.rawValue }
+        
+        //setUpAAChartView()
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        self.chartView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            //            self.chartView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,constant: 16),
+            //            self.chartView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            //            self.chartView.topAnchor.constraint(equalTo: self.umbrellaLbl.topAnchor, constant: 32),
+            //            self.chartView.bottomAnchor.constraint(equalTo: self.colorView2.bottomAnchor, constant: -16)
+            //
+        ])
+        print("chartView.frame.size.width \(chartView.frame.size.width)")
+        print("chartView.frame.size.height \(chartView.frame.size.height)")
+        
         
         cityLbl.adjustsFontSizeToFitWidth = true
         cityLbl.numberOfLines = 1
@@ -256,7 +385,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         timeLbl.adjustsFontSizeToFitWidth = true
         timeLbl.numberOfLines = 1
         
-        
+        removeAll()
         requestLocationPermision()
         // Do any additional setup after loading the view.
         setState()
@@ -274,7 +403,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         colorView2.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
         
         
-       
+        
         // mainVC 이탈했다가 복귀할때마다 색깔들은 월드rgb에 따라 복구
         
         
@@ -286,28 +415,185 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         worldRangeLbl.text = "\(worldRange*3) Hour"
         
         /* ************* Swipe Area ************* */
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-        
-        
-        
-        leftSwipe.direction = .left
-        rightSwipe.direction = .right
-        upSwipe.direction = .up
-        downSwipe.direction = .down
-        
-        
-        
-        view.addGestureRecognizer(leftSwipe)
-        view.addGestureRecognizer(rightSwipe)
-        view.addGestureRecognizer(upSwipe)
-        view.addGestureRecognizer(downSwipe)
-        
+        //        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        //        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        //        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        //        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        //
+        //
+        //
+        //        leftSwipe.direction = .left
+        //        rightSwipe.direction = .right
+        //        upSwipe.direction = .up
+        //        downSwipe.direction = .down
+        //
+        //
+        //
+        //        view.addGestureRecognizer(leftSwipe)
+        //        view.addGestureRecognizer(rightSwipe)
+        //        view.addGestureRecognizer(upSwipe)
+        //        view.addGestureRecognizer(downSwipe)
+        //
         /* ************* Swipe Area ************* */
         
+        
+        
+        //
+        //        sliderBar.layer.cornerRadius = 20.0
+        //        //sliderBar.layer.shadowOpacity = 0.0
+        //        sliderBar.layer.masksToBounds = false
+        
+        sliderBar.thumbTintColor = .white
+        sliderBar.maximumTrackTintColor = .gray
+        sliderBar.minimumTrackTintColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
+        
+        //sliderBar.setMaximumTrackImage(getImageWithColor(color: .gray, size: sliderBar.frame.size), for: .normal)
+        
+        
+        
+        sliderBar.setMinimumTrackImage(getImageWithColor(color: UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1), size: sliderBar.frame.size), for: .normal)
+        sliderBar.setMaximumTrackImage(getImageWithColor(color: .gray, size: sliderBar.frame.size), for: .normal)
+        
+        
+        sliderBar.value = 0.0
+        sliderBar.minimumValue = 0.0
+        sliderBar.maximumValue = Float(40 - worldRange)
+        
+        
+        chartView.backgroundColor = kRGBColorFromHex(rgbValue: 0x00000)
+        title = chartType.map { $0.rawValue }
+        
+        //setUpAAChartView()
+        
+        
+        
     }
+    
+    
+    private func setUpAAChartView() {
+        aaChartView = AAChartView()
+        chartViewWidth = chartView.frame.size.width
+        chartViewHeight = chartView.frame.size.height
+        
+        var showChartArray = Array<Double>()
+        let hexColor = UIColor(red: worldRed, green: worldGreen, blue: worldBlue)
+        let hexString = hexColor.toHexString()
+        
+        
+        for i in 0..<40 {
+            showChartArray.append(StringToDouble(input: tempArray[i]))
+        }
+        print("한번 살펴볼까")
+        print(showChartArray)
+        
+        
+        print("chartViewWidth \(chartViewWidth)")
+        print("chartViewHeight \(chartViewHeight)")
+        aaChartView!.frame = CGRect(x: 0,
+                                    y: 0,
+                                    width: chartViewWidth,
+                                    height: chartViewHeight)
+        /// AAChartView content height (the content height defaults to the same height as AAChartView)
+        aaChartView!.contentHeight = chartViewHeight
+        aaChartView!.contentWidth = chartViewWidth
+        
+        chartView.addSubview(aaChartView!)
+        aaChartView!.scrollEnabled = false//Disable chart content scrolling
+        aaChartView!.isClearBackgroundColor = true
+        aaChartView!.delegate = self as AAChartViewDelegate
+        
+        aaChartModel = AAChartModel()
+            .chartType(chartType!)
+            .colorsTheme([hexString])//Colors theme
+            .axesTextColor(AAColor.white)
+            .title("")
+            .dataLabelsEnabled(true)
+            .tooltipValueSuffix("℃")
+            .animationType(.easeFrom)
+            .backgroundColor("#000000")//To make the chart background color transparent, set backgroundColor to "rgba (0,0,0,0)" or "# 00000000". Also make sure `aaChartView!.IsClearBackgroundColor = true`
+            .touchEventEnabled(false)
+            .legendEnabled(false)
+            .xAxisVisible(false)
+            .categories(timeArray)
+            .series([
+                AASeriesElement()
+                    .name("Temperatures")
+                    .data(showChartArray)
+                
+            ])
+        
+        
+        configureTheStyleForDifferentTypeChart()
+        aaChartView!.aa_drawChartWithChartModel(aaChartModel!)
+    }
+    
+    func StringToDouble(input: String) -> Double {
+        var output = NSString(string: input).doubleValue
+        print(output)
+        output = round(output*100)/100
+        print("이후엔?")
+        print(output)
+        return output
+    }
+    
+    
+    
+    private func configureTheStyleForDifferentTypeChart() {
+        if (chartType == .area && step == true)
+            || (chartType == .line && step == true) {
+            //configureStepAreaChartAndStepLineChartStyle()
+        } else if chartType == .column
+            || chartType == .bar {
+            //configureColumnChartAndBarChartStyle()
+        } else if chartType == .area
+            || chartType == .areaspline {
+            //configureAreaChartAndAreasplineChartStyle()
+        } else if chartType == .line
+            || chartType == .spline {
+            //configureLineChartAndSplineChartStyle()
+        }
+    }
+    
+    private func kRGBColorFromHex(rgbValue: Int) -> (UIColor) {
+        return UIColor(red: ((CGFloat)((rgbValue & 0xFF0000) >> 16)) / 255.0,
+                       green: ((CGFloat)((rgbValue & 0xFF00) >> 8)) / 255.0,
+                       blue: ((CGFloat)(rgbValue & 0xFF)) / 255.0,
+                       alpha: 1.0)
+    }
+    
+    
+    
+    
+    /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////
+    /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////  /////////
+    
+    
+    
+    
+    func getImageWithColor(color: UIColor, size: CGSize) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        
+        //CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        //UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: size.width, height: size.height), cornerRadius: 5.0)
+        UIGraphicsBeginImageContextWithOptions(size, false, 10)
+        color.setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        var current = Int(sender.value)
+        imsiCount = current
+        testAPIUse(count: current)
+        //self.setUpAAChartView()
+        
+    }
+    
+    
     
     func requestLocationPermision() {
         
@@ -321,7 +607,11 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         if let location = locations.first {
             lat = location.coordinate.latitude
             lng = location.coordinate.longitude
-            loadCurrentWeather()
+            
+            LoadAPI()
+            
+            
+            
             manager.stopUpdatingLocation()
         }
     }
@@ -345,8 +635,10 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         
         if let SettingVC = self.storyboard?.instantiateViewController(withIdentifier: "settingVC"){
             imsiCount = 0
-            loadCurrentWeather()
-           
+            
+            
+            
+            
             self.present(SettingVC, animated: true, completion: nil)
             
             
@@ -358,50 +650,211 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         
         //새로고침으로 간다
         imsiCount = 0
-      
+        
         highRainGrade = 0
         highSnowGrade = 0
+        
+        sliderBar.value = 0.0
+        
+        removeAll()
+        
         requestLocationPermision()
-
+        
+        
         colorView1.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
         colorView2.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
         
         
     }
     
+    func removeAll() {
+        tempArray.removeAll()
+        idArray.removeAll()
+        mainArray.removeAll()
+        iconArray.removeAll()
+        rainArray.removeAll()
+        snowArray.removeAll()
+        timeArray.removeAll()
+        dayOrNightArray.removeAll()
+    }
+    
     // snow도 rain처럼 개편
-    func loadCurrentWeather() {
+    
+    
+    ///
+    
+    /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
+    //원테이크로 다 가져오는 API
+    
+    
+    
+    func LoadAPI(){
         let url = "\(BASEURL)\(WEATHER)lat=\(lat)&lon=\(lng)&appid=\(APIKEY)"//"&units=\(units)"
         
         print(url)
-        print(lat)
-        print(lng)
+        // 한번만 굴리는 영역
         
-        var firstId = 0
-        var dayOrNight = ""
-        var outputIcon = ""
-        
-        var totalPrecipitation: Float = 0.0
+        //name
+        //timezone
         
         
-        var nowSnowfall: Float = 0.0
-        
-        var nowPrecipitation: Float = 0.0
         
         
-        var areaRainPrecipitation: Float = 0.0
         
-        var areaSnowPrecipitation: Float = 0.0
+        Alamofire.request(url).responseJSON { response in // 이제 24시간의 양을 스캔 굴려봐야함
+            if let json = response.result.value as? [String: Any] { // 지역
+                
+                if let city = json["city"] as? [String:Any] {
+                    if let name = city["name"] as? String {
+                        //print("city=\(name)")
+                        self.oneCity = name
+                        
+                    }
+                    
+                    if let timeZ = city["timezone"] as? NSNumber {
+                        //                        print("어윤수")
+                        //
+                        //                        self.timeLine = Int(timeZ)
+                        self.oneTimezone = Int(timeZ)
+                        print("타임 라인22 \(timeZ)")
+                    }
+                    
+                    
+                }
+                if let list = json["list"] as? [[String:Any]] {
+                    for i in 0..<40 { // 0~39
+                        if let main = list[i]["main"] as? [String:Any] {
+                            if let temp = main["temp"] as? NSNumber { // NSNUMBER 고정 현재 온도
+                                //print("temp=\(temp)")
+                                var a = temp.floatValue
+                                a = a - 273.15
+                                let cutA = String(format: "%.1f", a)
+                                self.tempArray.append(cutA)
+                                
+                            }
+                            
+                            //                            if let weather = list[i]["weather"] as? [[String:Any]] {
+                            //
+                            //                            }
+                        }
+                        
+                        if let weather = list[i]["weather"] as? [[String:Any]] {
+                            if let id = weather[0]["id"] as? NSNumber {
+                                print("id 값 \(id)")
+                                let a = id.intValue
+                                self.idArray.append(a)
+                            }
+                            
+                            if let main = weather[0]["main"] as? String {
+                                print("메인 이벤트 \(main)")// 뜨나?
+                                
+                                self.mainArray.append(main)
+                                //self.weatherLbl.text = main
+                            }
+                            
+                            if let icon = weather[0]["icon"] as? String {
+                                self.iconArray.append(icon)
+                                self.dayOrNightArray.append(String(icon[icon.index(before: icon.endIndex)]))
+                            }
+                            
+                            
+                            
+                        }
+                        
+                        if let rain = list[i]["rain"] as? [String:Any] {
+                            if let threerain = rain["3h"] as? NSNumber {
+                                
+                                let a = threerain.floatValue
+                                print("비가 오나")
+                                print(a)
+                                self.rainArray.append(String(a))
+                                
+                                
+                            }
+                        } else {
+                            print("비가 오지 않는다.")
+                            self.rainArray.append("0.0")
+                        }
+                        
+                        if let snow = list[i]["snow"] as? [String:Any] {
+                            if let threesnow = snow["3h"] as? NSNumber {
+                                //print("snow 3h: \(threesnow)") // 3시간동안의 강수량 // 누적이니깐 for문 돌린다
+                                let a = threesnow.floatValue
+                                self.snowArray.append(String(a))
+                                
+                            }
+                            
+                        } else {
+                            self.snowArray.append("0.0")
+                        }
+                        
+                        if let dt_txt = list[i]["dt_txt"] as? String { // 시간대는 포함 x
+                            
+                            
+                            
+                            
+                            let dateString:String = dt_txt
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                            dateFormatter.timeZone = NSTimeZone(name:"UTC") as TimeZone?
+                            var date:Date = dateFormatter.date(from: dateString)! // String을 date로 변환
+                            
+                            
+                            
+                            print("테스트 \(date)")
+                            let dd = date.toString(dateFormat: "yyyy-MM-dd HH:mm:ss", timezone: self.oneTimezone)
+                            print("다시 보자 \(dd)")
+                            self.timeArray.append(dd)
+                            
+                            
+                            
+                            
+                            
+                        }
+                    }
+                }
+                
+                
+                
+                //////////////////////////
+                
+                
+                
+                print("tempArray \(self.tempArray)")
+                print("idArray \(self.idArray)")
+                print("mainArray \(self.mainArray)")
+                print("iconArray \(self.iconArray)")
+                print("rainArray \(self.rainArray)")
+                print("snowArray \(self.snowArray)")
+                print("timeArray \(self.timeArray)")
+                print("dayOrNightArray \(self.dayOrNightArray)")
+                
+                self.testAPIUse(count: 0)
+                
+                
+                
+                self.setUpAAChartView()
+            }
+            
+            
+            
+            
+        }
         
-        //var rainCount = 0
         
-        //var avgPrecipitation: Float = 0.0
+    }
+    
+    func testAPIUse(count: Int) {
+        print("일단 출력 테스트를 한다")
         
-        let umbrellaAttributedString = NSMutableAttributedString(string: "")
-        let umbrellaImageAttachment = NSTextAttachment()
-        umbrellaImageAttachment.image = UIImage(named: "umbrella")
-        umbrellaImageAttachment.bounds = CGRect(x: 0, y: -5, width: 25, height: 25)
-        umbrellaAttributedString.append(NSAttributedString(attachment: umbrellaImageAttachment))
+        highRainGrade = 0
+        highSnowGrade = 0
+        
+        let rainAttributedString = NSMutableAttributedString(string: "")
+        let rainImageAttachment = NSTextAttachment()
+        rainImageAttachment.image = UIImage(named: "umbrella")
+        rainImageAttachment.bounds = CGRect(x: 0, y: -5, width: 25, height: 25)
+        rainAttributedString.append(NSAttributedString(attachment: rainImageAttachment))
         
         let snowAttributedString = NSMutableAttributedString(string: "")
         let snowImageAttachment = NSTextAttachment()
@@ -428,262 +881,119 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         classAttributedString.append(NSAttributedString(attachment: classImageAttachment))
         
         
+        var outputWeather = ""
         
-   
-        var umbrellaIdArray = [Int]()
-        var umbrellaDecideArray = [String]()
+        print(tempArray[count])
+        print(idArray[count])
+        print(mainArray[count])
+        print(iconArray[count])
+        print(rainArray[count]) // 0.0 이면 무출력
+        print(snowArray[count]) // 0.0 이면 무출력
+        print(timeArray[count])
         
-        Alamofire.request(url).responseJSON { response in // 이제 24시간의 양을 스캔 굴려봐야함
-            if let json = response.result.value as? [String: Any] { // 지역
-                
-               
-              
-                
-                if let city = json["city"] as? [String:Any] {
-                    if let name = city["name"] as? String {
-                        //print("city=\(name)")
-                        
-                        locationAttributedString.append(NSAttributedString(string: " \(name)"))
-                        self.cityLbl.attributedText = locationAttributedString
-                        self.cityLbl.sizeToFit()
-                
-                    }
-                    
-                    if let timeZ = city["timezone"] as? NSNumber {
-                        print("어윤수")
-                        print("타임 라인 \(timeZ)")
-                        self.timeLine = Int(timeZ)
-                        
-                    }
-                    
-                    
-                }
-                
-                
-                // 스캔을 때려야 할때
-                if let list = json["list"] as? [[String:Any]] {
-                    
-                    // for
-                    for i in self.imsiCount..<self.imsiCount + worldRange {
-                        
-                        if let rain = list[i]["rain"] as? [String:Any] {
-                            if let threerain = rain["3h"] as? NSNumber {
-                                
-                                let a = threerain.floatValue
-                                if i == self.imsiCount {
-                                    print("지금 강수량")
-                                    print(a)
-                                    nowPrecipitation = a
-                                }
-//                                if a != 0.0 {
-//                                    rainCount = rainCount + 1
-//                                }
-                                areaRainPrecipitation = a
-                                totalPrecipitation = totalPrecipitation + a
-                                
-                                
-                                //totalPrecipitation = totalPrecipitation + Int(truncating: threerain)
-                                //Precipitation.append(threerain)
-                                //print(totalPrecipitation)
-                            }
-                        }
-                        
-                        if let snow = list[i]["snow"] as? [String:Any] {
-                            if let threesnow = snow["3h"] as? NSNumber {
-                                //print("snow 3h: \(threesnow)") // 3시간동안의 강수량 // 누적이니깐 for문 돌린다
-                                let a = threesnow.floatValue
-                                if i == self.imsiCount {
-                                    print("지금 강설량")
-                                    print(a)
-                                    nowSnowfall = a
-                                }
-                                
-                                areaSnowPrecipitation = a
-                                
-                                
-                                
-                                //nowSnowfall = nowSnowfall + a
-                                //nowSnowfall = nowSnowfall + Int(truncating: threesnow)
-                                
-                                //Snowfall.append(threesnow)
-                                //print(nowSnowfall)
-                            }
-                        }
-                        
-                        if let weather2 = list[i]["weather"] as? [[String:Any]] {
-                            if let desc = weather2[0]["description"] as? String {
-                                print(desc) // 나와있는 것들을 추합해서 결정한다.
-                                umbrellaDecideArray.append(desc)
-                                // 추합한 다음 이걸 함수로 보내버려야
-                                
-                            }
-                            
-                            if let id = weather2[0]["id"] as? NSNumber {
-                                print("id 값 \(id)")
-                                let a = id.intValue
-                                umbrellaIdArray.append(a)
-                                if i == self.imsiCount {
-                                    print("이게 최초의 id값")
-                                    firstId = a
-                                }
-                                
-                                
-                            }
-                        }
-                        
-                        
-                        print("\(i)번쨰 \(areaRainPrecipitation)") // 지표2
-                        
-                       // print("카운트 \(rainCount)")
-                        
-                        self.judgeAreaRain(areaRainPrecipitation)
-                        self.judgeAreaSnow(areaSnowPrecipitation)
-                        
-                        print("현재 강수량 \(nowPrecipitation)")
-                        
-                        
-                        
-                    } //for
-                    
-                    //print(umbrellaDecideArray)
-                    //print(umbrellaIdArray)
-                    
-                    //print("현재 강수량 \(nowPrecipitation)")
-                    
-                    
-                    print("\(self.highRainGrade)등급")
-                    print("\(self.highSnowGrade)등급")
-                    self.message(self.highRainGrade, self.highSnowGrade)
-                    
-                    
-                    
-                    
-                    
-                    if let main = list[self.imsiCount]["main"] as? [String:Any] { // list의 1라인이다. //
-                        
-                        
-                        if let temp = main["temp"] as? NSNumber { // NSNUMBER 고정 현재 온도
-                            print("temp=\(temp)")
-                            var a = temp.floatValue
-                            a = a - 273.15
-                            let cutA = String(format: "%.1f", a)
-                            
-                            tempAttributedString.append(NSAttributedString(string: " \(cutA)°C"))
-                            self.tempLbl.attributedText = tempAttributedString
-                            self.tempLbl.sizeToFit()
-                           
-                            
-                            
-                        }
-                        
-                    }
-                    
-                    
-                    if let dt_txt = list[self.imsiCount]["dt_txt"] as? String { // 시간대는 포함 x
-                       
-                       
-                        
-                        
-                        let dateString:String = dt_txt
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                        dateFormatter.timeZone = NSTimeZone(name:"UTC") as TimeZone?
-                        var date:Date = dateFormatter.date(from: dateString)! // String을 date로 변환
-                        
-                       
-                       
-                        print("테스트 \(date)")
-                        let dd = date.toString(dateFormat: "yyyy-MM-dd HH:mm:ss", timezone: self.timeLine)
-                        print(dd)
-                        self.timeLbl.text = "\(dd)"
-                        
-               
-                        
-                    }
-                    
-                    if let weather = list[self.imsiCount]["weather"] as? [[String:Any]] { // 메인 날씨 view + 아이콘까지 나중에 나와야
-                        if let main = weather[0]["main"] as? String {
-                            print("메인 이벤트 \(main)")// 뜨나?
-                            
-                            
-                            classAttributedString.append(NSAttributedString(string: " \(main)"))
-                            self.weatherLbl.attributedText = classAttributedString
-                            self.weatherLbl.sizeToFit()
-
-                            
-                            //self.weatherLbl.text = main
-                        }
-                        
-                        if let icon = weather[0]["icon"] as? String {
-                            print("아이콘을 보자 \(icon)")
-                            
-                            
-                            print(icon[icon.index(before: icon.endIndex)]) // d or n
-                            dayOrNight = "\(icon[icon.index(before: icon.endIndex)])"
-                            
-                            
-                            
-                        }
-                        
-                        
-                    }
-                    
-                    
-                    
-                    
-                    
-                }
-                
-            }
-            
-            
-            print("first id \(firstId)")
-            print("day of night |\(dayOrNight)|")
-            
-            outputIcon = self.weatherIconOut(weatherId: firstId, dayOrNight: dayOrNight)
-            print("outputIcon \(outputIcon)")
-            
-            self.iconImageView.image = UIImage(named: "\(outputIcon).png")
-            
-            print("총 강수량 \(totalPrecipitation)")
-            print("총 적설량 \(nowSnowfall)")
         
+        
+        
+        print("-----------")
+        
+        tempAttributedString.append(NSAttributedString(string: " \(tempArray[count])°C"))
+        self.tempLbl.attributedText = tempAttributedString
+        self.tempLbl.sizeToFit()
+        
+        classAttributedString.append(NSAttributedString(string: " \(mainArray[count])"))
+        self.weatherLbl.attributedText = classAttributedString
+        self.weatherLbl.sizeToFit()
+        
+        locationAttributedString.append(NSAttributedString(string: " \(oneCity)"))
+        self.cityLbl.attributedText = locationAttributedString
+        self.cityLbl.sizeToFit()
+        
+        if Float(snowArray[count]) != 0.0 {
             
+            snowAttributedString.append(NSAttributedString(string: " \(snowArray[count])mm"))
+            self.snowLbl.attributedText = snowAttributedString
+            self.snowLbl.sizeToFit()
             
-            // 총 강수량에서 raincount로 나누면 평균 강수량이 뜰듯
-            //avgPrecipitation = (totalPrecipitation / Float(rainCount))
-            if totalPrecipitation != 0.0 {
-                //print("평균 강수량 \(avgPrecipitation)") // 지표1
-               // self.judgeAverageRain(avgPrecipitation)
-            }
-
+        } else {
+            snowAttributedString.append(NSAttributedString(string: ""))
+            self.snowLbl.attributedText = snowAttributedString
+            self.snowLbl.sizeToFit()
+        }
+        
+        if Float(rainArray[count]) != 0.0 {
             
-            
-            if nowSnowfall != 0.0 {
-                
-                snowAttributedString.append(NSAttributedString(string: " \(nowSnowfall)mm"))
-                self.snowLbl.attributedText = snowAttributedString
-                self.snowLbl.sizeToFit()
-               
-            } else {
-                snowAttributedString.append(NSAttributedString(string: ""))
-                self.snowLbl.attributedText = snowAttributedString
-                self.snowLbl.sizeToFit()
-            }
-            
-            if nowPrecipitation != 0.0 {
-                
-                umbrellaAttributedString.append(NSAttributedString(string: " \(nowPrecipitation)mm"))
-                self.nowRainLbl.attributedText = umbrellaAttributedString
-                self.nowRainLbl.sizeToFit()
-            } else {
-                umbrellaAttributedString.append(NSAttributedString(string: ""))
-                self.nowRainLbl.attributedText = umbrellaAttributedString
-                self.nowRainLbl.sizeToFit()
-            }
+            rainAttributedString.append(NSAttributedString(string: " \(rainArray[count])mm"))
+            self.nowRainLbl.attributedText = rainAttributedString
+            self.nowRainLbl.sizeToFit()
+        } else {
+            rainAttributedString.append(NSAttributedString(string: ""))
+            self.nowRainLbl.attributedText = rainAttributedString
+            self.nowRainLbl.sizeToFit()
+        }
+        
+        self.timeLbl.text = timeArray[count]
+        
+        
+        outputWeather = self.weatherIconOut(weatherId: idArray[count], dayOrNight: dayOrNightArray[count])
+        self.iconImageView.image = UIImage(named: "\(outputWeather).png")
+        //iconArray 추출
+        
+        
+        
+        // 여기까지는 단순하게 show 해주는 것
+        
+        
+        // 우산 소지 여부를 결정할 작업. worldRange 포함한다. ㅇㅋ?
+        
+        print("worldRange체크 한번 해주고")
+        print(worldRange)
+        
+        // i가 안간다
+        print("imsicount \(self.imsiCount)")
+        for i in self.imsiCount..<self.imsiCount + worldRange {
+            print("굴러가는거 테스트")
+            print(i)
+            // 잘 굴러간다.
+            let theRainFloat = CGFloat(NSString(string: rainArray[i]).floatValue)
+            let theSnowFloat = CGFloat(NSString(string: snowArray[i]).floatValue)
+            print("비오는지 확인차")
+            self.judgeAreaRain(Float(theRainFloat))
+            self.judgeAreaSnow(Float(theSnowFloat))
             
             
         }
+        print("우산판정 ")
+        print(self.highRainGrade)
+        print(self.highSnowGrade)
+        self.message(self.highRainGrade, self.highSnowGrade)
+        //
+        
+        //oneCity
+        
+        
+        
+        
+        // 단순 show만 해주면 되는 것
+        // cityLbl, tempLbl, weatherLbl , nowRainLbl , snowLbl , timeLbl, iconImageView
+        
+        // worldrange 포함
+        // umbrellaLbl : 따로 func
+        
+        
+        
+        
+        
+        
+        //
+        // 단순히 show -> show[count] 뿌려준다.
+        // 단 count의 끝 범위는 worldRange의 영향을 받는다
+        
+        // worldRange가 포함된 func -> count ~ count + worldRange
+        //
+        
+        
+        
+        
         
     }
     
@@ -727,53 +1037,53 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     }
     
     
-       func judgeAreaSnow(_ currentSnow: Float){ // 눈
-           
-           print("현재 영역의 강수량 \(currentSnow)")
-           if currentSnow == 0.0 {
-               print("우산을 안가져가도 되는 수준")
-           } else if currentSnow > 0.0 && currentSnow < 1.0 {
-               print("안가져가도 괜찮긴 한데 비가 아예 안오지는 않음")
-               if highSnowGrade == 0 {
-                   highSnowGrade = 1
-               }
-           } else if currentSnow > 1.0 && currentSnow < 3.0 {
-               print("가져가는게 괜찮다. 비가 온다.")
-               if highSnowGrade >= 0 && highSnowGrade <= 1 {
-                   highSnowGrade = 2
-               }
-           } else if currentSnow > 3.0 {
-               print("무조건 가져가야한다.")
-               if highSnowGrade >= 0 && highSnowGrade <= 2 {
-                   highSnowGrade = 3
-               }
-           }
-           
-       }
-       
+    func judgeAreaSnow(_ currentSnow: Float){ // 눈
+        
+        print("현재 영역의 강수량 \(currentSnow)")
+        if currentSnow == 0.0 {
+            print("우산을 안가져가도 되는 수준")
+        } else if currentSnow > 0.0 && currentSnow < 1.0 {
+            print("안가져가도 괜찮긴 한데 비가 아예 안오지는 않음")
+            if highSnowGrade == 0 {
+                highSnowGrade = 1
+            }
+        } else if currentSnow > 1.0 && currentSnow < 3.0 {
+            print("가져가는게 괜찮다. 비가 온다.")
+            if highSnowGrade >= 0 && highSnowGrade <= 1 {
+                highSnowGrade = 2
+            }
+        } else if currentSnow > 3.0 {
+            print("무조건 가져가야한다.")
+            if highSnowGrade >= 0 && highSnowGrade <= 2 {
+                highSnowGrade = 3
+            }
+        }
+        
+    }
     
     
     
-//    func judgeAverageRain(_ averageRain: Float) {
-//
-//        // n번의 횟수동안 총 강수량에 대한 평균
-//        // 1. 0mm : 우산을 안가져가도 되는 수준
-//        // 2. 1mm미만 : 안가져가도 괜찮긴 한데 비가 아예 안오지는 않음
-//        // 3. 1mm이상 3mm미만 : 가져가는게 괜찮다. 비가 온다.
-//        // 4. 3mm 이상 : 무조건 가져가야한다.
-//
-//        print("평균적인 강수량은 \(averageRain)")
-//        if averageRain == 0.0 {
-//            print("우산을 안가져가도 되는 수준")
-//        } else if averageRain > 0.0 && averageRain < 1.0 {
-//            print("안가져가도 괜찮긴 한데 비가 아예 안오지는 않음")
-//        } else if averageRain > 1.0 && averageRain < 3.0 {
-//            print("가져가는게 괜찮다. 비가 온다.")
-//        } else if averageRain > 3.0 {
-//            print("무조건 가져가야한다.")
-//        }
-//    }
-//
+    
+    //    func judgeAverageRain(_ averageRain: Float) {
+    //
+    //        // n번의 횟수동안 총 강수량에 대한 평균
+    //        // 1. 0mm : 우산을 안가져가도 되는 수준
+    //        // 2. 1mm미만 : 안가져가도 괜찮긴 한데 비가 아예 안오지는 않음
+    //        // 3. 1mm이상 3mm미만 : 가져가는게 괜찮다. 비가 온다.
+    //        // 4. 3mm 이상 : 무조건 가져가야한다.
+    //
+    //        print("평균적인 강수량은 \(averageRain)")
+    //        if averageRain == 0.0 {
+    //            print("우산을 안가져가도 되는 수준")
+    //        } else if averageRain > 0.0 && averageRain < 1.0 {
+    //            print("안가져가도 괜찮긴 한데 비가 아예 안오지는 않음")
+    //        } else if averageRain > 1.0 && averageRain < 3.0 {
+    //            print("가져가는게 괜찮다. 비가 온다.")
+    //        } else if averageRain > 3.0 {
+    //            print("무조건 가져가야한다.")
+    //        }
+    //    }
+    //
     
     func message(_ rain: Int, _ snow: Int) {
         
@@ -863,107 +1173,107 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         // day
         if dayOrNight == "d" {
             
-        switch weatherId {
-        case 200,201,202,230,231,232:
-            icon = "day_rain_thunder";
-            break
-        case 210,211,212,221:
-            icon = "thunder";
-            break
-        case 300,301,302,310,311,312,313,314,321:
-            icon = "rain";
-            break
-        case 500,501,502,503,504,520,521,522,531:
-            icon = "day_rain";
-            break
-        case 511,612,613,615,616:
-            icon = "day_sleet";
-            break
-        case 600,601,602,611,620,621,622:
-            icon = "day_snow";
-            break
-        case 701,751:
-            icon = "mist";
-            break
-        case 771:
-            icon = "wind";
-            break
-        case 711,721,731,741,761,762:
-            icon = "fog";
-            break
-        case 781:
-            icon = "tornado";
-            break
-        case 800:
-            icon = "day_clear";
-            break
-        case 801:
-            icon = "day_partial_cloud";
-            break
-        case 802:
-            icon = "cloudy";
-            break
-        case 803,804:
-            icon = "overcast";
-            break
-            
-        default:
-            break
-        }
+            switch weatherId {
+            case 200,201,202,230,231,232:
+                icon = "day_rain_thunder";
+                break
+            case 210,211,212,221:
+                icon = "thunder";
+                break
+            case 300,301,302,310,311,312,313,314,321:
+                icon = "rain";
+                break
+            case 500,501,502,503,504,520,521,522,531:
+                icon = "day_rain";
+                break
+            case 511,612,613,615,616:
+                icon = "day_sleet";
+                break
+            case 600,601,602,611,620,621,622:
+                icon = "day_snow";
+                break
+            case 701,751:
+                icon = "mist";
+                break
+            case 771:
+                icon = "wind";
+                break
+            case 711,721,731,741,761,762:
+                icon = "fog";
+                break
+            case 781:
+                icon = "tornado";
+                break
+            case 800:
+                icon = "day_clear";
+                break
+            case 801:
+                icon = "day_partial_cloud";
+                break
+            case 802:
+                icon = "cloudy";
+                break
+            case 803,804:
+                icon = "overcast";
+                break
+                
+            default:
+                break
+            }
             
         }
         
         // night
         
         if dayOrNight == "n" {
-        
-        switch weatherId {
-        case 200,201,202,230,231,232:
-            icon = "night_full_moon_rain_thunder";
-            break
-        case 210,211,212,221:
-            icon = "thunder";
-            break
-        case 300,301,302,310,311,312,313,314,321:
-            icon = "rain";
-            break
-        case 500,501,502,503,504,520,521,522,531:
-            icon = "night_full_moon_rain";
-            break
-        case 511,612,613,615,616:
-            icon = "night_full_moon_sleet";
-            break
-        case 600,601,602,611,620,621,622:
-            icon = "night_full_moon_snow";
-            break
-        case 701,751:
-            icon = "mist";
-            break
-        case 771:
-            icon = "wind";
-            break
-        case 711,721,731,741,761,762:
-            icon = "fog";
-            break
-        case 781:
-            icon = "tornado";
-            break
-        case 800:
-            icon = "night_full_moon_clear";
-            break
-        case 801:
-            icon = "night_full_moon_partial_cloud";
-            break
-        case 802:
-            icon = "cloudy";
-            break
-        case 803,804:
-            icon = "overcast";
-            break
             
-        default:
-            break
-        }
+            switch weatherId {
+            case 200,201,202,230,231,232:
+                icon = "night_full_moon_rain_thunder";
+                break
+            case 210,211,212,221:
+                icon = "thunder";
+                break
+            case 300,301,302,310,311,312,313,314,321:
+                icon = "rain";
+                break
+            case 500,501,502,503,504,520,521,522,531:
+                icon = "night_full_moon_rain";
+                break
+            case 511,612,613,615,616:
+                icon = "night_full_moon_sleet";
+                break
+            case 600,601,602,611,620,621,622:
+                icon = "night_full_moon_snow";
+                break
+            case 701,751:
+                icon = "mist";
+                break
+            case 771:
+                icon = "wind";
+                break
+            case 711,721,731,741,761,762:
+                icon = "fog";
+                break
+            case 781:
+                icon = "tornado";
+                break
+            case 800:
+                icon = "night_full_moon_clear";
+                break
+            case 801:
+                icon = "night_full_moon_partial_cloud";
+                break
+            case 802:
+                icon = "cloudy";
+                break
+            case 803,804:
+                icon = "overcast";
+                break
+                
+            default:
+                break
+            }
             
         }
         
@@ -971,140 +1281,67 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         
         
     }
-   
     
     
     
-    @IBAction func beforeBtnWasPressed(_ sender: Any) {
-        // index 최소값 2.
-        // 갯수는 40개
-        // [0]~[39]
-        // range :  12시간, 18시간, 24시간
-        //
-        
-        if imsiCount > 0 {
-            imsiCount = imsiCount - 1
-        
-            highRainGrade = 0
-            highSnowGrade = 0
-            loadCurrentWeather()
-        } else {
-            print("최소값 한계터졌다")
-        }
-        
-        
-    }
     
     
-    @IBAction func afterBtnWasPressed(_ sender: Any) {
-        
-        // 맥심값이 40이니깐.... // 배열상 39까지
-        // 기본값 + [4,5,6,7,8]
-        
-        
-        // 2.. <2+6
-        // 2.. <2+7
-        // 2.. <2+8
-        
-        // 34.. <34+4 : 37까지네 [34,35,36,37]
-        // 34.. <34+5 : 38까지네 [34,35,36,37,38]
-        // 34.. <34+6 : 39까지네 [34,35,36,37,38,39]
-        // 34.. <34+7 : 40까지는 안됨 [34,35,36,37,38,39,40 xxxx]
-        
-        // (imsicount + rangeIndex) = 40까지는 가능, 41이 넘어가면 나가리
-        
-        if (imsiCount + worldRange) <= 39 {
-            print("합계 \(imsiCount + worldRange)")
-            imsiCount = imsiCount + 1
-            
-            highRainGrade = 0
-            highSnowGrade = 0
-            loadCurrentWeather()
-            //print("합계 \(imsiCount + rangeIndex)")
-        } else {
-            print("최대값 한계터졌다")
-            // 이제 rangeIndex를 설정에서 바꿔줘야 함
-        }
-        
-        
-        
-    }
     
-    
-    @IBAction func firstBtnWasPressed(_ sender: Any) {
-        imsiCount = 0
-
-        highRainGrade = 0
-        highSnowGrade = 0
-        loadCurrentWeather()
-        // 누르면 0스타트
-        
-    }
-    
-    @IBAction func lastBtnWasPressed(_ sender: Any) {
-        // imsiCount,worldRange 더하면 40이네?
-        
-        imsiCount = 40 - worldRange
-       
-        highRainGrade = 0
-        loadCurrentWeather()
-        
-        
-        
-        // 누르면 끝까지
-    }
     
     
     
     // test btn으로 api값을 달리 보이게 만들 것
     
-    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
-        if (sender.direction == .left) {
-            print("Swipe Left")
-            
-            if (imsiCount + worldRange) <= 39 {
-                print("합계 \(imsiCount + worldRange)")
-                imsiCount = imsiCount + 1
-               
-                loadCurrentWeather()
-                //print("합계 \(imsiCount + rangeIndex)")
-            } else {
-                print("최대값 한계터졌다")
-                // 이제 rangeIndex를 설정에서 바꿔줘야 함
-            }
-            
-            // ㅅㅣ점 변경
-        }
-        
-        if (sender.direction == .right) {
-            print("Swipe Right")
-            
-            
-            
-            if imsiCount > 0 {
-                imsiCount = imsiCount - 1
-               
-                loadCurrentWeather()
-            } else {
-                print("최소값 한계터졌다")
-            }
-            
-        }
-        
-        if (sender.direction == .up) {
-            print("Swipe Up")
-            
-        }
-        
-        if (sender.direction == .down) {
-            print("Swipe Down")
-            
-        }
-    }
+    //    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
+    //        if (sender.direction == .left) {
+    //            print("Swipe Left")
+    //
+    //            if (imsiCount + worldRange) <= 39 {
+    //                print("합계 \(imsiCount + worldRange)")
+    //                imsiCount = imsiCount + 1
+    //
+    //
+    //                testAPIUse(count: imsiCount)
+    //                //print("합계 \(imsiCount + rangeIndex)")
+    //            } else {
+    //                print("최대값 한계터졌다")
+    //                // 이제 rangeIndex를 설정에서 바꿔줘야 함
+    //            }
+    //
+    //            // ㅅㅣ점 변경
+    //        }
+    //
+    //        if (sender.direction == .right) {
+    //            print("Swipe Right")
+    //
+    //
+    //
+    //            if imsiCount > 0 {
+    //                imsiCount = imsiCount - 1
+    //
+    //
+    //
+    //                testAPIUse(count: imsiCount)
+    //            } else {
+    //                print("최소값 한계터졌다")
+    //            }
+    //
+    //        }
+    //
+    //        if (sender.direction == .up) {
+    //            print("Swipe Up")
+    //
+    //        }
+    //
+    //        if (sender.direction == .down) {
+    //            print("Swipe Down")
+    //
+    //        }
+    //    }
     
     // 우리는 view에 대한 swipe 기능을 넣을 것 이다
     // left, right 3시간 단위의 기준을 변경하는 작업
-   
+    
     
     
     
@@ -1151,6 +1388,19 @@ extension UIColor {
         
         self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
     }
+    
+    func toHexString() -> String {
+        var r:CGFloat = 0
+        var g:CGFloat = 0
+        var b:CGFloat = 0
+        var a:CGFloat = 0
+        
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
+        
+        return NSString(format:"#%06x", rgb) as String
+    }
 }
 
 
@@ -1164,14 +1414,14 @@ extension Date {
         //dateFormatter.locale = Locale.current
         return dateFormatter.string(from: self)
     }
-
+    
 }
 
 
 extension MainVC : UNUserNotificationCenterDelegate {
-      func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-         completionHandler([.alert, .sound, .badge])
-     }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound, .badge])
+    }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
         let settingsViewController = UIViewController()
@@ -1181,6 +1431,61 @@ extension MainVC : UNUserNotificationCenterDelegate {
         
     }
 }
+
+extension MainVC: AAChartViewDelegate {
+    open func aaChartViewDidFinishLoad(_ aaChartView: AAChartView) {
+        print("🙂🙂🙂, AAChartView Did Finished Load!!!")
+    }
+    
+    open func aaChartView(_ aaChartView: AAChartView, moveOverEventMessage: AAMoveOverEventMessageModel) {
+        print(
+            """
+            
+            selected point series element name: \(moveOverEventMessage.name ?? "")
+            🔥🔥🔥WARNING!!!!!!!!!!!!!!!!!!!! Touch Event Message !!!!!!!!!!!!!!!!!!!! WARNING🔥🔥🔥
+            ==========================================================================================
+            ------------------------------------------------------------------------------------------
+            user finger moved over!!!,get the move over event message: {
+            category = \(String(describing: moveOverEventMessage.category));
+            index = \(String(describing: moveOverEventMessage.index));
+            name = \(String(describing: moveOverEventMessage.name));
+            offset = \(String(describing: moveOverEventMessage.offset));
+            x = \(String(describing: moveOverEventMessage.x));
+            y = \(String(describing: moveOverEventMessage.y));
+            }
+            +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            """
+        )
+    }
+}
+
+
+
+@IBDesignable
+class CustomSlider: UISlider {
+    /// custom slider track height
+    @IBInspectable var trackHeight: CGFloat = 15.0
+    
+    override func trackRect(forBounds bounds: CGRect) -> CGRect {
+        // Use properly calculated rect
+        var newRect = super.trackRect(forBounds: bounds)
+        newRect.size.height = trackHeight
+        
+        return newRect
+    }
+    
+    
+    
+    
+    
+    
+    
+}
+// chart
+
+
+
+
 
 // part1
 // real time 출력?

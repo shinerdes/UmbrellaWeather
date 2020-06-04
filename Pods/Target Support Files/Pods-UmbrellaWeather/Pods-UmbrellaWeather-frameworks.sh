@@ -161,13 +161,17 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AAInfographics/AAInfographics.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GWInfinitePickerView/GWInfinitePickerView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IGColorPicker/IGColorPicker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftSVG/SwiftSVG.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AAInfographics/AAInfographics.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GWInfinitePickerView/GWInfinitePickerView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IGColorPicker/IGColorPicker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftSVG/SwiftSVG.framework"

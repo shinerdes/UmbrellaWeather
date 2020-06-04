@@ -13,9 +13,7 @@ class ColorSettingVC: UIViewController, ColorPickerViewDelegate, ColorPickerView
     
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var colorPickerView: ColorPickerView!
-    @IBOutlet weak var selectedColorView: UIView!
-    @IBOutlet weak var aroundSelectColorView: UIView!
-   
+
     var pickerRed = 0
     var pickerGreen = 0
     var pickerBlue = 0
@@ -35,12 +33,7 @@ class ColorSettingVC: UIViewController, ColorPickerViewDelegate, ColorPickerView
         
         
         setState()
-        
-        aroundSelectColorView.layer.borderColor = UIColor.black.cgColor
-        aroundSelectColorView.layer.borderWidth = 2.0
-        colorPickerView.layer.borderColor = UIColor.black.cgColor
-        colorPickerView.layer.borderWidth = 2.0
-
+   
 
         
         colorPickerView.delegate = self
@@ -83,7 +76,7 @@ class ColorSettingVC: UIViewController, ColorPickerViewDelegate, ColorPickerView
     
     
     func colorPickerView(_ colorPickerView: ColorPickerView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedColorView.backgroundColor = colorPickerView.colors[indexPath.item]
+       
         
         pickerRed = Int(colorPickerView.colors[indexPath.item].cgColor.components![0]*255)
         pickerGreen = Int(colorPickerView.colors[indexPath.item].cgColor.components![1]*255)
@@ -111,7 +104,7 @@ class ColorSettingVC: UIViewController, ColorPickerViewDelegate, ColorPickerView
     
     
     func colorPickerView(_ colorPickerView: ColorPickerView, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        return CGSize(width: 150, height: 150)
     }
     
     func colorPickerView(_ colorPickerView: ColorPickerView, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -191,9 +184,9 @@ extension ColorSettingVC {
             
         } else {
             
-            worldRed = 0
-            worldGreen = 0
-            worldBlue = 0
+            worldRed = 255
+            worldGreen = 255
+            worldBlue = 255
             worldRange = 6
             worldColorCheck = 0
             // default setting

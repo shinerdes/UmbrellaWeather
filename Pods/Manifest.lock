@@ -1,4 +1,5 @@
 PODS:
+  - AAInfographics (4.0.0)
   - Alamofire (4.9.1)
   - GoogleMaps (3.6.0):
     - GoogleMaps/Maps (= 3.6.0)
@@ -7,15 +8,18 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (3.6.0):
     - GoogleMaps/Base (= 3.6.0)
+  - GWInfinitePickerView (1.1.1)
   - IGColorPicker (0.4.2):
     - M13Checkbox (~> 3.2.0)
   - M13Checkbox (3.2.2)
   - SwiftSVG (2.3.2)
 
 DEPENDENCIES:
+  - AAInfographics (from `https://github.com/AAChartModel/AAChartKit-Swift.git`)
   - Alamofire
   - GoogleMaps
   - GooglePlaces
+  - GWInfinitePickerView
   - IGColorPicker
   - SwiftSVG (~> 2.0)
 
@@ -24,18 +28,30 @@ SPEC REPOS:
     - Alamofire
     - GoogleMaps
     - GooglePlaces
+    - GWInfinitePickerView
     - IGColorPicker
     - M13Checkbox
     - SwiftSVG
 
+EXTERNAL SOURCES:
+  AAInfographics:
+    :git: https://github.com/AAChartModel/AAChartKit-Swift.git
+
+CHECKOUT OPTIONS:
+  AAInfographics:
+    :commit: 9d3c56e5398e1fdea23915056beae35f5209c1a7
+    :git: https://github.com/AAChartModel/AAChartKit-Swift.git
+
 SPEC CHECKSUMS:
+  AAInfographics: bbeed03caece4ee3b5e557d734967394e9bcdb11
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   GoogleMaps: 82f8fe307193bb4de6ef6bf9e88f1d624b718f9d
   GooglePlaces: 1b9d29cf3e164903d873600f511f42acdfe85294
+  GWInfinitePickerView: 95b2012528f2723bbf7f97ba9178b6d38a82b63b
   IGColorPicker: c6d43aa386a9fdc8f958f3bd4e5ab85905242c8a
   M13Checkbox: a8c2491cfbbca10797925fd0b9154a782bf40d89
   SwiftSVG: ca7f64e403b8ea7ea8eba8c823b83ba4a059834c
 
-PODFILE CHECKSUM: bfa9bf4fa7c27f151c5f31df10f9e761fecb302e
+PODFILE CHECKSUM: 1cfc630c30fc420817ecd387d6c1116f559434b3
 
 COCOAPODS: 1.8.4
