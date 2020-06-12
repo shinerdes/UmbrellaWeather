@@ -104,7 +104,7 @@ class ColorSettingVC: UIViewController, ColorPickerViewDelegate, ColorPickerView
     
     
     func colorPickerView(_ colorPickerView: ColorPickerView, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 150)
+        return CGSize(width: 150, height: 350)
     }
     
     func colorPickerView(_ colorPickerView: ColorPickerView, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -37,11 +37,27 @@ class SettingVC: UIViewController {
         print("초록 \(worldGreen)")
         print("파랑 \(worldBlue)")
         
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings { (settings) in
+            if(settings.authorizationStatus == .authorized)
+            {
+                print("Push authorized")
+               
+            }
+            else
+            {
+                print("Push not authorized")
+                
+            }
+        }
+        
         
         backBtn.layer.masksToBounds = true
         titleLbl.layer.masksToBounds = true
         
-        
+        print(UNUserNotificationCenter.self.current())
+        print(UNUserNotificationCenter.current())
+      
         colorView1.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
         colorView4.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
         colorView5.backgroundColor = UIColor(red: CGFloat(worldRed)/255, green: CGFloat(worldGreen)/255, blue: CGFloat(worldBlue)/255, alpha: 1)
@@ -100,10 +116,58 @@ class SettingVC: UIViewController {
     }
     
     @IBAction func goAlertSettingBtnWasPressed(_ sender: Any) {
-        if let AlertSettingVC = self.storyboard?.instantiateViewController(withIdentifier: "alertSettingVC"){
-             self.present(AlertSettingVC, animated: true, completion: nil)
-            
+        
+        
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings { (settings) in
+            if(settings.authorizationStatus == .authorized)
+            {
+                
+                DispatchQueue.main.async {
+                    print("Push authorized")
+                    if let AlertSettingVC = self.storyboard?.instantiateViewController(withIdentifier: "alertSettingVC"){
+                        self.present(AlertSettingVC, animated: true, completion: nil)
+                    }
+                }
+                
+            }
+            else
+            {
+                print("Push not authorized")
+                
+                DispatchQueue.main.async {
+                    let dialog = UIAlertController(title: "알림 미설정", message: "알림 허용을 설정하세요", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){ (action: UIAlertAction) -> Void in
+                        
+                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.openURL(url)
+                        }
+                        
+                        
+                        //self.dismiss(animated: true, completion: nil)
+                    }
+                    
+                    
+                    dialog.addAction(action)
+                    
+                    self.present(dialog, animated: true, completion: nil)
+                    
+                    
+                    
+                    
+                    
+                }
+                //                if let url = URL(string: UIApplication.openSettingsURLString) {
+                //                    UIApplication.shared.openURL(url)
+                //                }
+            }
         }
+        
+        
+        
+        // usernotification의 유무로 간다
+        //
         
     }
     

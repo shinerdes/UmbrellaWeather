@@ -13,12 +13,12 @@
 		1910D041239E5B9E0047FB6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1910D03F239E5B9E0047FB6F /* LaunchScreen.storyboard */; };
 		1910D04C239F84320047FB6F /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910D04B239F84320047FB6F /* MainVC.swift */; };
 		1910D04F23ACD7CF0047FB6F /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910D04E23ACD7CE0047FB6F /* SettingVC.swift */; };
+		192A3D212488F38E00526E40 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E86EED24876E6900BAC948 /* NotificationCenter.framework */; };
+		192A3D222488F39A00526E40 /* Pods_UmbrellaWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC298C911E1931153136B7E /* Pods_UmbrellaWeather.framework */; };
 		199CC384247D218A0072CC55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 199CC383247D218A0072CC55 /* Assets.xcassets */; };
 		19A9A82823C89E840072D622 /* ColorSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9A82723C89E840072D622 /* ColorSettingVC.swift */; };
 		19A9A82A23CEFBA80072D622 /* TimeRangeControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9A82923CEFBA80072D622 /* TimeRangeControlVC.swift */; };
 		19A9A84C23E6C04F0072D622 /* AlertSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9A84B23E6C04F0072D622 /* AlertSettingVC.swift */; };
-		19AF7245248530C6008272AD /* Pods_UmbrellaWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC298C911E1931153136B7E /* Pods_UmbrellaWeather.framework */; };
-		19AF7246248530C6008272AD /* Pods_UmbrellaWeather.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC298C911E1931153136B7E /* Pods_UmbrellaWeather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		19E86F1B2487C71A00BAC948 /* AASeriesElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E86F162487C71800BAC948 /* AASeriesElement.swift */; };
 		19E86F1C2487C71A00BAC948 /* AAChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E86F172487C71800BAC948 /* AAChartView.swift */; };
 		19E86F1D2487C71A00BAC948 /* AAChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E86F182487C71900BAC948 /* AAChartModel.swift */; };
@@ -53,13 +53,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		19AF7247248530C6008272AD /* Embed Frameworks */ = {
+		192A3D242488F39A00526E40 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				19AF7246248530C6008272AD /* Pods_UmbrellaWeather.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +75,7 @@
 		1910D04A239E5D230047FB6F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1910D04B239F84320047FB6F /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		1910D04E23ACD7CE0047FB6F /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		192A3D202488F1A500526E40 /* UmbrellaWeather.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UmbrellaWeather.entitlements; sourceTree = "<group>"; };
 		199CC383247D218A0072CC55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		19A9A82723C89E840072D622 /* ColorSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSettingVC.swift; sourceTree = "<group>"; };
 		19A9A82923CEFBA80072D622 /* TimeRangeControlVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRangeControlVC.swift; sourceTree = "<group>"; };
@@ -123,7 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19AF7245248530C6008272AD /* Pods_UmbrellaWeather.framework in Frameworks */,
+				192A3D212488F38E00526E40 /* NotificationCenter.framework in Frameworks */,
+				192A3D222488F39A00526E40 /* Pods_UmbrellaWeather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +154,7 @@
 		1910D033239E5B910047FB6F /* UmbrellaWeather */ = {
 			isa = PBXGroup;
 			children = (
+				192A3D202488F1A500526E40 /* UmbrellaWeather.entitlements */,
 				19E86F072487B8E000BAC948 /* Chart */,
 				1910D04D239F84370047FB6F /* VC */,
 				1910D034239E5B910047FB6F /* AppDelegate.swift */,
@@ -171,8 +173,8 @@
 			children = (
 				1910D04B239F84320047FB6F /* MainVC.swift */,
 				1910D04E23ACD7CE0047FB6F /* SettingVC.swift */,
-				19A9A82723C89E840072D622 /* ColorSettingVC.swift */,
 				19A9A84B23E6C04F0072D622 /* AlertSettingVC.swift */,
+				19A9A82723C89E840072D622 /* ColorSettingVC.swift */,
 				19A9A82923CEFBA80072D622 /* TimeRangeControlVC.swift */,
 				19FDDB0D2445BD3E002458BD /* OpenSourceExplainVC.swift */,
 				19FDDB0F24483EBF002458BD /* OpenSourceVC.swift */,
@@ -246,7 +248,7 @@
 				1910D02F239E5B910047FB6F /* Resources */,
 				9DBFB0F007DE94D20AFBEB44 /* [CP] Embed Pods Frameworks */,
 				5047F7D8387890C855221AD4 /* [CP] Copy Pods Resources */,
-				19AF7247248530C6008272AD /* Embed Frameworks */,
+				192A3D242488F39A00526E40 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -549,11 +551,13 @@
 			baseConfigurationReference = D11733B7C9102B7533D99B62 /* Pods-UmbrellaWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = UmbrellaWeather/UmbrellaWeather.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Y4NG3TTR62;
 				INFOPLIST_FILE = UmbrellaWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,7 +567,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -572,11 +576,13 @@
 			baseConfigurationReference = 9A488ECCF93D552D860DF996 /* Pods-UmbrellaWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = UmbrellaWeather/UmbrellaWeather.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Y4NG3TTR62;
 				INFOPLIST_FILE = UmbrellaWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -586,7 +592,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

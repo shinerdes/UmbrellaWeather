@@ -19,7 +19,8 @@ import AAInfographics
 
 // 한번 불러오면 API의 모든 정보를 다 끌어온다음에 거기서 골라내는 형시긍로 간다
 
-
+ 
+// 위치나 알림 거부 때렸을때 그에 대한 대비를 해줘야 함
 
 
 //지역, 날씨, 온도, 비, 눈, 우산판정 등 데이터 뽑아내기
@@ -103,7 +104,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     // ** LOAD API **
     var tempArray = Array<String>() // 온도
     // 최대값 최소값은 검토해보고
-    var idArray =  Array<Int>() // 날씨 ID
+    var idArray =  Array<String>() // 날씨 ID
     var mainArray = Array<String>() // 날씨 상황
     var iconArray = Array<String>() // icon
     var dayOrNightArray = Array<String>()
@@ -164,6 +165,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     public var chartType: AAChartType! = UmbrellaWeather.AAChartType.area
     public var step: Bool?
     
+
     
     
     override func viewDidLoad() {
@@ -267,12 +269,14 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         
         
         
+       
+        
+        removeAll()
+        //requestLocationPermision()
+        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (didAllow, error) in
         })
         UNUserNotificationCenter.current().delegate = self
-        
-        removeAll()
-        requestLocationPermision()
         
         // Do any additional setup after loading the view.
         setState()
@@ -387,6 +391,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         
         removeAll()
         requestLocationPermision()
+        //LoadAPI()
         // Do any additional setup after loading the view.
         setState()
         color = UIColor(red: worldRed, green: worldGreen, blue: worldBlue)
@@ -409,7 +414,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         
         print("will appear인데.....")
         
-        
+        print("이건 will 이다")
         
         print("이거는 appear")
         worldRangeLbl.text = "\(worldRange*3) Hour"
@@ -484,7 +489,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
             showChartArray.append(StringToDouble(input: tempArray[i]))
         }
         print("한번 살펴볼까")
-        print(showChartArray)
+        //print(showChartArray)
         
         
         print("chartViewWidth \(chartViewWidth)")
@@ -529,10 +534,9 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     
     func StringToDouble(input: String) -> Double {
         var output = NSString(string: input).doubleValue
-        print(output)
+
         output = round(output*100)/100
-        print("이후엔?")
-        print(output)
+       
         return output
     }
     
@@ -572,7 +576,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     
     func getImageWithColor(color: UIColor, size: CGSize) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        
+    
         //CGRect(x: 0, y: 0, width: size.width, height: size.height)
         //UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: size.width, height: size.height), cornerRadius: 5.0)
         UIGraphicsBeginImageContextWithOptions(size, false, 10)
@@ -586,10 +590,10 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        var current = Int(sender.value)
+        let current = Int(sender.value)
         imsiCount = current
         testAPIUse(count: current)
-        //self.setUpAAChartView()
+       
         
     }
     
@@ -601,26 +605,58 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
+        
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+       
         if let location = locations.first {
             lat = location.coordinate.latitude
             lng = location.coordinate.longitude
             
+            
             LoadAPI()
-            
-            
-            
+           
             manager.stopUpdatingLocation()
         }
+       
+        
+     
+        
+        
     }
     
-    class func isLocationEnabled() -> (status: Bool, message: String) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+         print( "authorization checked..." ) // 바뀌었으면 다시 굴리면 된다.
+         requestLocationPermision()
+
+            
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        //requestLocationPermision()
+        print("에러가 떴다아아아아아아")
+        print(error)
+
+        lat = 37.575977
+        lng = 126.976853
+
+        LoadAPI()
+
+
+
+
+    }
+    
+    func isLocationEnabled() -> (status: Bool, message: String) {
         if CLLocationManager.locationServicesEnabled() {
             switch(CLLocationManager.authorizationStatus()) {
             case .notDetermined, .restricted, .denied:
                 return (false,"No access")
+                
             case .authorizedAlways, .authorizedWhenInUse:
                 return(true,"Access")
             }
@@ -628,6 +664,8 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
             return(false,"Turn On Location Services to Allow App to Determine Your Location")
         }
     }
+    
+    
     
     
     @IBAction func settingBtnWasPressed(_ sender: Any) {
@@ -689,6 +727,10 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     
     
     func LoadAPI(){
+     
+        
+        var oneCount = 0
+        
         let url = "\(BASEURL)\(WEATHER)lat=\(lat)&lon=\(lng)&appid=\(APIKEY)"//"&units=\(units)"
         
         print(url)
@@ -716,7 +758,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
                         //
                         //                        self.timeLine = Int(timeZ)
                         self.oneTimezone = Int(timeZ)
-                        print("타임 라인22 \(timeZ)")
+                        //print("타임 라인22 \(timeZ)")
                     }
                     
                     
@@ -740,13 +782,14 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
                         
                         if let weather = list[i]["weather"] as? [[String:Any]] {
                             if let id = weather[0]["id"] as? NSNumber {
-                                print("id 값 \(id)")
+                                //print("id 값 \(id)")
                                 let a = id.intValue
-                                self.idArray.append(a)
+                            
+                                self.idArray.append(String(a))
                             }
                             
                             if let main = weather[0]["main"] as? String {
-                                print("메인 이벤트 \(main)")// 뜨나?
+                                //print("메인 이벤트 \(main)")// 뜨나?
                                 
                                 self.mainArray.append(main)
                                 //self.weatherLbl.text = main
@@ -765,14 +808,14 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
                             if let threerain = rain["3h"] as? NSNumber {
                                 
                                 let a = threerain.floatValue
-                                print("비가 오나")
-                                print(a)
+                                //print("비가 오나")
+                                //print(a)
                                 self.rainArray.append(String(a))
                                 
                                 
                             }
                         } else {
-                            print("비가 오지 않는다.")
+                            //print("비가 오지 않는다.")
                             self.rainArray.append("0.0")
                         }
                         
@@ -801,9 +844,9 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
                             
                             
                             
-                            print("테스트 \(date)")
+                            //print("테스트 \(date)")
                             let dd = date.toString(dateFormat: "yyyy-MM-dd HH:mm:ss", timezone: self.oneTimezone)
-                            print("다시 보자 \(dd)")
+                            //print("다시 보자 \(dd)")
                             self.timeArray.append(dd)
                             
                             
@@ -832,20 +875,26 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
                 self.testAPIUse(count: 0)
                 
                 
-                
-                self.setUpAAChartView()
+                print("몇번 출력되는지 확인해보자")
+               
             }
             
             
-            
+            if oneCount == 0 {
+                self.setUpAAChartView()
+                oneCount = oneCount + 1
+                print("몇번이냐")
+            }
+              print("몇번 출력되는지 확인해보자2222")
+             
             
         }
-        
+          print("몇번 출력되는지 확인해보자3333")
         
     }
     
     func testAPIUse(count: Int) {
-        print("일단 출력 테스트를 한다")
+        //print("일단 출력 테스트를 한다")
         
         highRainGrade = 0
         highSnowGrade = 0
@@ -882,19 +931,6 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         
         
         var outputWeather = ""
-        
-        print(tempArray[count])
-        print(idArray[count])
-        print(mainArray[count])
-        print(iconArray[count])
-        print(rainArray[count]) // 0.0 이면 무출력
-        print(snowArray[count]) // 0.0 이면 무출력
-        print(timeArray[count])
-        
-        
-        
-        
-        print("-----------")
         
         tempAttributedString.append(NSAttributedString(string: " \(tempArray[count])°C"))
         self.tempLbl.attributedText = tempAttributedString
@@ -945,26 +981,26 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         
         // 우산 소지 여부를 결정할 작업. worldRange 포함한다. ㅇㅋ?
         
-        print("worldRange체크 한번 해주고")
-        print(worldRange)
+        
+       
         
         // i가 안간다
-        print("imsicount \(self.imsiCount)")
+        
         for i in self.imsiCount..<self.imsiCount + worldRange {
-            print("굴러가는거 테스트")
-            print(i)
+            //print("굴러가는거 테스트")
+            //print(i)
             // 잘 굴러간다.
             let theRainFloat = CGFloat(NSString(string: rainArray[i]).floatValue)
             let theSnowFloat = CGFloat(NSString(string: snowArray[i]).floatValue)
-            print("비오는지 확인차")
+            //print("비오는지 확인차")
             self.judgeAreaRain(Float(theRainFloat))
             self.judgeAreaSnow(Float(theSnowFloat))
             
             
         }
-        print("우산판정 ")
-        print(self.highRainGrade)
-        print(self.highSnowGrade)
+        //print("우산판정 ")
+        //print(self.highRainGrade)
+        //print(self.highSnowGrade)
         self.message(self.highRainGrade, self.highSnowGrade)
         //
         
@@ -991,7 +1027,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         // worldRange가 포함된 func -> count ~ count + worldRange
         //
         
-        
+        //self.setUpAAChartView()
         
         
         
@@ -1013,22 +1049,22 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         // 2. 1mm미만 : 안가져가도 괜찮긴 한데 비가 아예 안오지는 않음
         // 3. 1mm이상 3mm미만 : 가져가는게 괜찮다. 비가 온다.
         // 4. 3mm 이상 : 무조건 가져가야한다.
-        print("현재 영역의 강수량 \(currentRain)")
+        //print("현재 영역의 강수량 \(currentRain)")
         if currentRain == 0.0 {
-            print("우산을 안가져가도 되는 수준")
+          //  print("우산을 안가져가도 되는 수준")
         } else if currentRain > 0.0 && currentRain < 1.0 {
-            print("안가져가도 괜찮긴 한데 비가 아예 안오지는 않음")
+          //  print("안가져가도 괜찮긴 한데 비가 아예 안오지는 않음")
             if highRainGrade == 0 {
                 highRainGrade = 1
             }
         } else if currentRain > 1.0 && currentRain < 3.0 {
-            print("가져가는게 괜찮다. 비가 온다.")
+          //  print("가져가는게 괜찮다. 비가 온다.")
             if highRainGrade >= 0 && highRainGrade <= 1 {
                 highRainGrade = 2
             }
         } else if currentRain > 3.0 {
             
-            print("무조건 가져가야한다.")
+           // print("무조건 가져가야한다.")
             if highRainGrade >= 0 && highRainGrade <= 2 {
                 highRainGrade = 3
             }
@@ -1039,21 +1075,21 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     
     func judgeAreaSnow(_ currentSnow: Float){ // 눈
         
-        print("현재 영역의 강수량 \(currentSnow)")
+        //print("현재 영역의 강수량 \(currentSnow)")
         if currentSnow == 0.0 {
-            print("우산을 안가져가도 되는 수준")
+          //  print("우산을 안가져가도 되는 수준")
         } else if currentSnow > 0.0 && currentSnow < 1.0 {
-            print("안가져가도 괜찮긴 한데 비가 아예 안오지는 않음")
+           // print("안가져가도 괜찮긴 한데 비가 아예 안오지는 않음")
             if highSnowGrade == 0 {
                 highSnowGrade = 1
             }
         } else if currentSnow > 1.0 && currentSnow < 3.0 {
-            print("가져가는게 괜찮다. 비가 온다.")
+            //print("가져가는게 괜찮다. 비가 온다.")
             if highSnowGrade >= 0 && highSnowGrade <= 1 {
                 highSnowGrade = 2
             }
         } else if currentSnow > 3.0 {
-            print("무조건 가져가야한다.")
+            //print("무조건 가져가야한다.")
             if highSnowGrade >= 0 && highSnowGrade <= 2 {
                 highSnowGrade = 3
             }
@@ -1164,7 +1200,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
     }
     
     
-    func weatherIconOut(weatherId: Int, dayOrNight: String) -> String
+    func weatherIconOut(weatherId: String, dayOrNight: String) -> String
     {
         // ddy or night 구분 하는걸 하나 더 추가해야할듯
         
@@ -1174,46 +1210,46 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         if dayOrNight == "d" {
             
             switch weatherId {
-            case 200,201,202,230,231,232:
+            case "200","201","202","230","231","232":
                 icon = "day_rain_thunder";
                 break
-            case 210,211,212,221:
+            case "210","211","212","221":
                 icon = "thunder";
                 break
-            case 300,301,302,310,311,312,313,314,321:
+            case "300","301","302","310","311","312","313","314","321":
                 icon = "rain";
                 break
-            case 500,501,502,503,504,520,521,522,531:
+            case "500","501","502","503","504","520","521","522","531":
                 icon = "day_rain";
                 break
-            case 511,612,613,615,616:
+            case "511","612","613","615","616":
                 icon = "day_sleet";
                 break
-            case 600,601,602,611,620,621,622:
+            case "600","601","602","611","620","621","622":
                 icon = "day_snow";
                 break
-            case 701,751:
+            case "701","751":
                 icon = "mist";
                 break
-            case 771:
+            case "771":
                 icon = "wind";
                 break
-            case 711,721,731,741,761,762:
+            case "711","721","731","741","761","762":
                 icon = "fog";
                 break
-            case 781:
+            case "781":
                 icon = "tornado";
                 break
-            case 800:
+            case "800":
                 icon = "day_clear";
                 break
-            case 801:
+            case "801":
                 icon = "day_partial_cloud";
                 break
-            case 802:
+            case "802":
                 icon = "cloudy";
                 break
-            case 803,804:
+            case "803","804":
                 icon = "overcast";
                 break
                 
@@ -1228,46 +1264,46 @@ class MainVC: UIViewController, CLLocationManagerDelegate {
         if dayOrNight == "n" {
             
             switch weatherId {
-            case 200,201,202,230,231,232:
-                icon = "night_full_moon_rain_thunder";
+            case "200","201","202","230","231","232":
+                icon = "day_rain_thunder";
                 break
-            case 210,211,212,221:
+            case "210","211","212","221":
                 icon = "thunder";
                 break
-            case 300,301,302,310,311,312,313,314,321:
+            case "300","301","302","310","311","312","313","314","321":
                 icon = "rain";
                 break
-            case 500,501,502,503,504,520,521,522,531:
-                icon = "night_full_moon_rain";
+            case "500","501","502","503","504","520","521","522","531":
+                icon = "day_rain";
                 break
-            case 511,612,613,615,616:
-                icon = "night_full_moon_sleet";
+            case "511","612","613","615","616":
+                icon = "day_sleet";
                 break
-            case 600,601,602,611,620,621,622:
-                icon = "night_full_moon_snow";
+            case "600","601","602","611","620","621","622":
+                icon = "day_snow";
                 break
-            case 701,751:
+            case "701","751":
                 icon = "mist";
                 break
-            case 771:
+            case "771":
                 icon = "wind";
                 break
-            case 711,721,731,741,761,762:
+            case "711","721","731","741","761","762":
                 icon = "fog";
                 break
-            case 781:
+            case "781":
                 icon = "tornado";
                 break
-            case 800:
-                icon = "night_full_moon_clear";
+            case "800":
+                icon = "day_clear";
                 break
-            case 801:
-                icon = "night_full_moon_partial_cloud";
+            case "801":
+                icon = "day_partial_cloud";
                 break
-            case 802:
+            case "802":
                 icon = "cloudy";
                 break
-            case 803,804:
+            case "803","804":
                 icon = "overcast";
                 break
                 

@@ -119,7 +119,7 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         // Do any additional setState after loading the view.
     }
-    
+ 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -199,6 +199,19 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         datePickerView.selectRow(worldMinute, inComponent: 2, animated: true)
+        
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings { (settings) in
+            if(settings.authorizationStatus == .authorized)
+            {
+                
+                print("ok")            }
+            else {
+                print("xxx")
+                
+            }
+            
+        }
 
         //2. hour
         
@@ -217,24 +230,10 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func resetBtnWasPressed(_ sender: Any) {
         
         
-        
-        if worldTwelveHour == "AM" {
-            datePickerView.selectRow(0, inComponent: 0, animated: true) //
-        } else {
-            datePickerView.selectRow(1, inComponent: 0, animated: true)
-        }
-        
-        if worldHour == 12 {
-            datePickerView.selectRow(0, inComponent: 1, animated: true)
-        } else {
-            datePickerView.selectRow(worldHour, inComponent: 1, animated: true)
-        }
-        
-        datePickerView.selectRow(worldMinute, inComponent: 2, animated: true)
-        
         selectAmPm = "AM"
         selectHour = "0"
         selectMinute = "0"
+        
         
         UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
         UserDefaults.standard.set(worldRange, forKey: Setting.TIME.range.rawValue)
@@ -259,6 +258,23 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         amPmLbl.text = "\(worldTwelveHour)"
         hourLbl.text = "\(worldHour)"
         minuteLbl.text = "\(worldMinute)"
+        
+        
+        if worldTwelveHour == "AM" {
+            datePickerView.selectRow(0, inComponent: 0, animated: true) //
+        } else {
+            datePickerView.selectRow(1, inComponent: 0, animated: true)
+        }
+        
+        if worldHour == 12 {
+            datePickerView.selectRow(0, inComponent: 1, animated: true)
+        } else {
+            datePickerView.selectRow(worldHour, inComponent: 1, animated: true)
+        }
+        
+        datePickerView.selectRow(worldMinute, inComponent: 2, animated: true)
+       
+        
         
         
         
@@ -302,6 +318,102 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         print(selectAmPm)
         print(selectHour)
         print(selectMinute)
+        
+        // push 권한 검사
+        
+             
+                
+                //
+                
+                UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
+                UserDefaults.standard.set(worldRange, forKey: Setting.TIME.range.rawValue)
+                UserDefaults.standard.set(self.selectAmPm, forKey: Setting.Alert.twelvehour.rawValue)
+                UserDefaults.standard.set(Int(self.selectHour), forKey: Setting.Alert.hour.rawValue)
+                UserDefaults.standard.set(Int(self.selectMinute), forKey: Setting.Alert.minute.rawValue)
+                UserDefaults.standard.synchronize()
+                
+                UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
+                UserDefaults.standard.set(worldRange, forKey: Setting.TIME.range.rawValue)
+                UserDefaults.standard.set(self.selectAmPm, forKey: Setting.Alert.twelvehour.rawValue)
+                UserDefaults.standard.set(Int(self.selectHour), forKey: Setting.Alert.hour.rawValue)
+                UserDefaults.standard.set(Int(self.selectMinute), forKey: Setting.Alert.minute.rawValue)
+                self.setState()
+
+                print("save 눌렀을떄 setstats하고 ")
+                print(worldTwelveHour)
+                 print(worldHour)
+                 print(worldMinute)
+                print(worldAlertSwitch)
+                
+                self.amPmLbl.text = "\(worldTwelveHour)"
+                self.hourLbl.text = "\(worldHour)"
+                self.minuteLbl.text = "\(worldMinute)"
+                
+                
+                
+                
+                let nContent = UNMutableNotificationContent()
+                nContent.title = "우산을 가져가야하는지 확인하세요"
+                nContent.body = "\(self.selectAmPm) \(self.selectHour) : \(self.selectMinute)"
+                
+                
+                // 이 데이터를 바로 불러오게 해야한다.
+                //nContent.title = "\(self.selectAmPm) \(self.selectHour) \(self.selectMinute)"
+                
+                // 백그라운드에서 잘 굴러감. 우산 소지에 대한 정보도 그냥 끌어올리면 가능할듯 ?
+                
+                nContent.sound = UNNotificationSound.default
+                
+                
+                let calendar = Calendar.current
+                var dateComponents = DateComponents()
+                
+                if self.selectAmPm == "AM" {
+                    
+                    if self.selectHour == "12" {
+                        dateComponents.hour = 0
+                    } else {
+                        dateComponents.hour = Int(self.selectHour)!
+                    }
+                    
+                    dateComponents.minute = Int(self.selectMinute)
+                }
+                else if self.selectAmPm == "PM" {
+                    
+                    
+                    if self.selectHour == "12" {
+                        dateComponents.hour = 12
+                    } else {
+                        dateComponents.hour = Int(self.selectHour)! + 12
+                    }
+                    
+                    dateComponents.minute = Int(self.selectMinute)
+                }
+                
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                
+                let request = UNNotificationRequest(identifier: "wakeup", content: nContent, trigger: trigger)
+                
+                UNUserNotificationCenter.current().add(request) { (_) in
+                    DispatchQueue.main.async {
+                        
+                        let date = "\(self.selectAmPm) \(self.selectHour) : \(self.selectMinute)"
+                        let message = "알림이 등록되었습니다. 등록된 알림은 \(date)에 발송됩니다"
+                        let alert = UIAlertController(title: "알림등록", message: message, preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "확인", style: .default)
+                        alert.addAction(ok)
+                        self.present(alert, animated: false)
+                    
+                    
+                }
+                
+                
+                
+            
+           
+        }
+        
 
         // 여기서 스위치가 켜 있는 상태여야 알림이 제대로 들어감.
         // 아예 button을 비활성화 하는 방법도 있음
@@ -323,102 +435,7 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         // 5. 일단 한번 저장을 했으면 world로 해당하는 시간대를 저장을 한번 해놓고
               // 다시 view가 떴을떄 picker에서 바로 보여지게 해야할듯?
-        UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
-        UserDefaults.standard.set(worldRange, forKey: Setting.TIME.range.rawValue)
-        UserDefaults.standard.set(selectAmPm, forKey: Setting.Alert.twelvehour.rawValue)
-        UserDefaults.standard.set(Int(selectHour), forKey: Setting.Alert.hour.rawValue)
-        UserDefaults.standard.set(Int(selectMinute), forKey: Setting.Alert.minute.rawValue)
-        UserDefaults.standard.synchronize()
-        
-        UserDefaults.standard.set(0, forKey: Setting.RGB.colorCheck.rawValue)
-        UserDefaults.standard.set(worldRange, forKey: Setting.TIME.range.rawValue)
-        UserDefaults.standard.set(selectAmPm, forKey: Setting.Alert.twelvehour.rawValue)
-        UserDefaults.standard.set(Int(selectHour), forKey: Setting.Alert.hour.rawValue)
-        UserDefaults.standard.set(Int(selectMinute), forKey: Setting.Alert.minute.rawValue)
-        setState()
 
-        print("save 눌렀을떄 setstats하고 ")
-        print(worldTwelveHour)
-         print(worldHour)
-         print(worldMinute)
-        print(worldAlertSwitch)
-        
-        amPmLbl.text = "\(worldTwelveHour)"
-        hourLbl.text = "\(worldHour)"
-        minuteLbl.text = "\(worldMinute)"
-        
-        
-        
-        
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            if settings.authorizationStatus == UNAuthorizationStatus.authorized {
-                DispatchQueue.main.async {
-                    
-                    let nContent = UNMutableNotificationContent()
-                    nContent.title = "우산을 가져가야하는지 확인하세요"
-                    nContent.body = "\(self.selectAmPm) \(self.selectHour) \(self.selectMinute)"
-                    
-                    
-                    // 이 데이터를 바로 불러오게 해야한다.
-                    //nContent.title = "\(self.selectAmPm) \(self.selectHour) \(self.selectMinute)"
-                    
-                    // 백그라운드에서 잘 굴러감. 우산 소지에 대한 정보도 그냥 끌어올리면 가능할듯 ?
-                    
-                    nContent.sound = UNNotificationSound.default
-                    
-                    
-                    let calendar = Calendar.current
-                    var dateComponents = DateComponents()
-                    
-                    if self.selectAmPm == "AM" {
-                        
-                        if self.selectHour == "12" {
-                            dateComponents.hour = 0
-                        } else {
-                            dateComponents.hour = Int(self.selectHour)!
-                        }
-                        
-                        dateComponents.minute = Int(self.selectMinute)
-                    }
-                    else if self.selectAmPm == "PM" {
-                        
-                        
-                        if self.selectHour == "12" {
-                            dateComponents.hour = 12
-                        } else {
-                            dateComponents.hour = Int(self.selectHour)! + 12
-                        }
-                        
-                        dateComponents.minute = Int(self.selectMinute)
-                    }
-                    
-                    
-                   let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-                    
-                   let request = UNNotificationRequest(identifier: "wakeup", content: nContent, trigger: trigger)
-                     
-                    UNUserNotificationCenter.current().add(request) { (_) in
-                        DispatchQueue.main.async {
-                            
-                            let date = "\(self.selectAmPm) \(self.selectHour) : \(self.selectMinute)"
-                            let message = "알림이 등록되었습니다. 등록된 알림은 \(date)에 발송됩니다"
-                            let alert = UIAlertController(title: "알림등록", message: message, preferredStyle: .alert)
-                            let ok = UIAlertAction(title: "확인", style: .default)
-                            alert.addAction(ok)
-                            self.present(alert, animated: false)
-                        }
-                    }
-                }
-            } else {
-                let alert = UIAlertController(title: "알림 등록", message: "알림이 허용되어 있지 않습니다", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "확인", style: .default)
-                
-                alert.addAction(ok)
-                
-                self.present(alert, animated: false)
-                
-            }
-        }
         
     }
     
@@ -426,27 +443,36 @@ class AlertSettingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         
         if saveSwitch.isOn == false { // switch off
-            UserDefaults.standard.set(false, forKey: Setting.Alert.reservation.rawValue)
-            setState()
-            print("스위치 끔")
-            print(worldAlertSwitch)
-            // 스위치를 끄면 일단 알람은 stop으로 가게
             
-            //UIApplication.shared.unregisterForRemoteNotifications()
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            print(UNUserNotificationCenter.current().removeAllPendingNotificationRequests())
+                    UserDefaults.standard.set(false, forKey: Setting.Alert.reservation.rawValue)
+                    self.setState()
+                    print("스위치 끔")
+                    print(worldAlertSwitch)
+                    // 스위치를 끄면 일단 알람은 stop으로 가게
+                    
+                    //UIApplication.shared.unregisterForRemoteNotifications()
+                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                    print(UNUserNotificationCenter.current().removeAllPendingNotificationRequests())
+                    
+                    self.alertSaveBtn.isEnabled = false // save 버튼 shutdown
+                }
+                
+                
             
-            alertSaveBtn.isEnabled = false // save 버튼 shutdown
-        }
+        
             
         else if saveSwitch.isOn == true { // switch on
             
-            UserDefaults.standard.set(true, forKey: Setting.Alert.reservation.rawValue)
-            print("스위치 켬")
-            setState()
-             print(worldAlertSwitch)
             
-            alertSaveBtn.isEnabled = true
+            
+                    UserDefaults.standard.set(true, forKey: Setting.Alert.reservation.rawValue)
+                    print("스위치 켬")
+                    self.setState()
+                    print(worldAlertSwitch)
+                    
+                    self.alertSaveBtn.isEnabled = true
+                
+               
             
             // 여기서 알람을 정상화 시켜야 함 
             //UIApplication.shared.registerForRemoteNotifications()

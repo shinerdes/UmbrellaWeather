@@ -4,12 +4,6 @@
 //
 //  Created by AnAn on 2019/8/31.
 //  Copyright © 2019 An An. All rights reserved.
-//*************** ...... SOURCE CODE ...... ***************
-//***...................................................***
-//*** https://github.com/AAChartModel/AAChartKit        ***
-//*** https://github.com/AAChartModel/AAChartKit-Swift  ***
-//***...................................................***
-//*************** ...... SOURCE CODE ...... ***************
 
 /*
  
@@ -47,7 +41,6 @@ public class AAAnimation: AAObject {
         easing = prop?.rawValue
         return self
     }
-    
     public override init() {
         
     }
